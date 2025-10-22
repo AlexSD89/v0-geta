@@ -147,15 +147,15 @@ export default function TutorialPage() {
             {/* Sub-step 1 */}
             <Card className="p-6 mb-6">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
                   1
                 </div>
                 <h3 className="text-xl font-semibold">复制配置命令并在终端中运行</h3>
               </div>
 
               <div className="space-y-4">
-                <div className="bg-muted rounded-lg p-4 font-mono text-sm relative group">
-                  <pre className="overflow-x-auto pr-24">
+                <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm relative group border border-slate-700">
+                  <pre className="overflow-x-auto pr-24 text-green-400">
                     claude mcp add --transport http gate -s user "https://mcp.a2a.ink/mcp"
                   </pre>
                   <Button
@@ -188,17 +188,17 @@ export default function TutorialPage() {
             {/* Sub-step 2 */}
             <Card className="p-6 mb-6">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
                   2
                 </div>
                 <h3 className="text-xl font-semibold">在 Claude Code 中运行 /mcp 命令</h3>
               </div>
 
               <div className="space-y-4">
-                <div className="bg-muted rounded-lg p-4 font-mono text-sm">
-                  <pre className="text-muted-foreground">&gt; /mcp[reconnect &lt;server-name&gt;]</pre>
-                  <pre className="text-foreground">/mcp</pre>
-                  <pre className="text-muted-foreground text-xs mt-1">Manage MCP servers</pre>
+                <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm border border-slate-700">
+                  <pre className="text-slate-500">&gt; /mcp[reconnect &lt;server-name&gt;]</pre>
+                  <pre className="text-cyan-400">/mcp</pre>
+                  <pre className="text-slate-400 text-xs mt-1">Manage MCP servers</pre>
                 </div>
               </div>
             </Card>
@@ -206,19 +206,19 @@ export default function TutorialPage() {
             {/* Sub-step 3 */}
             <Card className="p-6 mb-6">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
                   3
                 </div>
                 <h3 className="text-xl font-semibold">选择 Gate 并按回车</h3>
               </div>
 
               <div className="space-y-4">
-                <div className="bg-muted rounded-lg p-4 font-mono text-sm">
-                  <pre className="text-muted-foreground text-xs mb-2">Manage MCP servers</pre>
-                  <pre className="text-foreground">&gt;</pre>
-                  <pre className="text-foreground ml-2">1. gate</pre>
-                  <pre className="text-yellow-600 dark:text-yellow-400 ml-2">△ disconnected</pre>
-                  <pre className="text-muted-foreground text-xs ml-2 mt-1">· Enter to login</pre>
+                <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm border border-slate-700">
+                  <pre className="text-slate-400 text-xs mb-2">Manage MCP servers</pre>
+                  <pre className="text-cyan-400">&gt;</pre>
+                  <pre className="text-white ml-2">1. gate</pre>
+                  <pre className="text-amber-500 ml-2">△ disconnected</pre>
+                  <pre className="text-slate-500 text-xs ml-2 mt-1">· Enter to login</pre>
                 </div>
               </div>
             </Card>
@@ -226,22 +226,22 @@ export default function TutorialPage() {
             {/* Sub-step 4 */}
             <Card className="p-6 mb-6">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
                   4
                 </div>
                 <h3 className="text-xl font-semibold">在 Gate MCP Server 中选择 Authenticate 并按回车</h3>
               </div>
 
               <div className="space-y-4">
-                <div className="bg-muted rounded-lg p-4 font-mono text-sm">
-                  <pre className="text-foreground font-semibold mb-2">Gate MCP Server</pre>
-                  <pre className="text-muted-foreground text-xs">
-                    Status:<span className="text-yellow-600 dark:text-yellow-400">△ needs authentication</span>
+                <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm border border-slate-700">
+                  <pre className="text-white font-semibold mb-2">Gate MCP Server</pre>
+                  <pre className="text-slate-400 text-xs">
+                    Status: <span className="text-amber-500">△ needs authentication</span>
                   </pre>
-                  <pre className="text-muted-foreground text-xs">URL:https://mcp.a2a.ink/mcp</pre>
-                  <pre className="text-muted-foreground text-xs mb-2">Config location:/Users/username/.claude.json</pre>
-                  <pre className="text-foreground">&gt;</pre>
-                  <pre className="text-foreground ml-2">1. Authenticate</pre>
+                  <pre className="text-slate-400 text-xs">URL: https://mcp.a2a.ink/mcp</pre>
+                  <pre className="text-slate-400 text-xs mb-2">Config location: /Users/username/.claude.json</pre>
+                  <pre className="text-cyan-400">&gt;</pre>
+                  <pre className="text-white ml-2">1. Authenticate</pre>
                 </div>
               </div>
             </Card>
@@ -249,27 +249,27 @@ export default function TutorialPage() {
             {/* Sub-step 5 */}
             <Card className="p-6 mb-6">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
                   5
                 </div>
                 <h3 className="text-xl font-semibold">在浏览器中完成认证</h3>
               </div>
 
               <div className="space-y-4">
-                <div className="bg-muted rounded-lg p-4 font-mono text-sm">
-                  <pre className="text-foreground">Authenticating with gate...</pre>
-                  <pre className="text-muted-foreground text-xs mt-2">*</pre>
-                  <pre className="text-muted-foreground text-xs">A browser window will open for authentication</pre>
+                <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm border border-slate-700">
+                  <pre className="text-cyan-400">Authenticating with gate...</pre>
+                  <pre className="text-slate-500 text-xs mt-2">*</pre>
+                  <pre className="text-slate-400 text-xs">A browser window will open for authentication</pre>
                 </div>
 
                 <p className="text-muted-foreground">
                   浏览器会自动打开 Gate 认证页面。认证完成后，Claude Code 将显示连接状态为：
                 </p>
 
-                <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                <div className="bg-slate-900 dark:bg-slate-950 border border-emerald-500/30 rounded-lg p-4">
                   <pre className="text-sm font-mono">
-                    <span className="text-foreground">1. gate </span>
-                    <span className="text-green-600 dark:text-green-400">✅ connected</span>
+                    <span className="text-white">1. gate </span>
+                    <span className="text-emerald-400">✅ connected</span>
                   </pre>
                 </div>
               </div>
