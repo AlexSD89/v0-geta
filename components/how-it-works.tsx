@@ -4,8 +4,13 @@ import { Plug, Network, Zap } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { TermTooltip } from "@/components/term-tooltip"
+import { WeChatQRModal } from "@/components/wechat-qr-modal"
+import { useState } from "react"
+import Link from "next/link"
 
 export function HowItWorks() {
+  const [showQR, setShowQR] = useState(false)
+
   const scrollToUsecases = () => {
     document.getElementById("usecase-tabs")?.scrollIntoView({ behavior: "smooth" })
   }
@@ -71,7 +76,46 @@ export function HowItWorks() {
             查看实际案例
           </Button>
         </div>
+
+        <div className="mt-16 sm:mt-20 pt-16 sm:pt-20 border-t border-border">
+          <div className="text-center mb-8 sm:mb-12">
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-foreground mb-3 sm:mb-4 text-balance">
+              立即开始使用
+            </h3>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+              扫码加入微信群,获取安装指引和使用权限
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
+            <Card className="p-6 text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-accent mb-2">10 分钟</div>
+              <p className="text-sm sm:text-base text-muted-foreground">完成配置</p>
+            </Card>
+
+            <Card className="p-6 text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-accent mb-2">限时免费</div>
+              <p className="text-sm sm:text-base text-muted-foreground">无需付费</p>
+            </Card>
+
+            <Card className="p-6 text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-accent mb-2">即时支持</div>
+              <p className="text-sm sm:text-base text-muted-foreground">群内答疑</p>
+            </Card>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 sm:mt-10">
+            <Button size="lg" onClick={() => setShowQR(true)} className="w-full sm:w-auto">
+              免费开始使用
+            </Button>
+            <Button size="lg" variant="outline" asChild className="w-full sm:w-auto bg-transparent">
+              <Link href="/tutorial">查看安装教程</Link>
+            </Button>
+          </div>
+        </div>
       </div>
+
+      <WeChatQRModal open={showQR} onOpenChange={setShowQR} />
     </section>
   )
 }
