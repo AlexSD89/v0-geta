@@ -174,7 +174,7 @@ export default function TutorialPage() {
                 <div>
                   <p className="font-medium mb-2">2. 编辑配置文件，添加 Gate MCP 服务器：</p>
                   <div className="bg-muted rounded-lg p-4 font-mono text-sm relative group">
-                    <pre className="overflow-x-auto">
+                    <pre className="overflow-x-auto pr-20">
                       {`{
   "mcpServers": {
     "gate": {
@@ -187,7 +187,7 @@ export default function TutorialPage() {
                     <Button
                       size="sm"
                       variant="secondary"
-                      className="absolute top-2 right-2 md:opacity-0 md:group-hover:opacity-100 transition-opacity shadow-md"
+                      className="absolute top-2 right-2 shadow-lg border-2 border-accent/20 hover:border-accent/40 hover:scale-105 transition-all"
                       onClick={() =>
                         copyToClipboard(
                           '{\n  "mcpServers": {\n    "gate": {\n      "url": "https://mcp.a2a.ink/mcp",\n      "transport": "http"\n    }\n  }\n}',
@@ -197,13 +197,13 @@ export default function TutorialPage() {
                     >
                       {copiedSteps["config-json"] ? (
                         <>
-                          <Check className="w-4 h-4 mr-1" />
-                          <span className="hidden sm:inline">已复制</span>
+                          <Check className="w-4 h-4 mr-1.5" />
+                          <span className="font-medium">已复制</span>
                         </>
                       ) : (
                         <>
-                          <Copy className="w-4 h-4 mr-1" />
-                          <span className="hidden sm:inline">复制</span>
+                          <Copy className="w-4 h-4 mr-1.5" />
+                          <span className="font-medium">复制代码</span>
                         </>
                       )}
                     </Button>
