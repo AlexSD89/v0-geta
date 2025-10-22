@@ -11,7 +11,7 @@ interface WeChatQRModalProps {
   onOpenChange: (open: boolean) => void
 }
 
-export function WeChatQRModal({ open, onOpenChange }: WeChatQRModalProps) {
+export default function WeChatQRModal({ open, onOpenChange }: WeChatQRModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
@@ -50,3 +50,5 @@ export function WeChatQRModal({ open, onOpenChange }: WeChatQRModalProps) {
     </Dialog>
   )
 }
+
+export { WeChatQRModal }
