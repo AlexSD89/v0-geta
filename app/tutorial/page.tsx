@@ -155,8 +155,22 @@ export default function TutorialPage() {
 
               <div className="space-y-4">
                 <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm relative group border border-slate-700">
-                  <pre className="overflow-x-auto pr-24 text-green-400">
-                    claude mcp add --transport http gate -s user "https://mcp.a2a.ink/mcp"
+                  <pre className="overflow-x-auto pr-24">
+                    <span className="text-cyan-400">claude</span>
+                    <span className="text-white"> </span>
+                    <span className="text-green-400">mcp add</span>
+                    <span className="text-white"> </span>
+                    <span className="text-yellow-500">--transport</span>
+                    <span className="text-white"> </span>
+                    <span className="text-blue-400">http</span>
+                    <span className="text-white"> </span>
+                    <span className="text-purple-400">gate</span>
+                    <span className="text-white"> </span>
+                    <span className="text-yellow-500">-s</span>
+                    <span className="text-white"> </span>
+                    <span className="text-blue-400">user</span>
+                    <span className="text-white"> </span>
+                    <span className="text-emerald-400">"https://mcp.a2a.ink/mcp"</span>
                   </pre>
                   <Button
                     size="sm"
