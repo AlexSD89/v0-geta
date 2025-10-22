@@ -4,15 +4,16 @@ import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { CheckCircle2, BookOpen } from "lucide-react"
-import Image from "next/image"
+import { CheckCircle2, BookOpen, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { WeChatQRModal } from "@/components/wechat-qr-modal"
 
 export function Waitlist() {
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [qrModalOpen, setQrModalOpen] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -55,17 +56,14 @@ export function Waitlist() {
 
         <Card className="p-8">
           <div className="flex flex-col items-center gap-6">
-            <div className="bg-secondary/30 p-4 rounded-lg">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/40c7a2b23e7682c1bc4c77ed4663cc66-nE9I7WuvDizIYFFtaNRLiJrJVjQEKd.jpg"
-                alt="Gate 交流群二维码"
-                width={300}
-                height={300}
-                className="w-full h-auto rounded-lg"
-              />
-            </div>
-
-            <p className="text-sm text-muted-foreground text-center">使用微信或企业微信扫码加入</p>
+            <Button
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 group h-14 px-12 text-lg w-full sm:w-auto"
+              onClick={() => setQrModalOpen(true)}
+            >
+              免费开始使用
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
 
             <div className="w-full pt-4 border-t">
               <Link href="/tutorial" className="block">
@@ -75,8 +73,6 @@ export function Waitlist() {
                 </Button>
               </Link>
             </div>
-
-            <p className="text-xs text-muted-foreground text-center">该二维码 10 月 27 日前有效,重新进入将更新</p>
           </div>
         </Card>
 
@@ -95,6 +91,8 @@ export function Waitlist() {
           </div>
         </div>
       </div>
+
+      <WeChatQRModal open={qrModalOpen} onOpenChange={setQrModalOpen} />
     </section>
   )
 }
