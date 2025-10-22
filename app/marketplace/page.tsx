@@ -4,8 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { WelcomeModal } from "@/components/welcome-modal"
-import { Search, Star, Download, CheckCircle2, Clock, Package, Rocket, ArrowRight } from "lucide-react"
+import { Search, Star, Download, CheckCircle2, Clock, Package } from "lucide-react"
 import { useState } from "react"
 
 export default function MarketplacePage() {
@@ -331,8 +330,6 @@ export default function MarketplacePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <WelcomeModal />
-
       <Navigation />
 
       <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
@@ -343,28 +340,6 @@ export default function MarketplacePage() {
               探索精选集成,让你的 AI 助手连接更多工具
             </p>
           </div>
-
-          <Card className="mb-12 p-6 sm:p-8 bg-gradient-to-r from-accent/5 to-accent/10 border-accent/20">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-start gap-4 flex-1">
-                <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
-                  <Rocket className="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">你是 AI 能力提供商?</h3>
-                  <p className="text-muted-foreground text-sm sm:text-base">
-                    将你的服务接入 Gate Market,触达 50,000+ 企业用户,快速实现商业化
-                  </p>
-                </div>
-              </div>
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2 whitespace-nowrap" asChild>
-                <a href="/solutions/providers">
-                  了解入驻方案
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </Button>
-            </div>
-          </Card>
 
           <div className="mb-12">
             <div className="flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto">

@@ -1,10 +1,14 @@
 "use client"
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ExternalLink } from "lucide-react"
 import { TermTooltip } from "@/components/term-tooltip"
+import { WeChatQRModal } from "@/components/wechat-qr-modal"
 
 export function Hero() {
+  const [qrModalOpen, setQrModalOpen] = useState(false)
+
   return (
     <section className="pt-32 pb-24 px-4">
       <div className="max-w-6xl mx-auto">
@@ -42,12 +46,10 @@ export function Hero() {
             <Button
               size="lg"
               className="bg-accent text-accent-foreground hover:bg-accent/90 group h-12 px-8 text-base"
-              asChild
+              onClick={() => setQrModalOpen(true)}
             >
-              <a href="#waitlist">
-                免费开始使用
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+              免费开始使用
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button size="lg" variant="outline" className="h-12 px-8 bg-transparent text-base" asChild>
               <a href="#usecases">查看使用场景</a>
@@ -63,6 +65,8 @@ export function Hero() {
           <p className="text-xs sm:text-sm text-muted-foreground pt-4">限时免费 · 无需编程基础 · 申请即可使用</p>
         </div>
       </div>
+
+      <WeChatQRModal open={qrModalOpen} onOpenChange={setQrModalOpen} />
     </section>
   )
 }
