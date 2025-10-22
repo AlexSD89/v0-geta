@@ -209,10 +209,11 @@ export default function TutorialPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm border border-slate-700">
-                  <pre className="text-slate-500">&gt; /mcp[reconnect &lt;server-name&gt;]</pre>
-                  <pre className="text-cyan-400">/mcp</pre>
-                  <pre className="text-slate-400 text-xs mt-1">Manage MCP servers</pre>
+                <div className="bg-black rounded-lg p-4 font-mono text-sm border border-slate-800">
+                  <pre className="text-green-400">&gt; /mcp [reconnect &lt;server-name&gt;]</pre>
+                  <pre className="text-white mt-2">
+                    /mcp <span className="text-gray-400">Manage MCP servers</span>
+                  </pre>
                 </div>
               </div>
             </Card>
@@ -270,17 +271,17 @@ export default function TutorialPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm border border-slate-700">
-                  <pre className="text-cyan-400">Authenticating with gate...</pre>
-                  <pre className="text-slate-500 text-xs mt-2">*</pre>
-                  <pre className="text-slate-400 text-xs">A browser window will open for authentication</pre>
+                <div className="bg-black rounded-lg p-4 font-mono text-sm border border-slate-800">
+                  <pre className="text-green-400">Authenticating with gate...</pre>
+                  <pre className="text-gray-500 text-xs mt-2">*</pre>
+                  <pre className="text-gray-400 text-xs">A browser window will open for authentication</pre>
                 </div>
 
                 <p className="text-muted-foreground">
-                  浏览器会自动打开 Gate 认证页面。认证完成后，Claude Code 将显示连接状态为：
+                  浏览器会自动打开 Gate 认证页面。认证完成后,Claude Code 将显示连接状态为:
                 </p>
 
-                <div className="bg-slate-900 dark:bg-slate-950 border border-emerald-500/30 rounded-lg p-4">
+                <div className="bg-black border border-emerald-500/30 rounded-lg p-4">
                   <pre className="text-sm font-mono">
                     <span className="text-white">1. gate </span>
                     <span className="text-emerald-400">✅ connected</span>
