@@ -213,12 +213,12 @@ export default function TutorialPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm border border-slate-700">
-                  <pre className="text-slate-400 text-xs mb-2">Manage MCP servers</pre>
-                  <pre className="text-cyan-400">&gt;</pre>
+                <div className="bg-black rounded-lg p-4 font-mono text-sm border border-slate-800">
+                  <pre className="text-gray-400 text-xs mb-2">Manage MCP servers</pre>
+                  <pre className="text-green-400">&gt;</pre>
                   <pre className="text-white ml-2">1. gate</pre>
-                  <pre className="text-amber-500 ml-2">△ disconnected</pre>
-                  <pre className="text-slate-500 text-xs ml-2 mt-1">· Enter to login</pre>
+                  <pre className="text-yellow-500 ml-2">△ disconnected</pre>
+                  <pre className="text-gray-500 text-xs ml-2 mt-1">· Enter to login</pre>
                 </div>
               </div>
             </Card>
@@ -233,14 +233,14 @@ export default function TutorialPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm border border-slate-700">
+                <div className="bg-black rounded-lg p-4 font-mono text-sm border border-slate-800">
                   <pre className="text-white font-semibold mb-2">Gate MCP Server</pre>
-                  <pre className="text-slate-400 text-xs">
-                    Status: <span className="text-amber-500">△ needs authentication</span>
+                  <pre className="text-gray-400 text-xs">
+                    Status: <span className="text-yellow-500">△ needs authentication</span>
                   </pre>
-                  <pre className="text-slate-400 text-xs">URL: https://mcp.a2a.ink/mcp</pre>
-                  <pre className="text-slate-400 text-xs mb-2">Config location: /Users/username/.claude.json</pre>
-                  <pre className="text-cyan-400">&gt;</pre>
+                  <pre className="text-gray-400 text-xs">URL: https://mcp.a2a.ink/mcp</pre>
+                  <pre className="text-gray-400 text-xs mb-2">Config location: /Users/username/.claude.json</pre>
+                  <pre className="text-green-400">&gt;</pre>
                   <pre className="text-white ml-2">1. Authenticate</pre>
                 </div>
               </div>
