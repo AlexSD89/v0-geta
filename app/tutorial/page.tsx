@@ -137,98 +137,162 @@ export default function TutorialPage() {
               <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-lg">
                 2
               </div>
-              <h2 className="text-2xl font-bold">配置 Gate MCP</h2>
+              <h2 className="text-2xl font-bold">安装 Gate MCP</h2>
             </div>
 
             <p className="text-muted-foreground mb-6">
-              完成 Claude Code CLI 安装后，使用命令行添加 Gate MCP 服务器，实现 AI 智能体协同编排。
+              完成 Claude Code 安装后，即可连接 Gate MCP 模块，实现 AI 智能体协同编排。
             </p>
 
+            {/* Sub-step 1 */}
             <Card className="p-6 mb-6">
-              <h3 className="text-xl font-semibold mb-4">添加 Gate MCP 服务器</h3>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                  1
+                </div>
+                <h3 className="text-xl font-semibold">复制配置命令并在终端中运行</h3>
+              </div>
 
               <div className="space-y-4">
-                <div>
-                  <p className="font-medium mb-2">运行以下命令：</p>
-                  <div className="bg-muted rounded-lg p-4 font-mono text-sm relative group">
-                    <pre className="overflow-x-auto pr-24">
-                      claude mcp add --transport http gate https://mcp.a2a.ink/mcp --scope user
-                    </pre>
-                    <Button
-                      size="sm"
-                      variant="secondary"
-                      className="absolute top-2 right-2 shadow-lg border-2 border-accent/20 hover:border-accent/40 hover:scale-105 transition-all"
-                      onClick={() =>
-                        copyToClipboard(
-                          "claude mcp add --transport http gate https://mcp.a2a.ink/mcp --scope user",
-                          "add-mcp",
-                        )
-                      }
-                    >
-                      {copiedSteps["add-mcp"] ? (
-                        <>
-                          <Check className="w-4 h-4 mr-1.5" />
-                          <span className="font-medium">已复制</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-4 h-4 mr-1.5" />
-                          <span className="font-medium">复制代码</span>
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="font-medium mb-2">命令说明：</p>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
-                    <li>
-                      <code className="bg-muted px-1.5 py-0.5 rounded">--transport http</code>：使用 HTTP 传输协议
-                    </li>
-                    <li>
-                      <code className="bg-muted px-1.5 py-0.5 rounded">gate</code>：服务器名称
-                    </li>
-                    <li>
-                      <code className="bg-muted px-1.5 py-0.5 rounded">https://mcp.a2a.ink/mcp</code>：Gate MCP
-                      服务器地址
-                    </li>
-                    <li>
-                      <code className="bg-muted px-1.5 py-0.5 rounded">--scope user</code>：用户级别配置
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-                  <p className="text-sm flex items-start gap-2">
-                    <Lightbulb className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
-                    <span>
-                      <strong>提示：</strong>如果需要为特定项目配置，可以将 <code>--scope user</code> 改为{" "}
-                      <code>--scope project</code>，在项目目录下运行命令。
-                    </span>
-                  </p>
+                <div className="bg-muted rounded-lg p-4 font-mono text-sm relative group">
+                  <pre className="overflow-x-auto pr-24">
+                    claude mcp add --transport http gate -s user "https://mcp.a2a.ink/mcp"
+                  </pre>
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    className="absolute top-2 right-2 shadow-lg border-2 border-accent/20 hover:border-accent/40 hover:scale-105 transition-all"
+                    onClick={() =>
+                      copyToClipboard(
+                        'claude mcp add --transport http gate -s user "https://mcp.a2a.ink/mcp"',
+                        "add-mcp-step1",
+                      )
+                    }
+                  >
+                    {copiedSteps["add-mcp-step1"] ? (
+                      <>
+                        <Check className="w-4 h-4 mr-1.5" />
+                        <span className="font-medium">已复制</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4 mr-1.5" />
+                        <span className="font-medium">复制代码</span>
+                      </>
+                    )}
+                  </Button>
                 </div>
               </div>
             </Card>
 
-            {/* Verification */}
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-4">验证连接</h3>
-              <p className="text-muted-foreground mb-4">
-                配置完成后，在项目目录中运行 <code className="bg-muted px-1.5 py-0.5 rounded">claude</code> 命令启动
-                Claude Code，如果 Gate MCP 连接成功，你会看到可用的 MCP 工具列表。
-              </p>
-              <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
-                <p className="text-sm flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
-                  <span>
-                    <strong>连接成功标志：</strong>在 Claude Code 界面中可以看到 Gate 提供的工具列表，例如
-                    Gmail、GitHub、Notion 等。
-                  </span>
+            {/* Sub-step 2 */}
+            <Card className="p-6 mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                  2
+                </div>
+                <h3 className="text-xl font-semibold">在 Claude Code 中运行 /mcp 命令</h3>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-muted rounded-lg p-4 font-mono text-sm">
+                  <pre className="text-muted-foreground">&gt; /mcp[reconnect &lt;server-name&gt;]</pre>
+                  <pre className="text-foreground">/mcp</pre>
+                  <pre className="text-muted-foreground text-xs mt-1">Manage MCP servers</pre>
+                </div>
+              </div>
+            </Card>
+
+            {/* Sub-step 3 */}
+            <Card className="p-6 mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                  3
+                </div>
+                <h3 className="text-xl font-semibold">选择 Gate 并按回车</h3>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-muted rounded-lg p-4 font-mono text-sm">
+                  <pre className="text-muted-foreground text-xs mb-2">Manage MCP servers</pre>
+                  <pre className="text-foreground">&gt;</pre>
+                  <pre className="text-foreground ml-2">1. gate</pre>
+                  <pre className="text-yellow-600 dark:text-yellow-400 ml-2">△ disconnected</pre>
+                  <pre className="text-muted-foreground text-xs ml-2 mt-1">· Enter to login</pre>
+                </div>
+              </div>
+            </Card>
+
+            {/* Sub-step 4 */}
+            <Card className="p-6 mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                  4
+                </div>
+                <h3 className="text-xl font-semibold">在 Gate MCP Server 中选择 Authenticate 并按回车</h3>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-muted rounded-lg p-4 font-mono text-sm">
+                  <pre className="text-foreground font-semibold mb-2">Gate MCP Server</pre>
+                  <pre className="text-muted-foreground text-xs">
+                    Status:<span className="text-yellow-600 dark:text-yellow-400">△ needs authentication</span>
+                  </pre>
+                  <pre className="text-muted-foreground text-xs">URL:https://mcp.a2a.ink/mcp</pre>
+                  <pre className="text-muted-foreground text-xs mb-2">Config location:/Users/username/.claude.json</pre>
+                  <pre className="text-foreground">&gt;</pre>
+                  <pre className="text-foreground ml-2">1. Authenticate</pre>
+                </div>
+              </div>
+            </Card>
+
+            {/* Sub-step 5 */}
+            <Card className="p-6 mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold text-sm">
+                  5
+                </div>
+                <h3 className="text-xl font-semibold">在浏览器中完成认证</h3>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-muted rounded-lg p-4 font-mono text-sm">
+                  <pre className="text-foreground">Authenticating with gate...</pre>
+                  <pre className="text-muted-foreground text-xs mt-2">*</pre>
+                  <pre className="text-muted-foreground text-xs">A browser window will open for authentication</pre>
+                </div>
+
+                <p className="text-muted-foreground">
+                  浏览器会自动打开 Gate 认证页面。认证完成后，Claude Code 将显示连接状态为：
                 </p>
+
+                <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                  <pre className="text-sm font-mono">
+                    <span className="text-foreground">1. gate </span>
+                    <span className="text-green-600 dark:text-green-400">✅ connected</span>
+                  </pre>
+                </div>
               </div>
             </Card>
           </section>
+
+          {/* Verification */}
+          <Card className="p-6">
+            <h3 className="text-xl font-semibold mb-4">验证连接</h3>
+            <p className="text-muted-foreground mb-4">
+              配置完成后，在项目目录中运行 <code className="bg-muted px-1.5 py-0.5 rounded">claude</code> 命令启动
+              Claude Code，如果 Gate MCP 连接成功，你会看到可用的 MCP 工具列表。
+            </p>
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
+              <p className="text-sm flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
+                <span>
+                  <strong>连接成功标志：</strong>在 Claude Code 界面中可以看到 Gate 提供的工具列表，例如
+                  Gmail、GitHub、Notion 等。
+                </span>
+              </p>
+            </div>
+          </Card>
 
           {/* Success Message */}
           <Card className="p-8 bg-accent/10 border-accent mb-16">
