@@ -77,7 +77,7 @@ export function UsecaseTabs() {
   const [activeTab, setActiveTab] = useState("featured")
 
   return (
-    <section id="usecase-tabs" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="usecases" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-4 text-balance">最受欢迎的自动化场景</h2>
