@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Check, Copy, Terminal, Download, CheckCircle2, HelpCircle, Lightbulb, Settings } from "lucide-react"
+import { Check, Copy, Terminal, CheckCircle2, HelpCircle, Lightbulb } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -29,66 +29,101 @@ export default function TutorialPage() {
           <div className="text-center mb-16">
             <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">Gate MCP 安装教程</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              本教程将指导你在本地环境中安装 Claude Desktop，并连接 Gate MCP 服务。全程仅需 5–10 分钟。
+              本教程将指导你在本地环境中安装 Claude Code CLI，并连接 Gate MCP 服务。全程仅需 5–10 分钟。
             </p>
           </div>
 
-          {/* Step 1: Install Claude Desktop */}
+          {/* Step 1: Install Claude Code CLI */}
           <section className="mb-16">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-lg">
                 1
               </div>
-              <h2 className="text-2xl font-bold">安装 Claude Desktop</h2>
+              <h2 className="text-2xl font-bold">安装 Claude Code CLI</h2>
             </div>
 
             <Card className="p-6 mb-6">
               <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <Download className="w-5 h-5 text-accent" />
-                下载并安装 Claude Desktop
+                <Terminal className="w-5 h-5 text-accent" />
+                通过 npm 安装
               </h3>
               <p className="text-muted-foreground mb-4">
-                Claude Desktop 是 Anthropic 官方提供的桌面应用程序，支持 MCP（Model Context Protocol）协议。
+                Claude Code CLI 是 Anthropic 官方提供的命令行工具，支持 MCP（Model Context Protocol）协议。
               </p>
 
               <div className="space-y-4">
                 <div>
-                  <p className="font-medium mb-2">访问官方下载页面：</p>
-                  <div className="bg-muted rounded-lg p-4 relative group">
-                    <a
-                      href="https://claude.ai/download"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent hover:underline font-medium"
+                  <p className="font-medium mb-2">前置要求：</p>
+                  <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
+                    <li>Node.js v18 或更高版本</li>
+                    <li>npm 包管理器</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="font-medium mb-2">安装命令：</p>
+                  <div className="bg-muted rounded-lg p-4 font-mono text-sm relative group">
+                    <pre className="overflow-x-auto pr-24">npm install -g @anthropic-ai/claude-code</pre>
+                    <Button
+                      size="sm"
+                      variant="secondary"
+                      className="absolute top-2 right-2 shadow-lg border-2 border-accent/20 hover:border-accent/40 hover:scale-105 transition-all"
+                      onClick={() => copyToClipboard("npm install -g @anthropic-ai/claude-code", "install-cli")}
                     >
-                      https://claude.ai/download
-                    </a>
+                      {copiedSteps["install-cli"] ? (
+                        <>
+                          <Check className="w-4 h-4 mr-1.5" />
+                          <span className="font-medium">已复制</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4 mr-1.5" />
+                          <span className="font-medium">复制代码</span>
+                        </>
+                      )}
+                    </Button>
                   </div>
                 </div>
 
                 <div>
-                  <p className="font-medium mb-2">根据你的操作系统选择对应版本：</p>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
-                    <li>macOS: 下载 .dmg 文件并安装</li>
-                    <li>Windows: 下载 .exe 安装程序并运行</li>
-                  </ul>
+                  <p className="font-medium mb-2">验证安装：</p>
+                  <div className="bg-muted rounded-lg p-4 font-mono text-sm relative group">
+                    <pre className="overflow-x-auto pr-24">claude --version</pre>
+                    <Button
+                      size="sm"
+                      variant="secondary"
+                      className="absolute top-2 right-2 shadow-lg border-2 border-accent/20 hover:border-accent/40 hover:scale-105 transition-all"
+                      onClick={() => copyToClipboard("claude --version", "verify-cli")}
+                    >
+                      {copiedSteps["verify-cli"] ? (
+                        <>
+                          <Check className="w-4 h-4 mr-1.5" />
+                          <span className="font-medium">已复制</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4 mr-1.5" />
+                          <span className="font-medium">复制代码</span>
+                        </>
+                      )}
+                    </Button>
+                  </div>
                 </div>
 
                 <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                   <p className="text-sm flex items-start gap-2">
                     <Lightbulb className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
                     <span>
-                      <strong>提示：</strong>安装完成后，首次打开 Claude Desktop 需要使用 Anthropic
-                      账号登录。如果还没有账号，可以在{" "}
+                      <strong>提示：</strong>建议避免使用 sudo 安装，以防止权限和安全风险。如果遇到权限问题，请参考{" "}
                       <a
-                        href="https://claude.ai"
+                        href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-accent hover:underline"
                       >
-                        claude.ai
-                      </a>{" "}
-                      免费注册。
+                        npm 权限配置指南
+                      </a>
+                      。
                     </span>
                   </p>
                 </div>
@@ -106,83 +141,18 @@ export default function TutorialPage() {
             </div>
 
             <p className="text-muted-foreground mb-6">
-              完成 Claude Desktop 安装后，通过配置文件连接 Gate MCP 服务，实现 AI 智能体协同编排。
+              完成 Claude Code CLI 安装后，使用命令行添加 Gate MCP 服务器，实现 AI 智能体协同编排。
             </p>
 
-            {/* Method 1: GUI Configuration */}
             <Card className="p-6 mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <Settings className="w-5 h-5 text-accent" />
-                <h3 className="text-lg font-semibold">方法一：通过 Claude Desktop 界面配置（推荐）</h3>
-              </div>
-
-              <ol className="space-y-4 list-decimal list-inside">
-                <li className="text-muted-foreground">
-                  <span className="font-medium text-foreground">打开 Claude Desktop 设置</span>
-                  <p className="ml-6 mt-1">点击菜单栏 Claude → Settings（或使用快捷键 Cmd+,）</p>
-                </li>
-                <li className="text-muted-foreground">
-                  <span className="font-medium text-foreground">进入 Extensions 标签页</span>
-                  <p className="ml-6 mt-1">在设置窗口中选择 "Extensions" 选项</p>
-                </li>
-                <li className="text-muted-foreground">
-                  <span className="font-medium text-foreground">添加 Gate MCP 服务器</span>
-                  <p className="ml-6 mt-1">点击 "Add Server" 按钮，填入以下信息：</p>
-                  <div className="ml-6 mt-2 bg-muted rounded-lg p-4">
-                    <p className="font-mono text-sm mb-2">
-                      <strong>Server Name:</strong> gate
-                    </p>
-                    <p className="font-mono text-sm mb-2">
-                      <strong>Server URL:</strong> https://mcp.a2a.ink/mcp
-                    </p>
-                    <p className="font-mono text-sm">
-                      <strong>Transport:</strong> HTTP
-                    </p>
-                  </div>
-                </li>
-                <li className="text-muted-foreground">
-                  <span className="font-medium text-foreground">保存并重启</span>
-                  <p className="ml-6 mt-1">点击 "Save" 保存配置，然后重启 Claude Desktop</p>
-                </li>
-              </ol>
-            </Card>
-
-            {/* Method 2: Manual Configuration */}
-            <Card className="p-6 mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <Terminal className="w-5 h-5 text-accent" />
-                <h3 className="text-lg font-semibold">方法二：手动编辑配置文件</h3>
-              </div>
-
-              <p className="text-muted-foreground mb-4">如果你更喜欢直接编辑配置文件，可以按以下步骤操作：</p>
+              <h3 className="text-xl font-semibold mb-4">添加 Gate MCP 服务器</h3>
 
               <div className="space-y-4">
                 <div>
-                  <p className="font-medium mb-2">1. 找到配置文件位置：</p>
-                  <div className="space-y-2">
-                    <div className="bg-muted rounded-lg p-3">
-                      <p className="text-sm font-medium mb-1">macOS:</p>
-                      <code className="text-sm">~/Library/Application Support/Claude/claude_desktop_config.json</code>
-                    </div>
-                    <div className="bg-muted rounded-lg p-3">
-                      <p className="text-sm font-medium mb-1">Windows:</p>
-                      <code className="text-sm">%APPDATA%\Claude\claude_desktop_config.json</code>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="font-medium mb-2">2. 编辑配置文件，添加 Gate MCP 服务器：</p>
+                  <p className="font-medium mb-2">运行以下命令：</p>
                   <div className="bg-muted rounded-lg p-4 font-mono text-sm relative group">
-                    <pre className="overflow-x-auto pr-20">
-                      {`{
-  "mcpServers": {
-    "gate": {
-      "url": "https://mcp.a2a.ink/mcp",
-      "transport": "http"
-    }
-  }
-}`}
+                    <pre className="overflow-x-auto pr-24">
+                      claude mcp add --transport http gate https://mcp.a2a.ink/mcp --scope user
                     </pre>
                     <Button
                       size="sm"
@@ -190,12 +160,12 @@ export default function TutorialPage() {
                       className="absolute top-2 right-2 shadow-lg border-2 border-accent/20 hover:border-accent/40 hover:scale-105 transition-all"
                       onClick={() =>
                         copyToClipboard(
-                          '{\n  "mcpServers": {\n    "gate": {\n      "url": "https://mcp.a2a.ink/mcp",\n      "transport": "http"\n    }\n  }\n}',
-                          "config-json",
+                          "claude mcp add --transport http gate https://mcp.a2a.ink/mcp --scope user",
+                          "add-mcp",
                         )
                       }
                     >
-                      {copiedSteps["config-json"] ? (
+                      {copiedSteps["add-mcp"] ? (
                         <>
                           <Check className="w-4 h-4 mr-1.5" />
                           <span className="font-medium">已复制</span>
@@ -211,7 +181,32 @@ export default function TutorialPage() {
                 </div>
 
                 <div>
-                  <p className="font-medium mb-2">3. 保存文件并重启 Claude Desktop</p>
+                  <p className="font-medium mb-2">命令说明：</p>
+                  <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
+                    <li>
+                      <code className="bg-muted px-1.5 py-0.5 rounded">--transport http</code>：使用 HTTP 传输协议
+                    </li>
+                    <li>
+                      <code className="bg-muted px-1.5 py-0.5 rounded">gate</code>：服务器名称
+                    </li>
+                    <li>
+                      <code className="bg-muted px-1.5 py-0.5 rounded">https://mcp.a2a.ink/mcp</code>：Gate MCP
+                      服务器地址
+                    </li>
+                    <li>
+                      <code className="bg-muted px-1.5 py-0.5 rounded">--scope user</code>：用户级别配置
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                  <p className="text-sm flex items-start gap-2">
+                    <Lightbulb className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                    <span>
+                      <strong>提示：</strong>如果需要为特定项目配置，可以将 <code>--scope user</code> 改为{" "}
+                      <code>--scope project</code>，在项目目录下运行命令。
+                    </span>
+                  </p>
                 </div>
               </div>
             </Card>
@@ -220,14 +215,14 @@ export default function TutorialPage() {
             <Card className="p-6">
               <h3 className="text-xl font-semibold mb-4">验证连接</h3>
               <p className="text-muted-foreground mb-4">
-                重启 Claude Desktop 后，在对话框中输入任何消息，如果 Gate MCP 连接成功，你会在界面底部看到可用的 MCP
-                工具。
+                配置完成后，在项目目录中运行 <code className="bg-muted px-1.5 py-0.5 rounded">claude</code> 命令启动
+                Claude Code，如果 Gate MCP 连接成功，你会看到可用的 MCP 工具列表。
               </p>
               <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
                 <p className="text-sm flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
                   <span>
-                    <strong>连接成功标志：</strong>在 Claude Desktop 底部工具栏中可以看到 Gate 提供的工具列表，例如
+                    <strong>连接成功标志：</strong>在 Claude Code 界面中可以看到 Gate 提供的工具列表，例如
                     Gmail、GitHub、Notion 等。
                   </span>
                 </p>
@@ -242,7 +237,7 @@ export default function TutorialPage() {
               <div>
                 <h3 className="text-xl font-bold mb-2">安装完成！</h3>
                 <p className="text-muted-foreground mb-4">
-                  现在，你的 Claude Desktop 已成功接入 Gate MCP，可直接通过自然语言指挥 AI
+                  现在，你的 Claude Code CLI 已成功接入 Gate MCP，可直接通过自然语言指挥 AI
                   中枢进行智能编排，调用各类工具和服务完成复杂任务。
                 </p>
                 <Button className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
@@ -286,7 +281,7 @@ export default function TutorialPage() {
                 <AccordionContent className="text-muted-foreground pt-4">
                   <p className="mb-2">安装 Gate MCP 需要以下环境：</p>
                   <ul className="list-disc list-inside space-y-1 ml-2">
-                    <li>Claude Desktop 应用程序（从 claude.ai/download 下载）</li>
+                    <li>Claude Code CLI 应用程序（通过 npm 安装）</li>
                     <li>Anthropic 账号（在 claude.ai 免费注册）</li>
                     <li>稳定的网络连接</li>
                   </ul>
@@ -324,7 +319,8 @@ export default function TutorialPage() {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pt-4">
                   <p className="mb-2">
-                    安装完成后，在 Claude Desktop 中开始对话，你应该能在界面底部看到 Gate 提供的工具列表。
+                    安装完成后，在项目目录中运行 <code className="bg-muted px-1.5 py-0.5 rounded">claude</code> 命令启动
+                    Claude Code，你应该能在界面底部看到 Gate 提供的工具列表。
                   </p>
                   <p className="mt-3">
                     如果能看到 Gmail、GitHub、Notion 等工具图标，说明 Gate MCP 已成功连接并可以使用。
@@ -339,9 +335,9 @@ export default function TutorialPage() {
                 <AccordionContent className="text-muted-foreground pt-4">
                   <p className="mb-2">如果遇到连接问题，请按以下步骤排查：</p>
                   <ol className="list-decimal list-inside space-y-2 ml-2">
-                    <li>确认 Claude Desktop 已正确安装并登录</li>
-                    <li>检查配置文件中的 Gate MCP 服务器地址是否正确</li>
-                    <li>重启 Claude Desktop 应用程序</li>
+                    <li>确认 Claude Code CLI 已正确安装并登录</li>
+                    <li>检查配置命令中的 Gate MCP 服务器地址是否正确</li>
+                    <li>重启 Claude Code CLI 应用程序</li>
                     <li>如果访问海外 MCP 服务，确认网络连接稳定</li>
                   </ol>
                   <p className="mt-3">
