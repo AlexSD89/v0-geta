@@ -1,12 +1,12 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
-import { CheckCircle2, Mail, User } from "lucide-react"
+import { CheckCircle2, BookOpen } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 export function Waitlist() {
   const [email, setEmail] = useState("")
@@ -49,57 +49,35 @@ export function Waitlist() {
         <div className="text-center mb-8">
           <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-4 text-balance">立即开始使用</h2>
           <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-            填写信息,24 小时内收到使用邀请。限时免费,无需信用卡。
+            扫码加入微信群,获取安装指引和使用权限。10 分钟完成配置,限时免费。
           </p>
         </div>
 
         <Card className="p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                姓名
-              </label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                <Input
-                  id="name"
-                  type="text"
-                  placeholder="请输入你的姓名"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  className="pl-10"
-                />
-              </div>
+          <div className="flex flex-col items-center gap-6">
+            <div className="bg-secondary/30 p-4 rounded-lg">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/40c7a2b23e7682c1bc4c77ed4663cc66-nE9I7WuvDizIYFFtaNRLiJrJVjQEKd.jpg"
+                alt="Gate 交流群二维码"
+                width={300}
+                height={300}
+                className="w-full h-auto rounded-lg"
+              />
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                邮箱地址
-              </label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="pl-10"
-                />
-              </div>
+            <p className="text-sm text-muted-foreground text-center">使用微信或企业微信扫码加入</p>
+
+            <div className="w-full pt-4 border-t">
+              <Link href="/tutorial" className="block">
+                <Button variant="outline" className="w-full bg-transparent" size="lg">
+                  <BookOpen className="w-4 h-4 mr-2" />
+                  查看安装教程
+                </Button>
+              </Link>
             </div>
 
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-              disabled={loading}
-            >
-              {loading ? "提交中..." : "提交申请"}
-            </Button>
-          </form>
+            <p className="text-xs text-muted-foreground text-center">该二维码 10 月 27 日前有效,重新进入将更新</p>
+          </div>
         </Card>
 
         <div className="mt-8 grid sm:grid-cols-3 gap-4 text-center">
@@ -112,8 +90,8 @@ export function Waitlist() {
             <div className="text-sm text-muted-foreground">无需付费</div>
           </div>
           <div>
-            <div className="text-2xl font-semibold text-foreground mb-1">24 小时</div>
-            <div className="text-sm text-muted-foreground">快速开通</div>
+            <div className="text-2xl font-semibold text-foreground mb-1">即时支持</div>
+            <div className="text-sm text-muted-foreground">群内答疑</div>
           </div>
         </div>
       </div>

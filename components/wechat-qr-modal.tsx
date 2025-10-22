@@ -1,7 +1,10 @@
 "use client"
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
+import { BookOpen } from "lucide-react"
 
 interface WeChatQRModalProps {
   open: boolean
@@ -31,6 +34,15 @@ export function WeChatQRModal({ open, onOpenChange }: WeChatQRModalProps) {
           </div>
 
           <p className="text-sm text-muted-foreground text-center">使用微信或企业微信扫码加入</p>
+
+          <div className="w-full pt-4 border-t">
+            <Link href="/tutorial" onClick={() => onOpenChange(false)}>
+              <Button variant="outline" className="w-full bg-transparent" size="lg">
+                <BookOpen className="w-4 h-4 mr-2" />
+                查看安装教程
+              </Button>
+            </Link>
+          </div>
 
           <p className="text-xs text-muted-foreground text-center">该二维码 10 月 27 日前有效,重新进入将更新</p>
         </div>
