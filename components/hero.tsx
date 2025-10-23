@@ -12,14 +12,14 @@ export function Hero() {
   return (
     <section className="pt-32 pb-24 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center space-y-8 animate-fade-in">
-          <h1 className="font-serif text-5xl sm:text-6xl lg:text-8xl text-foreground text-balance leading-[1.1] tracking-tight">
+        <div className="text-center space-y-8">
+          <h1 className="font-serif text-5xl sm:text-6xl lg:text-8xl text-foreground text-balance leading-[1.1] tracking-tight animate-in fade-in duration-700">
             让 Gate 为你的 AI
             <br />
             打开世界
           </h1>
 
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-3xl mx-auto space-y-6 animate-in fade-in duration-700 delay-150">
             <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 text-pretty leading-relaxed">
               让你的 AI 助手像拥有双手一样操作各类工具
             </p>
@@ -42,19 +42,24 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-4 max-w-md sm:max-w-none mx-auto">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-4 max-w-md sm:max-w-none mx-auto animate-in fade-in duration-700 delay-300">
             <Button
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 group h-12 px-8 text-base transition-all hover:scale-105 hover:shadow-lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 transition-all duration-200 group h-12 px-8 text-base"
               onClick={() => setQrModalOpen(true)}
             >
               免费开始使用
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
             </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 bg-transparent text-base hover-lift" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="h-12 px-8 bg-transparent text-base hover:scale-105 transition-all duration-200"
+              asChild
+            >
               <a href="#usecases">查看使用场景</a>
             </Button>
-            <Button size="lg" variant="ghost" className="hidden sm:flex h-12 px-8 hover-lift" asChild>
+            <Button size="lg" variant="ghost" className="hidden sm:flex h-12 px-8" asChild>
               <a href="/tutorial" className="text-muted-foreground hover:text-foreground">
                 安装教程
                 <ExternalLink className="w-4 h-4 ml-2" />
