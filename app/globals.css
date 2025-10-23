@@ -37,15 +37,6 @@
   --sidebar-accent-foreground: oklch(0.2 0.01 85);
   --sidebar-border: oklch(0.9 0.005 85);
   --sidebar-ring: oklch(0.55 0.15 220);
-  /* Added animation design tokens for consistent micro-interactions */
-  --transition-fast: 150ms;
-  --transition-base: 200ms;
-  --transition-slow: 300ms;
-  --transition-slower: 500ms;
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .dark {
@@ -123,15 +114,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  /* Added animation tokens to theme */
-  --transition-duration-fast: var(--transition-fast);
-  --transition-duration-base: var(--transition-base);
-  --transition-duration-slow: var(--transition-slow);
-  --transition-duration-slower: var(--transition-slower);
-  --transition-timing-function-in-out: var(--ease-in-out);
-  --transition-timing-function-out: var(--ease-out);
-  --transition-timing-function-in: var(--ease-in);
-  --transition-timing-function-bounce: var(--ease-bounce);
 }
 
 @layer base {
@@ -142,18 +124,10 @@
     @apply bg-background text-foreground;
   }
 
-  /* Added smooth scrolling and improved focus states */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Improved button touch targets for mobile */
-  button,
-  a {
-    @apply min-h-[44px] min-w-[44px] md:min-h-0 md:min-w-0;
-  }
-
-  /* Added reduced motion support for accessibility */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -166,7 +140,6 @@
   }
 }
 
-/* Added custom animation for logo marquee */
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -176,7 +149,6 @@
   }
 }
 
-/* Enhanced animations with new keyframes */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -215,30 +187,13 @@
 }
 
 .animate-fade-in {
-  animation: fade-in 0.5s var(--ease-out) forwards;
+  animation: fade-in 0.5s ease-out forwards;
 }
 
 .animate-slide-in-right {
-  animation: slide-in-right 0.5s var(--ease-out) forwards;
+  animation: slide-in-right 0.5s ease-out forwards;
 }
 
 .animate-scale-in {
-  animation: scale-in 0.3s var(--ease-out) forwards;
-}
-
-/* Added utility classes for common transitions */
-.transition-smooth {
-  transition: all var(--transition-base) var(--ease-in-out);
-}
-
-.transition-fast {
-  transition: all var(--transition-fast) var(--ease-in-out);
-}
-
-.hover-lift {
-  transition: transform var(--transition-base) var(--ease-out);
-}
-
-.hover-lift:hover {
-  transform: translateY(-2px);
+  animation: scale-in 0.3s ease-out forwards;
 }
