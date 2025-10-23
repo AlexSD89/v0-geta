@@ -218,8 +218,8 @@ export default function TutorialPage() {
               <div className="space-y-4">
                 <div className="bg-black rounded-lg p-4 font-mono text-sm border border-slate-800">
                   <pre className="text-gray-400 text-xs mb-2">Manage MCP servers</pre>
-                  <pre className="text-green-400">&gt;</pre>
-                  <pre className="text-white ml-2">1. gate</pre>
+                  <pre className="text-gray-400">&gt;</pre>
+                  <pre className="text-green-400 ml-2">1. gate</pre>
                   <pre className="text-yellow-500 ml-2">△ disconnected</pre>
                   <pre className="text-gray-500 text-xs ml-2 mt-1">· Enter to login</pre>
                 </div>
@@ -243,8 +243,8 @@ export default function TutorialPage() {
                   </pre>
                   <pre className="text-gray-400 text-sm mb-1">URL: https://mcp.a2a.ink/mcp</pre>
                   <pre className="text-gray-400 text-sm mb-4">Config location: /Users/username/.claude.json</pre>
-                  <pre className="text-green-400 mb-1">&gt;</pre>
-                  <pre className="text-white ml-4">1. Authenticate</pre>
+                  <pre className="text-gray-400 mb-1">&gt;</pre>
+                  <pre className="text-green-400 ml-4">1. Authenticate</pre>
                 </div>
               </div>
             </Card>
