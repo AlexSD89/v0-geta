@@ -1,10 +1,35 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ExternalLink } from "lucide-react"
 import { TermTooltip } from "@/components/term-tooltip"
 import { WeChatQRModal } from "@/components/wechat-qr-modal"
+
+function AnimatedCounter({ end, duration = 2000 }: { end: number; duration?: number }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let startTime: number
+    let animationFrame: number
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime
+      const progress = Math.min((currentTime - startTime) / duration, 1)
+
+      setCount(Math.floor(progress * end))
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate)
+      }
+    }
+
+    animationFrame = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(animationFrame)
+  }, [end, duration])
+
+  return <span>{count.toLocaleString()}</span>
+}
 
 export function Hero() {
   const [qrModalOpen, setQrModalOpen] = useState(false)
@@ -29,6 +54,27 @@ export function Hero() {
               <TermTooltip term="智能编排">智能体协同编排</TermTooltip>
             </p>
 
+            <div className="flex items-center justify-center gap-6 sm:gap-8 pt-4">
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-accent">
+                  <AnimatedCounter end={50} />+
+                </div>
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1">可用工具</div>
+              </div>
+              <div className="h-12 w-px bg-border" />
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-accent">
+                  <AnimatedCounter end={1000} />+
+                </div>
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1">开发者使用</div>
+              </div>
+              <div className="h-12 w-px bg-border" />
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-accent">10</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1">分钟配置</div>
+              </div>
+            </div>
+
             <div className="flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-muted-foreground pt-2">
               <span className="font-medium text-foreground">
                 <TermTooltip term="本地执行">本地执行</TermTooltip>
@@ -38,14 +84,14 @@ export function Hero() {
                 <TermTooltip term="数据不出域">数据不出域</TermTooltip>
               </span>
               <span className="text-muted-foreground/40">·</span>
-              <span className="font-medium text-foreground">10 分钟配置</span>
+              <span className="font-medium text-foreground">限时免费</span>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-4 max-w-md sm:max-w-none mx-auto animate-in fade-in duration-700 delay-300">
             <Button
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 transition-all duration-200 group h-12 px-8 text-base"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 transition-all duration-200 group min-h-11 px-8 text-base"
               onClick={() => setQrModalOpen(true)}
             >
               免费开始使用
@@ -54,12 +100,12 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="h-12 px-8 bg-transparent text-base hover:scale-105 transition-all duration-200"
+              className="min-h-11 px-8 bg-transparent text-base hover:scale-105 transition-all duration-200"
               asChild
             >
               <a href="#usecases">查看使用场景</a>
             </Button>
-            <Button size="lg" variant="ghost" className="hidden sm:flex h-12 px-8" asChild>
+            <Button size="lg" variant="ghost" className="hidden sm:flex min-h-11 px-8" asChild>
               <a href="/tutorial" className="text-muted-foreground hover:text-foreground">
                 安装教程
                 <ExternalLink className="w-4 h-4 ml-2" />

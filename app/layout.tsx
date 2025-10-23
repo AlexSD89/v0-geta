@@ -45,7 +45,22 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  generator: "v0.app",
+  other: {
+    "application/ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "Gate",
+      applicationCategory: "DeveloperApplication",
+      description: "AI 智能体协同编排平台,让 AI 助手像拥有双手一样操作工具",
+      operatingSystem: "Cross-platform",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "CNY",
+      },
+    }),
+  },
+    generator: 'v0.app'
 }
 
 export default function RootLayout({

@@ -75,7 +75,7 @@ export function Navigation() {
                 </a>
               </Button>
               <Button
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 min-h-11"
                 onClick={() => setQrModalOpen(true)}
               >
                 免费开始
@@ -83,7 +83,7 @@ export function Navigation() {
             </div>
 
             <button
-              className="md:hidden p-2"
+              className="md:hidden p-2 min-h-11 min-w-11 flex items-center justify-center"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -92,31 +92,31 @@ export function Navigation() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 space-y-4">
+            <div className="md:hidden py-4 space-y-4 animate-in slide-in-from-top duration-200">
               <a
                 href="/marketplace"
-                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Gate Market
               </a>
               <a
                 href="/pricing"
-                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 定价
               </a>
               <a
                 href="/#faq"
-                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 常见问题
               </a>
               <a
                 href="/contact"
-                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 与我们联系
@@ -124,12 +124,12 @@ export function Navigation() {
               <div className="pt-4 border-t border-border space-y-3">
                 <a
                   href="/tutorial"
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
                 >
                   安装教程
                 </a>
                 <Button
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 min-h-11"
                   onClick={() => {
                     setQrModalOpen(true)
                     setMobileMenuOpen(false)
