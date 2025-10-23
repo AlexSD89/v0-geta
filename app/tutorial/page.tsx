@@ -279,23 +279,217 @@ export default function TutorialPage() {
             </Card>
           </section>
 
-          {/* Verification */}
-          <Card className="p-6">
-            <h3 className="text-xl font-semibold mb-4">验证连接</h3>
-            <p className="text-muted-foreground mb-4">
-              配置完成后，在项目目录中运行 <code className="bg-muted px-1.5 py-0.5 rounded">claude</code> 命令启动
-              Claude Code，如果 Gate MCP 连接成功，你会看到可用的 MCP 工具列表。
-            </p>
-            <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
-              <p className="text-sm flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
-                <span>
-                  <strong>连接成功标志：</strong>在 Claude Code 界面中可以看到 Gate 提供的工具列表，例如
-                  Gmail、GitHub、Notion 等。
-                </span>
-              </p>
+          {/* Step 3: Activate MCP Services in Gate Console */}
+          <section className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-lg">
+                3
+              </div>
+              <h2 className="text-2xl font-bold">激活 MCP 服务</h2>
             </div>
-          </Card>
+
+            <p className="text-muted-foreground mb-6">
+              完成 Gate MCP 安装后，需要在 Gate Console 中激活你想要使用的 MCP 服务（如 GitHub、Gmail、Notion 等）。
+            </p>
+
+            {/* Sub-step 1: Sign in */}
+            <Card className="p-6 mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
+                  1
+                </div>
+                <h3 className="text-xl font-semibold">访问 Gate Console 并登录</h3>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-muted-foreground">在浏览器中打开 Gate Console 登录页面：</p>
+                <div className="bg-muted rounded-lg p-4 font-mono text-sm relative group">
+                  <pre className="overflow-x-auto pr-24">https://console.a2a.ink/signin</pre>
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    className="absolute top-2 right-2 shadow-lg border-2 border-accent/20 hover:border-accent/40 hover:scale-105 transition-all"
+                    onClick={() => copyToClipboard("https://console.a2a.ink/signin", "console-url")}
+                  >
+                    {copiedSteps["console-url"] ? (
+                      <>
+                        <Check className="w-4 h-4 mr-1.5" />
+                        <span className="font-medium">已复制</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4 mr-1.5" />
+                        <span className="font-medium">复制链接</span>
+                      </>
+                    )}
+                  </Button>
+                </div>
+                <p className="text-muted-foreground">
+                  使用邮箱验证码完成登录。登录成功后，你将看到 AI Link Console 控制台：
+                </p>
+                <div className="border rounded-lg overflow-hidden">
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vYT4eFSMwVXXQaDdGK31sresiOkcaz.png"
+                    alt="AI Link Console Dashboard"
+                    className="w-full"
+                  />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  控制台显示你的连接状态、活跃连接数、可用工具包等关键指标。
+                </p>
+              </div>
+            </Card>
+
+            {/* Sub-step 2: Navigate to Connections */}
+            <Card className="p-6 mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
+                  2
+                </div>
+                <h3 className="text-xl font-semibold">进入账户连接页面</h3>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  点击右上角导航栏中的 <span className="font-semibold text-foreground">"连接"</span>{" "}
+                  按钮，进入账户连接管理页面。
+                </p>
+                <div className="border rounded-lg overflow-hidden">
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-qnNS9xmQ4AIlejACk38DAfvypM2nLp.png"
+                    alt="Account Connections Page"
+                    className="w-full"
+                  />
+                </div>
+              </div>
+            </Card>
+
+            {/* Sub-step 3: Connect Services */}
+            <Card className="p-6 mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
+                  3
+                </div>
+                <h3 className="text-xl font-semibold">连接你需要的 MCP 服务</h3>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  在账户连接页面，你可以看到所有可用的 MCP 服务。点击服务卡片右上角的按钮进行连接：
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
+                  <li>
+                    <span className="text-green-600 dark:text-green-400 font-semibold">已连接</span> -
+                    服务已成功连接并可使用
+                  </li>
+                  <li>
+                    <span className="text-gray-600 dark:text-gray-400 font-semibold">未连接</span> -
+                    点击连接按钮开始授权流程
+                  </li>
+                </ul>
+                <p className="text-muted-foreground">
+                  每个服务都会显示连接 ID、状态（ACTIVE）以及管理选项（刷新元数据、暂停、解除连接）。
+                </p>
+                <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                  <p className="text-sm flex items-start gap-2">
+                    <Lightbulb className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                    <span>
+                      <strong>提示：</strong>连接服务时，系统会引导你完成 OAuth
+                      授权流程。请按照提示在弹出的授权页面中允许 Gate 访问相应服务。
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            {/* Sub-step 4: Verify Connections */}
+            <Card className="p-6 mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
+                  4
+                </div>
+                <h3 className="text-xl font-semibold">验证服务连接状态</h3>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-muted-foreground">连接完成后，返回控制台首页，你可以在"关键指标"区域看到：</p>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
+                  <li>
+                    <strong>连接总数</strong> - 已配置的服务总数
+                  </li>
+                  <li>
+                    <strong>活跃连接</strong> - 当前可用的服务数量
+                  </li>
+                  <li>
+                    <strong>涉及 Toolkits</strong> - 可调用的工具包数量
+                  </li>
+                </ul>
+                <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                  <p className="text-sm flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
+                    <span>
+                      <strong>连接成功：</strong>当你看到"活跃连接"数量增加，说明 MCP 服务已成功激活，可以在 Claude Code
+                      中使用了。
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </section>
+
+          {/* Step 4: Verification */}
+          <section className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-lg">
+                4
+              </div>
+              <h2 className="text-2xl font-bold">验证完整安装</h2>
+            </div>
+
+            <Card className="p-6">
+              <h3 className="text-xl font-semibold mb-4">在 Claude Code 中验证连接</h3>
+              <p className="text-muted-foreground mb-4">
+                完成所有配置后，在项目目录中运行 <code className="bg-muted px-1.5 py-0.5 rounded">claude</code> 命令启动
+                Claude Code。如果 Gate MCP 连接成功且服务已激活，你会看到可用的 MCP 工具列表。
+              </p>
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                <p className="text-sm flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
+                  <span>
+                    <strong>连接成功标志：</strong>在 Claude Code 界面中可以看到你在 Gate Console 中激活的工具列表，例如
+                    Gmail、GitHub、Notion 等。现在你可以通过自然语言指令让 AI 调用这些服务完成任务。
+                  </span>
+                </p>
+              </div>
+            </Card>
+          </section>
+
+          {/* Verification */}
+          {/* <section className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-lg">
+                4
+              </div>
+              <h2 className="text-2xl font-bold">验证连接</h2>
+            </div>
+
+            <Card className="p-6">
+              <h3 className="text-xl font-semibold mb-4">验证连接</h3>
+              <p className="text-muted-foreground mb-4">
+                配置完成后，在项目目录中运行 <code className="bg-muted px-1.5 py-0.5 rounded">claude</code> 命令启动
+                Claude Code，如果 Gate MCP 连接成功，你会看到可用的 MCP 工具列表。
+              </p>
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                <p className="text-sm flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
+                  <span>
+                    <strong>连接成功标志：</strong>在 Claude Code 界面中可以看到 Gate 提供的工具列表，例如
+                    Gmail、GitHub、Notion 等。
+                  </span>
+                </p>
+              </div>
+            </Card>
+          </section> */}
 
           {/* Success Message */}
           <Card className="p-8 bg-accent/10 border-accent mb-16">
