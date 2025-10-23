@@ -236,15 +236,15 @@ export default function TutorialPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-black rounded-lg p-4 font-mono text-sm border border-slate-800">
-                  <pre className="text-white font-semibold mb-2">Gate MCP Server</pre>
-                  <pre className="text-gray-400 text-xs">
+                <div className="bg-black rounded-xl p-6 font-mono text-sm border border-slate-800">
+                  <pre className="text-white font-semibold mb-3">Gate MCP Server</pre>
+                  <pre className="text-gray-400 text-sm mb-1">
                     Status: <span className="text-yellow-500">△ needs authentication</span>
                   </pre>
-                  <pre className="text-gray-400 text-xs">URL: https://mcp.a2a.ink/mcp</pre>
-                  <pre className="text-gray-400 text-xs mb-2">Config location: /Users/username/.claude.json</pre>
-                  <pre className="text-green-400">&gt;</pre>
-                  <pre className="text-white ml-2">1. Authenticate</pre>
+                  <pre className="text-gray-400 text-sm mb-1">URL: https://mcp.a2a.ink/mcp</pre>
+                  <pre className="text-gray-400 text-sm mb-4">Config location: /Users/username/.claude.json</pre>
+                  <pre className="text-green-400 mb-1">&gt;</pre>
+                  <pre className="text-white ml-4">1. Authenticate</pre>
                 </div>
               </div>
             </Card>
@@ -259,17 +259,17 @@ export default function TutorialPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-black rounded-lg p-4 font-mono text-sm border border-slate-800">
-                  <pre className="text-green-400">Authenticating with gate...</pre>
-                  <pre className="text-gray-500 text-xs mt-2">*</pre>
-                  <pre className="text-gray-400 text-xs">A browser window will open for authentication</pre>
+                <div className="bg-black rounded-xl p-6 font-mono text-sm border border-slate-800">
+                  <pre className="text-green-400 mb-2">Authenticating with gate...</pre>
+                  <pre className="text-gray-500 text-xs mb-1">*</pre>
+                  <pre className="text-gray-400 text-sm">A browser window will open for authentication</pre>
                 </div>
 
                 <p className="text-muted-foreground">
                   浏览器会自动打开 Gate 认证页面。认证完成后,Claude Code 将显示连接状态为:
                 </p>
 
-                <div className="bg-black border border-emerald-500/30 rounded-lg p-4">
+                <div className="bg-black border border-emerald-500/30 rounded-xl p-6">
                   <pre className="text-sm font-mono">
                     <span className="text-white">1. gate </span>
                     <span className="text-emerald-400">✅ connected</span>
