@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ExternalLink } from "lucide-react"
 import { TermTooltip } from "@/components/term-tooltip"
@@ -9,24 +9,22 @@ import { WeChatQRModal } from "@/components/wechat-qr-modal"
 function AnimatedCounter({ end, duration = 2000 }: { end: number; duration?: number }) {
   const [count, setCount] = useState(0)
 
-  useEffect(() => {
-    let startTime: number
-    let animationFrame: number
+  let startTime: number
+  let animationFrame: number
 
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime
-      const progress = Math.min((currentTime - startTime) / duration, 1)
+  const animate = (currentTime: number) => {
+    if (!startTime) startTime = currentTime
+    const progress = Math.min((currentTime - startTime) / duration, 1)
 
-      setCount(Math.floor(progress * end))
+    setCount(Math.floor(progress * end))
 
-      if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate)
-      }
+    if (progress < 1) {
+      animationFrame = requestAnimationFrame(animate)
     }
+  }
 
-    animationFrame = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(animationFrame)
-  }, [end, duration])
+  animationFrame = requestAnimationFrame(animate)
+  return () => cancelAnimationFrame(animationFrame)
 
   return <span>{count.toLocaleString()}</span>
 }
@@ -56,17 +54,13 @@ export function Hero() {
 
             <div className="flex items-center justify-center gap-6 sm:gap-8 pt-4">
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-accent">
-                  <AnimatedCounter end={50} />+
-                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-accent">7+</div>
                 <div className="text-xs sm:text-sm text-muted-foreground mt-1">可用工具</div>
               </div>
               <div className="h-12 w-px bg-border" />
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-accent">
-                  <AnimatedCounter end={1000} />+
-                </div>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1">开发者使用</div>
+                <div className="text-2xl sm:text-3xl font-bold text-accent">224+</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1">使用者</div>
               </div>
               <div className="h-12 w-px bg-border" />
               <div className="text-center">
