@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section className="pt-32 pb-24 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center space-y-8">
+        <div className="text-center space-y-8 animate-fade-in">
           <h1 className="font-serif text-5xl sm:text-6xl lg:text-8xl text-foreground text-balance leading-[1.1] tracking-tight">
             让 Gate 为你的 AI
             <br />
@@ -45,16 +45,16 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-4 max-w-md sm:max-w-none mx-auto">
             <Button
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 group h-12 px-8 text-base"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 group h-12 px-8 text-base transition-all hover:scale-105 hover:shadow-lg"
               onClick={() => setQrModalOpen(true)}
             >
               免费开始使用
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 bg-transparent text-base" asChild>
+            <Button size="lg" variant="outline" className="h-12 px-8 bg-transparent text-base hover-lift" asChild>
               <a href="#usecases">查看使用场景</a>
             </Button>
-            <Button size="lg" variant="ghost" className="hidden sm:flex h-12 px-8" asChild>
+            <Button size="lg" variant="ghost" className="hidden sm:flex h-12 px-8 hover-lift" asChild>
               <a href="/tutorial" className="text-muted-foreground hover:text-foreground">
                 安装教程
                 <ExternalLink className="w-4 h-4 ml-2" />
