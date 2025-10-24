@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, ExternalLink, Zap, Shield, Clock } from "lucide-react"
+import { ArrowRight, Zap, Shield, RefreshCw } from "lucide-react"
 import { TermTooltip } from "@/components/term-tooltip"
 import { WeChatQRModal } from "@/components/wechat-qr-modal"
 
@@ -52,41 +52,29 @@ export function Hero() {
               <TermTooltip term="智能编排">智能体协同编排</TermTooltip>
             </p>
 
-            <div className="flex items-center justify-center gap-6 sm:gap-8 pt-6">
-              <div className="flex items-center gap-2 text-sm sm:text-base">
-                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-accent" />
+            <div className="flex items-center justify-center gap-8 sm:gap-12 pt-8">
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-accent" />
                 </div>
-                <span className="text-foreground/80">快速上手</span>
+                <span className="text-sm text-foreground/70">10分钟上手</span>
               </div>
-              <div className="flex items-center gap-2 text-sm sm:text-base">
-                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-accent" />
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-accent" />
                 </div>
-                <span className="text-foreground/80">数据安全</span>
+                <span className="text-sm text-foreground/70">本地执行</span>
               </div>
-              <div className="flex items-center gap-2 text-sm sm:text-base">
-                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-accent" />
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                  <RefreshCw className="w-6 h-6 text-accent" />
                 </div>
-                <span className="text-foreground/80">持续更新</span>
+                <span className="text-sm text-foreground/70">持续更新</span>
               </div>
-            </div>
-
-            <div className="flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-muted-foreground pt-2">
-              <span className="font-medium text-foreground">
-                <TermTooltip term="本地执行">本地执行</TermTooltip>
-              </span>
-              <span className="text-muted-foreground/40">·</span>
-              <span className="font-medium text-foreground">
-                <TermTooltip term="数据不出域">数据不出域</TermTooltip>
-              </span>
-              <span className="text-muted-foreground/40">·</span>
-              <span className="font-medium text-foreground">限时免费</span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-4 max-w-md sm:max-w-none mx-auto animate-in fade-in duration-700 delay-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 animate-in fade-in duration-700 delay-300">
             <Button
               size="lg"
               className="bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 transition-all duration-200 group min-h-11 px-8 text-base"
@@ -97,21 +85,15 @@ export function Hero() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="min-h-11 px-8 bg-transparent text-base hover:scale-105 transition-all duration-200"
+              variant="ghost"
+              className="min-h-11 px-8 text-muted-foreground hover:text-foreground"
               asChild
             >
-              <a href="#usecases">查看使用场景</a>
-            </Button>
-            <Button size="lg" variant="ghost" className="hidden sm:flex min-h-11 px-8" asChild>
-              <a href="/tutorial" className="text-muted-foreground hover:text-foreground">
-                安装教程
-                <ExternalLink className="w-4 h-4 ml-2" />
-              </a>
+              <a href="/tutorial">查看安装教程</a>
             </Button>
           </div>
 
-          <p className="text-xs sm:text-sm text-muted-foreground pt-4">限时免费 · 无需编程基础 · 申请即可使用</p>
+          <p className="text-sm text-muted-foreground/60 pt-2">限时免费开放 · 无需编程基础</p>
         </div>
       </div>
 
