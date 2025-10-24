@@ -12,7 +12,7 @@ export function FinalCTA() {
           立即申请免费使用,开启智能自动化之旅。
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 group min-h-11" asChild>
+          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 group" asChild>
             <a href="/tutorial">
               查看安装教程
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

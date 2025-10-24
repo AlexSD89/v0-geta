@@ -77,18 +77,13 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 animate-in fade-in duration-700 delay-300">
             <Button
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 transition-all duration-200 group min-h-11 px-8 text-base"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 group"
               onClick={() => setQrModalOpen(true)}
             >
               免费开始使用
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
             </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              className="min-h-11 px-8 text-muted-foreground hover:text-foreground"
-              asChild
-            >
+            <Button size="lg" variant="ghost" className="text-muted-foreground hover:text-foreground" asChild>
               <a href="/tutorial">查看安装教程</a>
             </Button>
           </div>

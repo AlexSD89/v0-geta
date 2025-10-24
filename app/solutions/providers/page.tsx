@@ -32,13 +32,13 @@ export default function ProvidersPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button asChild size="lg" className="h-12 px-8">
+              <Button asChild size="lg">
                 <Link href="/contact">
                   申请入驻 Gate Market
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8 bg-transparent">
+              <Button asChild variant="outline" size="lg">
                 <Link href="/marketplace">查看 Gate Market</Link>
               </Button>
             </div>
@@ -400,7 +400,7 @@ export default function ProvidersPage() {
             </div>
 
             <div className="mt-12 text-center">
-              <Button asChild size="lg" className="h-12 px-8">
+              <Button asChild size="lg">
                 <Link href="/contact">
                   立即申请入驻
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -421,14 +421,14 @@ export default function ProvidersPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">准备好让你的 AI 能力触达更多企业了吗?</h2>
             <p className="text-xl mb-8 text-white/90">加入 Gate 生态,开启商业化之旅</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="h-12 px-8">
+              <Button asChild size="lg" variant="secondary">
                 <Link href="/contact">申请入驻</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-12 px-8 border-white text-white hover:bg-white/10 bg-transparent"
+                className="border-white text-white hover:bg-white/10 bg-transparent"
               >
                 <Link href="/marketplace">浏览 Gate Market</Link>
               </Button>
