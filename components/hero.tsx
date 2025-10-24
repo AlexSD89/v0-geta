@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, ExternalLink } from "lucide-react"
+import { ArrowRight, ExternalLink, Zap, Shield, Clock } from "lucide-react"
 import { TermTooltip } from "@/components/term-tooltip"
 import { WeChatQRModal } from "@/components/wechat-qr-modal"
 
@@ -52,20 +52,24 @@ export function Hero() {
               <TermTooltip term="智能编排">智能体协同编排</TermTooltip>
             </p>
 
-            <div className="flex items-center justify-center gap-6 sm:gap-8 pt-4">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-accent">7+</div>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1">可用工具</div>
+            <div className="flex items-center justify-center gap-6 sm:gap-8 pt-6">
+              <div className="flex items-center gap-2 text-sm sm:text-base">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Zap className="w-5 h-5 text-accent" />
+                </div>
+                <span className="text-foreground/80">快速上手</span>
               </div>
-              <div className="h-12 w-px bg-border" />
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-accent">224+</div>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1">使用者</div>
+              <div className="flex items-center gap-2 text-sm sm:text-base">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-accent" />
+                </div>
+                <span className="text-foreground/80">数据安全</span>
               </div>
-              <div className="h-12 w-px bg-border" />
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-accent">10</div>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1">分钟配置</div>
+              <div className="flex items-center gap-2 text-sm sm:text-base">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-accent" />
+                </div>
+                <span className="text-foreground/80">持续更新</span>
               </div>
             </div>
 
