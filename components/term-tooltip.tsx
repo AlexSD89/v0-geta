@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 interface TermTooltipProps {
   term:
