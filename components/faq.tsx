@@ -149,38 +149,34 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-6 text-balance">常见问题</h2>
-          <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-            涵盖产品、技术、安装、安全、商业等核心问题的全面解答
-          </p>
+    <section id="faq" className="section-spacing px-4 sm:px-6 bg-secondary/30">
+      <div className="container-default">
+        <div className="text-center mb-12">
+          <h2 className="heading-section mb-4">常见问题</h2>
+          <p className="subtitle-section mx-auto">涵盖产品、技术、安装、安全、商业等核心问题的全面解答</p>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-4">
+        <Accordion type="single" collapsible className="space-y-3">
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-card border border-border rounded-lg px-6 hover:shadow-md transition-shadow"
+              className="card-base px-5 hover:shadow-md hover:border-primary/20 transition-all duration-300 bg-card"
             >
-              <AccordionTrigger className="text-left hover:no-underline py-6">
-                <div className="flex flex-col items-start gap-2">
-                  <span className="text-xs text-accent font-medium uppercase tracking-wide">{faq.category}</span>
-                  <span className="font-semibold text-base">{faq.question}</span>
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <div className="flex flex-col items-start gap-1.5">
+                  <span className="text-xs text-primary font-medium uppercase tracking-wide">{faq.category}</span>
+                  <span className="font-semibold text-sm sm:text-base">{faq.question}</span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pt-2 pb-6 text-base">
-                {faq.answer}
-              </AccordionContent>
+              <AccordionContent className="body-text pt-2 pb-5">{faq.answer}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
 
-        <div className="mt-16 text-center">
-          <p className="text-muted-foreground mb-6 text-lg">还有其他问题?</p>
-          <Button variant="outline" className="gap-2 bg-transparent hover:scale-105 transition-all" asChild>
+        <div className="mt-12 text-center">
+          <p className="body-text mb-5">还有其他问题？</p>
+          <Button variant="outline" className="gap-2 active:scale-[0.98] transition-all bg-transparent" asChild>
             <a href="/contact">
               <MessageCircle className="w-4 h-4" />
               联系我们

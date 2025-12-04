@@ -1,11 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google"
+import { Inter, JetBrains_Mono, Noto_Sans_SC } from "next/font/google"
 import "./globals.css"
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
   display: "swap",
 })
 
@@ -15,9 +15,10 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 })
 
-const playfair = Playfair_Display({
+const notoSansSC = Noto_Sans_SC({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-noto",
   display: "swap",
 })
 
@@ -45,21 +46,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  other: {
-    "application/ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      name: "Gate",
-      applicationCategory: "DeveloperApplication",
-      description: "AI 智能体协同编排平台,让 AI 助手像拥有双手一样操作工具",
-      operatingSystem: "Cross-platform",
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "CNY",
-      },
-    }),
-  },
     generator: 'v0.app'
 }
 
@@ -70,7 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${notoSansSC.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

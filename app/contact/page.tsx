@@ -22,7 +22,7 @@ export default function ContactPage() {
               <div className="text-center space-y-6">
                 <div>
                   <h2 className="font-serif text-3xl text-foreground mb-2">Gate 项目交流群</h2>
-                  <p className="text-muted-foreground">使用微信或企业微信扫码加入</p>
+                  <p className="text-muted-foreground">使用飞书扫码加入</p>
                 </div>
 
                 <div className="relative">

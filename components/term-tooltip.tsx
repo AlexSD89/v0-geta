@@ -13,14 +13,16 @@ interface TermTooltipProps {
     | "智能编排"
     | "AI智能体"
     | "ClaudeCode"
+    | "Claude Code"
     | "工具接口"
     | "资源访问"
     | "提示模板"
     | "生态参与者"
   children: React.ReactNode
+  learnMoreLink?: string
 }
 
-export function TermTooltip({ term, children }: TermTooltipProps) {
+export function TermTooltip({ term, children, learnMoreLink }: TermTooltipProps) {
   const definitions = {
     SDK: {
       title: "SDK (标准开发包)",
@@ -62,6 +64,11 @@ export function TermTooltip({ term, children }: TermTooltipProps) {
       description: "Anthropic 推出的 AI 编程助手,支持 MCP 协议",
       details: "提供稳定的执行环境和系统级权限管理",
     },
+    "Claude Code": {
+      title: "Claude Code",
+      description: "Anthropic 推出的 AI 编程助手,支持 MCP 协议",
+      details: "提供稳定的执行环境和系统级权限管理",
+    },
     工具接口: {
       title: "工具接口 (Tools)",
       description: "AI 可以调用的具体功能接口",
@@ -84,7 +91,12 @@ export function TermTooltip({ term, children }: TermTooltipProps) {
     },
   }
 
-  const def = definitions[term]
+  const def = definitions[term as keyof typeof definitions]
+
+  if (!def) {
+    console.warn(`[v0] TermTooltip: Unknown term "${term}"`)
+    return <span>{children}</span>
+  }
 
   return (
     <TooltipProvider>

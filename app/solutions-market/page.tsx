@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import SolutionsMarketClient from "./solutions-market-client"
 
 export const metadata: Metadata = {
-  title: "第三方方案市场 - Gate",
-  description: "探索由行业专家与 Gate 官方联合打造的企业级 AI 自动化解决方案",
+  title: "AI 解决方案 - Gate",
+  description: "找到你的业务场景，一键部署专业 AI 工作流。每个方案都包含行业知识库、工作流编排、工具集成",
 }
 
 export default function SolutionsMarketPage() {

@@ -321,21 +321,21 @@ export default function MarketplaceClientPage() {
     switch (status) {
       case "connected":
         return (
-          <span className="px-2 py-0.5 bg-green-500/10 text-green-600 dark:text-green-400 text-xs rounded-full flex items-center gap-1">
+          <span className="px-2 py-0.5 bg-[#34c759]/10 text-[#34c759] text-xs rounded-full flex items-center gap-1">
             <CheckCircle2 className="w-3 h-3" />
             已连接
           </span>
         )
       case "available":
         return (
-          <span className="px-2 py-0.5 bg-accent/10 text-accent text-xs rounded-full flex items-center gap-1">
+          <span className="px-2 py-0.5 bg-[#0071e3]/10 text-[#0071e3] text-xs rounded-full flex items-center gap-1">
             <Package className="w-3 h-3" />
             可用
           </span>
         )
       case "coming-soon":
         return (
-          <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs rounded-full flex items-center gap-1">
+          <span className="px-2 py-0.5 bg-[#86868b]/10 text-[#86868b] text-xs rounded-full flex items-center gap-1">
             <Clock className="w-3 h-3" />
             即将推出
           </span>
@@ -350,11 +350,9 @@ export default function MarketplaceClientPage() {
       <main className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 animate-in fade-in duration-700">
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground mb-3 text-center">
-              Gate Market
-            </h1>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground mb-3 text-center">集成工具</h1>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto text-center text-pretty">
-              探索精选集成工具,让你的 AI 助手连接更多服务
+              Gate 支持连接的外部工具和服务，让你的 AI 助手拥有更强大的能力
             </p>
           </div>
 
@@ -364,10 +362,10 @@ export default function MarketplaceClientPage() {
               <div className="sticky top-24 space-y-4">
                 <Card className="p-5 border-2">
                   <div className="flex items-center gap-2 mb-4">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Package className="w-4 h-4 text-primary" />
+                    <div className="w-8 h-8 rounded-lg bg-[#0071e3]/10 flex items-center justify-center">
+                      <Package className="w-4 h-4 text-[#0071e3]" />
                     </div>
-                    <h3 className="font-bold text-sm">分类筛选</h3>
+                    <h3 className="font-bold text-sm">工具分类</h3>
                   </div>
                   <nav className="space-y-1.5">
                     {categories.map((category) => {
@@ -379,25 +377,21 @@ export default function MarketplaceClientPage() {
                           onClick={() => setSelectedCategory(category.name)}
                           className={`w-full group flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                             isActive
-                              ? "bg-primary text-primary-foreground shadow-sm"
-                              : "text-muted-foreground hover:bg-primary/5 hover:text-foreground"
+                              ? "bg-[#0071e3] text-white shadow-sm"
+                              : "text-muted-foreground hover:bg-[#0071e3]/5 hover:text-foreground"
                           }`}
                         >
                           <div className="flex items-center gap-2.5">
                             <div
                               className={`w-7 h-7 rounded-md flex items-center justify-center transition-colors ${
-                                isActive ? "bg-primary-foreground/10" : "bg-muted group-hover:bg-primary/10"
+                                isActive ? "bg-white/10" : "bg-muted group-hover:bg-[#0071e3]/10"
                               }`}
                             >
                               <Icon className="w-4 h-4" />
                             </div>
                             <span>{category.name}</span>
                           </div>
-                          <span
-                            className={`text-xs px-2 py-0.5 rounded-full ${
-                              isActive ? "bg-primary-foreground/10" : "bg-muted"
-                            }`}
-                          >
+                          <span className={`text-xs px-2 py-0.5 rounded-full ${isActive ? "bg-white/10" : "bg-muted"}`}>
                             {category.count}
                           </span>
                         </button>
@@ -407,12 +401,12 @@ export default function MarketplaceClientPage() {
                 </Card>
 
                 {/* Quick Stats Card */}
-                <Card className="p-5 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+                <Card className="p-5 bg-gradient-to-br from-[#0071e3]/5 to-[#0071e3]/10 border-[#0071e3]/20">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-primary mb-1">35+</div>
+                    <div className="text-3xl font-bold text-[#0071e3] mb-1">35+</div>
                     <div className="text-xs text-muted-foreground mb-3">集成工具</div>
                     <div className="text-2xl font-bold text-foreground mb-1">1.2M+</div>
-                    <div className="text-xs text-muted-foreground">总下载次数</div>
+                    <div className="text-xs text-muted-foreground">总连接次数</div>
                   </div>
                 </Card>
               </div>
@@ -426,8 +420,8 @@ export default function MarketplaceClientPage() {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <input
                     type="text"
-                    placeholder="搜索集成..."
-                    className="w-full pl-10 pr-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent text-sm"
+                    placeholder="搜索工具..."
+                    className="w-full pl-10 pr-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#0071e3] text-sm"
                   />
                 </div>
               </div>
@@ -441,7 +435,7 @@ export default function MarketplaceClientPage() {
                       variant={selectedCategory === category.name ? "default" : "outline"}
                       size="sm"
                       onClick={() => setSelectedCategory(category.name)}
-                      className={`flex-shrink-0 ${selectedCategory === category.name ? "bg-accent text-accent-foreground" : ""}`}
+                      className={`flex-shrink-0 ${selectedCategory === category.name ? "bg-[#0071e3] text-white" : ""}`}
                     >
                       {category.name}
                       <span className="ml-1.5 text-xs opacity-70">({category.count})</span>
@@ -452,14 +446,14 @@ export default function MarketplaceClientPage() {
 
               {/* Tools Grid */}
               <section className="mb-8">
-                <h2 className="text-xl font-bold mb-4">Gate 集成工具</h2>
+                <h2 className="text-xl font-bold mb-4">Gate 支持的工具</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {filteredTools.map((tool, index) => (
                     <Card
                       key={tool.name}
                       className={`p-4 hover:shadow-lg hover:scale-[1.01] transition-all duration-200 animate-in fade-in ${
                         tool.status === "connected"
-                          ? "border-green-500/20"
+                          ? "border-[#34c759]/20"
                           : tool.status === "coming-soon"
                             ? "opacity-60"
                             : ""
@@ -479,7 +473,7 @@ export default function MarketplaceClientPage() {
                       <div className="flex items-center justify-between pt-3 border-t border-border">
                         <div className="flex items-center gap-3 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
-                            <Star className="w-3.5 h-3.5 fill-accent text-accent" />
+                            <Star className="w-3.5 h-3.5 fill-[#ff9500] text-[#ff9500]" />
                             <span>{tool.rating}</span>
                           </div>
                           <div className="flex items-center gap-1">
@@ -492,7 +486,7 @@ export default function MarketplaceClientPage() {
                           variant={tool.status === "connected" ? "default" : "outline"}
                           className={
                             tool.status === "connected"
-                              ? "bg-accent text-accent-foreground hover:bg-accent/90 h-7 text-xs"
+                              ? "bg-[#0071e3] text-white hover:bg-[#0077ed] h-7 text-xs"
                               : "h-7 text-xs"
                           }
                           disabled={tool.status === "coming-soon"}
@@ -510,17 +504,16 @@ export default function MarketplaceClientPage() {
                 </div>
               </section>
 
-              {/* Cross-promotion Section */}
-              <Card className="p-5 sm:p-6 bg-gradient-to-br from-accent/5 via-background to-background border-2 border-accent/20 hover:border-accent/40 transition-all duration-300">
+              <Card className="p-5 sm:p-6 bg-gradient-to-br from-[#0071e3]/5 via-background to-background border-2 border-[#0071e3]/20 hover:border-[#0071e3]/40 transition-all duration-300">
                 <div className="grid md:grid-cols-[1fr,auto] gap-4 items-center">
                   <div>
-                    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium mb-2">
+                    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#0071e3]/10 text-[#0071e3] text-xs font-medium mb-2">
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span>即将上线 · 预览版</span>
+                      <span>即插即用 · 一键部署</span>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2">AI 劳动力市场</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2">AI 解决方案</h3>
                     <p className="text-sm text-muted-foreground mb-4 text-pretty">
-                      探索由行业专家与 Gate 官方联合打造的企业级 AI 自动化解决方案,一键 Fork 快速部署专业工作流
+                      找到你的业务场景，一键部署专业 AI 工作流。每个方案都包含行业知识库、工作流编排、工具集成
                     </p>
                     <Button
                       size="sm"
@@ -530,13 +523,13 @@ export default function MarketplaceClientPage() {
                         window.location.href = "/solutions-market"
                       }}
                     >
-                      浏览 AI 劳动力市场
+                      浏览 AI 解决方案
                       <ExternalLink className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </Button>
                   </div>
                   <div className="hidden md:block">
-                    <div className="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center">
-                      <Sparkles className="w-10 h-10 text-accent" />
+                    <div className="w-20 h-20 bg-[#0071e3]/10 rounded-2xl flex items-center justify-center">
+                      <Sparkles className="w-10 h-10 text-[#0071e3]" />
                     </div>
                   </div>
                 </div>

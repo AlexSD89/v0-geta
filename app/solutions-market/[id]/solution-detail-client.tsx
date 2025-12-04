@@ -78,9 +78,8 @@ const solutionsData: Record<string, any> = {
     roi: "1200%",
     efficiency: "1500%",
     tags: ["猎头", "招聘", "LinkedIn", "AI 评估"],
-    integrations: ["LinkedIn", "Gmail", "Slack", "Notion", "Anthropic Claude"],
+    integrations: ["LinkedIn", "Gmail", "Slack", "Notion", "Google Calendar"],
 
-    // Gate三层架构
     leftLayer: {
       title: "猎聘知识封装",
       knowledge: [
@@ -145,7 +144,7 @@ const solutionsData: Record<string, any> = {
     roi: "879%",
     efficiency: "800%",
     tags: ["客服", "自动化", "AI 对话", "多渠道"],
-    integrations: ["微信", "Slack", "Zendesk", "OpenAI", "Cohere"],
+    integrations: ["微信", "Slack", "Zendesk", "Gmail", "Google Sheets"],
 
     leftLayer: {
       title: "客服知识封装",
@@ -211,7 +210,7 @@ const solutionsData: Record<string, any> = {
     roi: "700%",
     efficiency: "600%",
     tags: ["财务", "OCR", "自动化", "合规"],
-    integrations: ["QuickBooks", "Stripe", "Google Sheets", "AWS Bedrock"],
+    integrations: ["QuickBooks", "Stripe", "Google Sheets", "SAP", "Oracle"],
 
     leftLayer: {
       title: "财务知识封装",
@@ -277,7 +276,7 @@ const solutionsData: Record<string, any> = {
     roi: "450%",
     efficiency: "500%",
     tags: ["HR", "招聘", "AI 筛选", "员工服务"],
-    integrations: ["LinkedIn", "Gmail", "Google Calendar", "Anthropic Claude"],
+    integrations: ["LinkedIn", "Gmail", "Google Calendar", "Notion", "Slack"],
 
     leftLayer: {
       title: "HR 知识封装",
@@ -343,7 +342,7 @@ const solutionsData: Record<string, any> = {
     roi: "636%",
     efficiency: "400%",
     tags: ["电商", "订单", "库存", "客服"],
-    integrations: ["Shopify", "微信", "Stripe", "Google Gemini"],
+    integrations: ["Shopify", "微信", "Stripe", "FedEx", "Tableau"],
 
     leftLayer: {
       title: "电商运营知识封装",
@@ -409,7 +408,7 @@ const solutionsData: Record<string, any> = {
     roi: "978%",
     efficiency: "1000%",
     tags: ["营销", "AI 创作", "内容", "多平台"],
-    integrations: ["Twitter", "Instagram", "OpenAI", "Hugging Face"],
+    integrations: ["Twitter", "Instagram", "Slack", "Notion", "Google Sheets"],
 
     leftLayer: {
       title: "营销知识封装",
@@ -475,7 +474,7 @@ const solutionsData: Record<string, any> = {
     roi: "600%",
     efficiency: "400%",
     tags: ["数据", "BI", "AI 分析", "可视化"],
-    integrations: ["Google Sheets", "PostgreSQL", "Tableau", "AWS Bedrock"],
+    integrations: ["Google Sheets", "PostgreSQL", "Tableau", "Slack", "Notion"],
 
     leftLayer: {
       title: "数据分析知识封装",
@@ -536,7 +535,7 @@ const solutionsData: Record<string, any> = {
     roi: "957%",
     efficiency: "250%",
     tags: ["项目", "敏捷", "协作", "资源管理"],
-    integrations: ["Jira", "Slack", "Notion", "Anthropic Claude"],
+    integrations: ["Jira", "Slack", "Notion", "Google Calendar", "Gmail"],
 
     leftLayer: {
       title: "项目管理知识封装",
@@ -597,7 +596,7 @@ const solutionsData: Record<string, any> = {
     roi: "607%",
     efficiency: "800%",
     tags: ["安全", "威胁检测", "合规", "自动响应"],
-    integrations: ["Splunk", "Slack", "PagerDuty", "AWS Bedrock"],
+    integrations: ["Splunk", "Slack", "PagerDuty", "Jira", "Gmail"],
 
     leftLayer: {
       title: "网络安全知识封装",
@@ -658,7 +657,7 @@ const solutionsData: Record<string, any> = {
     roi: "542%",
     efficiency: "350%",
     tags: ["供应链", "采购", "物流", "预测"],
-    integrations: ["SAP", "Oracle", "FedEx", "Google Gemini"],
+    integrations: ["SAP", "Oracle", "FedEx", "Slack", "Google Sheets"],
 
     leftLayer: {
       title: "供应链知识封装",
@@ -785,8 +784,8 @@ export default function SolutionDetailClient({ solutionId }: { solutionId: strin
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-3">
               <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90" asChild>
-                <a href="/#waitlist">
-                  <GitFork className="w-5 h-5 mr-2" />
+                <a href="/contact">
+                  <GitFork className="w-4 h-4 mr-2" />
                   Fork 此方案
                 </a>
               </Button>
@@ -831,7 +830,7 @@ export default function SolutionDetailClient({ solutionId }: { solutionId: strin
               <p className="text-lg mb-6 opacity-90">Fork 此方案到您的 Gate 环境,或联系我们获取定制化支持</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button size="lg" className="bg-background text-foreground hover:bg-background/90" asChild>
-                  <a href="/#waitlist">
+                  <a href="/contact">
                     <GitFork className="w-5 h-5 mr-2" />
                     Fork 此方案
                   </a>

@@ -11,143 +11,145 @@ export default function ProvidersPage() {
       {/* Navigation Component */}
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-6">
-              <Package className="w-4 h-4" />
-              AI 能力提供商解决方案
+      {/* Hero - Updated with blue gradient */}
+      <section className="relative py-24 md:py-32 px-4 sm:px-6">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-background to-background pointer-events-none" />
+        <div className="container-default text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            <Package className="w-4 h-4" />
+            AI 能力提供商解决方案
+          </div>
+
+          <h1 className="heading-hero mb-6">
+            让你的 AI 能力
+            <br />
+            <span className="text-primary">触达更多企业用户</span>
+          </h1>
+
+          <p className="subtitle-hero mx-auto mb-10">
+            Gate 为 AI 公司、开源项目和独立开发者提供企业级分发平台。 通过标准化的{" "}
+            <TermTooltip term="MCP">MCP 协议</TermTooltip>，让你的 AI 服务快速集成到企业工作流
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Button
+              asChild
+              size="lg"
+              className="h-12 px-8 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
+            >
+              <Link href="/contact">
+                申请入驻 Gate Market
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-12 px-8 rounded-full bg-transparent hover:bg-secondary"
+            >
+              <Link href="/marketplace">查看 Gate Market</Link>
+            </Button>
+          </div>
+
+          <div className="flex flex-wrap gap-6 justify-center text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary" />
+              <span>企业级安全认证</span>
             </div>
-
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
-              让你的 AI 能力
-              <br />
-              <span className="text-accent">触达更多企业用户</span>
-            </h1>
-
-            <p className="text-xl text-muted-foreground mb-8 text-pretty max-w-3xl mx-auto">
-              Gate 为 AI 公司、开源项目和独立开发者提供企业级分发平台。 通过标准化的{" "}
-              <TermTooltip term="MCP">MCP 协议</TermTooltip>,让你的 AI 服务快速集成到企业工作流, 实现从技术到商业的跨越
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button asChild size="lg">
-                <Link href="/contact">
-                  申请入驻 Gate Market
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/marketplace">查看 Gate Market</Link>
-              </Button>
-            </div>
-
-            <div className="flex flex-wrap gap-6 justify-center text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-accent" />
-                <span>企业级安全认证</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-accent" />
-                <span>
-                  标准化 <TermTooltip term="MCP">MCP</TermTooltip> 协议
-                </span>
-              </div>
+            <div className="flex items-center gap-2">
+              <Zap className="w-4 h-4 text-primary" />
+              <span>
+                标准化 <TermTooltip term="MCP">MCP</TermTooltip> 协议
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pain Points Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">AI 能力提供商的核心挑战</h2>
+      {/* Challenges - Updated with consistent card styling */}
+      <section className="section-spacing px-4 sm:px-6 bg-secondary/30">
+        <div className="container-wide">
+          <h2 className="heading-section text-center mb-12">AI 能力提供商的核心挑战</h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-background p-8 rounded-lg border">
-                <div className="text-4xl font-bold text-accent mb-4">73%</div>
-                <h3 className="text-xl font-semibold mb-3">企业集成门槛高</h3>
-                <p className="text-muted-foreground">
-                  每个企业都有不同的技术栈和安全要求,定制化集成成本高昂, 导致 73% 的 AI 服务难以进入企业市场
-                </p>
-              </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="card-base card-hover p-6 lg:p-8 bg-card">
+              <div className="text-4xl font-bold text-primary mb-4">73%</div>
+              <h3 className="heading-card mb-3">企业集成门槛高</h3>
+              <p className="body-text">
+                每个企业都有不同的技术栈和安全要求，定制化集成成本高昂，导致 73% 的 AI 服务难以进入企业市场
+              </p>
+            </div>
 
-              <div className="bg-background p-8 rounded-lg border">
-                <div className="text-4xl font-bold text-accent mb-4">6-12 个月</div>
-                <h3 className="text-xl font-semibold mb-3">销售周期过长</h3>
-                <p className="text-muted-foreground">
-                  企业采购流程复杂,从接触到成交平均需要 6-12 个月, 漫长的销售周期消耗大量资源
-                </p>
-              </div>
+            <div className="card-base card-hover p-6 lg:p-8 bg-card">
+              <div className="text-4xl font-bold text-primary mb-4">6-12 个月</div>
+              <h3 className="heading-card mb-3">销售周期过长</h3>
+              <p className="body-text">企业采购流程复杂，从接触到成交平均需要 6-12 个月，漫长的销售周期消耗大量资源</p>
+            </div>
 
-              <div className="bg-background p-8 rounded-lg border">
-                <div className="text-4xl font-bold text-accent mb-4">85%</div>
-                <h3 className="text-xl font-semibold mb-3">获客成本居高不下</h3>
-                <p className="text-muted-foreground">
-                  85% 的 AI 创业公司表示获客成本是最大挑战, 缺乏有效的企业客户触达渠道
-                </p>
-              </div>
+            <div className="card-base card-hover p-6 lg:p-8 bg-card">
+              <div className="text-4xl font-bold text-primary mb-4">85%</div>
+              <h3 className="heading-card mb-3">获客成本居高不下</h3>
+              <p className="body-text">85% 的 AI 创业公司表示获客成本是最大挑战，缺乏有效的企业客户触达渠道</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-20">
+      {/* Solution Section - Updated accent colors to primary */}
+      <section className="section-spacing">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Gate 如何帮助 AI 能力提供商</h2>
+            <h2 className="heading-section text-center mb-12">Gate 如何帮助 AI 能力提供商</h2>
 
             <div className="space-y-12">
               {/* 标准化接入 */}
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                     <Package className="w-4 h-4" />
                     标准化接入
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">一次开发,触达所有企业</h3>
-                  <p className="text-muted-foreground mb-6">
+                  <h3 className="heading-card text-2xl mb-4">一次开发,触达所有企业</h3>
+                  <p className="body-text mb-6">
                     基于 <TermTooltip term="MCP">Model Context Protocol (MCP)</TermTooltip> 标准,你只需开发一次,
                     就能让所有使用 Gate 的企业无缝集成你的 AI 能力。 无需为每个客户定制开发,大幅降低集成成本
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <div className="w-2 h-2 rounded-full bg-accent" />
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span className="text-muted-foreground">
+                      <span className="body-text">
                         符合 <TermTooltip term="MCP">MCP</TermTooltip> 标准,自动兼容 Gate 生态
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <div className="w-2 h-2 rounded-full bg-accent" />
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span className="text-muted-foreground">企业级安全认证,满足合规要求</span>
+                      <span className="body-text">企业级安全认证,满足合规要求</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <div className="w-2 h-2 rounded-full bg-accent" />
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span className="text-muted-foreground">统一的 API 文档和开发者工具</span>
+                      <span className="body-text">统一的 API 文档和开发者工具</span>
                     </li>
                   </ul>
                 </div>
-                <div className="bg-muted/30 p-8 rounded-lg border">
+                <div className="card-base p-8 bg-secondary/30">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between p-4 bg-background rounded-lg">
                       <span className="font-medium">传统方式</span>
                       <span className="text-muted-foreground">为每个客户定制</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <ArrowRight className="w-6 h-6 text-accent rotate-90" />
+                      <ArrowRight className="w-6 h-6 text-primary rotate-90" />
                     </div>
-                    <div className="flex items-center justify-between p-4 bg-accent/10 rounded-lg border-2 border-accent">
+                    <div className="flex items-center justify-between p-4 bg-primary/10 rounded-lg border-2 border-primary">
                       <span className="font-medium">Gate 方式</span>
-                      <span className="text-accent font-semibold">一次开发,全网分发</span>
+                      <span className="text-primary font-semibold">一次开发,全网分发</span>
                     </div>
                   </div>
                 </div>
@@ -155,11 +157,11 @@ export default function ProvidersPage() {
 
               {/* 快速触达 */}
               <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="order-2 md:order-1 bg-muted/30 p-8 rounded-lg border">
+                <div className="order-2 md:order-1 card-base p-8 bg-secondary/30">
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <TrendingUp className="w-6 h-6 text-accent" />
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <TrendingUp className="w-6 h-6 text-primary" />
                       </div>
                       <div>
                         <div className="font-semibold">快速增长的用户群</div>
@@ -167,8 +169,8 @@ export default function ProvidersPage() {
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <DollarSign className="w-6 h-6 text-accent" />
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <DollarSign className="w-6 h-6 text-primary" />
                       </div>
                       <div>
                         <div className="font-semibold">灵活的商业模式</div>
@@ -178,26 +180,26 @@ export default function ProvidersPage() {
                   </div>
                 </div>
                 <div className="order-1 md:order-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                     <Users className="w-4 h-4" />
                     快速触达
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">快速触达企业用户</h3>
-                  <p className="text-muted-foreground mb-6">
+                  <h3 className="heading-card text-2xl mb-4">快速触达企业用户</h3>
+                  <p className="body-text mb-6">
                     Gate Market 是企业 AI 能力的首选市场。 入驻后,你的服务将直接展示给所有 Gate 用户,
                     无需漫长的销售周期,企业可以一键试用和采购
                   </p>
-                  <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
                     <div className="text-sm text-muted-foreground mb-2">平均获客周期</div>
                     <div className="flex items-baseline gap-4">
                       <div>
                         <div className="text-3xl font-bold text-muted-foreground line-through">6-12 个月</div>
                         <div className="text-sm text-muted-foreground">传统方式</div>
                       </div>
-                      <ArrowRight className="w-6 h-6 text-accent" />
+                      <ArrowRight className="w-6 h-6 text-primary" />
                       <div>
-                        <div className="text-3xl font-bold text-accent">7-14 天</div>
-                        <div className="text-sm text-accent">通过 Gate</div>
+                        <div className="text-3xl font-bold text-primary">7-14 天</div>
+                        <div className="text-sm text-primary">通过 Gate</div>
                       </div>
                     </div>
                   </div>
@@ -207,18 +209,18 @@ export default function ProvidersPage() {
               {/* 商业化支持 */}
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                     <DollarSign className="w-4 h-4" />
                     商业化支持
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">完整的商业化基础设施</h3>
-                  <p className="text-muted-foreground mb-6">
+                  <h3 className="heading-card text-2xl mb-4">完整的商业化基础设施</h3>
+                  <p className="body-text mb-6">
                     Gate 提供从计费、结算到客户管理的完整商业化支持, 让你专注于产品开发,我们负责商业运营
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <div className="w-2 h-2 rounded-full bg-accent" />
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
                       <div>
                         <div className="font-medium">灵活定价模式</div>
@@ -226,8 +228,8 @@ export default function ProvidersPage() {
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <div className="w-2 h-2 rounded-full bg-accent" />
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
                       <div>
                         <div className="font-medium">自动化计费结算</div>
@@ -235,8 +237,8 @@ export default function ProvidersPage() {
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <div className="w-2 h-2 rounded-full bg-accent" />
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
                       <div>
                         <div className="font-medium">数据分析看板</div>
@@ -245,23 +247,23 @@ export default function ProvidersPage() {
                     </li>
                   </ul>
                 </div>
-                <div className="bg-muted/30 p-8 rounded-lg border">
+                <div className="card-base p-8 bg-secondary/30">
                   <div className="text-center mb-6">
                     <div className="text-sm text-muted-foreground mb-2">入驻 Gate 后的收入增长</div>
-                    <div className="text-4xl font-bold text-accent">3-5x</div>
+                    <div className="text-4xl font-bold text-primary">3-5x</div>
                   </div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center p-3 bg-background rounded">
                       <span className="text-sm">获客成本</span>
-                      <span className="text-accent font-semibold">↓ 70%</span>
+                      <span className="text-primary font-semibold">↓ 70%</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-background rounded">
                       <span className="text-sm">销售周期</span>
-                      <span className="text-accent font-semibold">↓ 85%</span>
+                      <span className="text-primary font-semibold">↓ 85%</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-background rounded">
                       <span className="text-sm">客户留存率</span>
-                      <span className="text-accent font-semibold">↑ 40%</span>
+                      <span className="text-primary font-semibold">↑ 40%</span>
                     </div>
                   </div>
                 </div>
@@ -272,16 +274,16 @@ export default function ProvidersPage() {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20 bg-muted/30">
+      <section className="section-spacing bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">成功案例</h2>
+            <h2 className="heading-section">成功案例</h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-background p-8 rounded-lg border">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                    <Package className="w-6 h-6 text-accent" />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Package className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <div className="font-semibold">某 AI 翻译服务商</div>
@@ -294,15 +296,15 @@ export default function ProvidersPage() {
                 </p>
                 <div className="flex gap-4 text-sm">
                   <div>
-                    <div className="text-2xl font-bold text-accent">200+</div>
+                    <div className="text-2xl font-bold text-primary">200+</div>
                     <div className="text-muted-foreground">企业客户</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-accent">500 万</div>
+                    <div className="text-2xl font-bold text-primary">500 万</div>
                     <div className="text-muted-foreground">月调用量</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-accent">4x</div>
+                    <div className="text-2xl font-bold text-primary">4x</div>
                     <div className="text-muted-foreground">收入增长</div>
                   </div>
                 </div>
@@ -310,8 +312,8 @@ export default function ProvidersPage() {
 
               <div className="bg-background p-8 rounded-lg border">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                    <Package className="w-6 h-6 text-accent" />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Package className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <div className="font-semibold">某开源 AI 项目</div>
@@ -324,15 +326,15 @@ export default function ProvidersPage() {
                 </p>
                 <div className="flex gap-4 text-sm">
                   <div>
-                    <div className="text-2xl font-bold text-accent">150+</div>
+                    <div className="text-2xl font-bold text-primary">150+</div>
                     <div className="text-muted-foreground">付费客户</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-accent">200 万</div>
+                    <div className="text-2xl font-bold text-primary">200 万</div>
                     <div className="text-muted-foreground">年收入</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-accent">6 个月</div>
+                    <div className="text-2xl font-bold text-primary">6 个月</div>
                     <div className="text-muted-foreground">商业化周期</div>
                   </div>
                 </div>
@@ -343,14 +345,14 @@ export default function ProvidersPage() {
       </section>
 
       {/* How to Join */}
-      <section className="py-20">
+      <section className="section-spacing">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">如何入驻 Gate Market</h2>
+            <h2 className="heading-section">如何入驻 Gate Market</h2>
 
             <div className="space-y-8">
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-bold">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold">
                   1
                 </div>
                 <div>
@@ -362,7 +364,7 @@ export default function ProvidersPage() {
               </div>
 
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-bold">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold">
                   2
                 </div>
                 <div>
@@ -375,7 +377,7 @@ export default function ProvidersPage() {
               </div>
 
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-bold">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold">
                   3
                 </div>
                 <div>
@@ -387,7 +389,7 @@ export default function ProvidersPage() {
               </div>
 
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-bold">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold">
                   4
                 </div>
                 <div>
@@ -400,9 +402,9 @@ export default function ProvidersPage() {
             </div>
 
             <div className="mt-12 text-center">
-              <Button asChild size="lg">
+              <Button asChild size="lg" variant="secondary" className="h-12 px-8 rounded-full">
                 <Link href="/contact">
-                  立即申请入驻
+                  申请入驻
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -414,25 +416,26 @@ export default function ProvidersPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-accent text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">准备好让你的 AI 能力触达更多企业了吗?</h2>
-            <p className="text-xl mb-8 text-white/90">加入 Gate 生态,开启商业化之旅</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary">
-                <Link href="/contact">申请入驻</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10 bg-transparent"
-              >
-                <Link href="/marketplace">浏览 Gate Market</Link>
-              </Button>
-            </div>
+      {/* CTA - Updated with blue primary background */}
+      <section className="py-20 bg-primary text-primary-foreground">
+        <div className="container-default text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">准备好让你的 AI 能力触达更多企业了吗？</h2>
+          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto leading-relaxed">加入 Gate 生态，开启商业化之旅</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" variant="secondary" className="h-12 px-8 rounded-full">
+              <Link href="/contact">
+                申请入驻
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-12 px-8 rounded-full border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
+            >
+              <Link href="/marketplace">查看 Gate Market</Link>
+            </Button>
           </div>
         </div>
       </section>
