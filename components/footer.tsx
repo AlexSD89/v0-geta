@@ -2,13 +2,18 @@ export function Footer() {
   return (
     <footer className="border-t border-border py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="font-semibold mb-4">产品</h3>
+            <h3 className="font-semibold mb-4">Skill 市场</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
+                <a href="/solutions-market" className="hover:text-foreground transition-colors">
+                  浏览 Skills
+                </a>
+              </li>
+              <li>
                 <a href="/marketplace" className="hover:text-foreground transition-colors">
-                  Gate Market
+                  工具集成
                 </a>
               </li>
               <li>
@@ -16,9 +21,24 @@ export function Footer() {
                   定价
                 </a>
               </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-4">创作者</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="/#usecases" className="hover:text-foreground transition-colors">
-                  使用场景
+                <a href="/creator-studio" className="hover:text-foreground transition-colors">
+                  创作者工作室
+                </a>
+              </li>
+              <li>
+                <a href="/docs/upload-skill" className="hover:text-foreground transition-colors">
+                  上传 Skill
+                </a>
+              </li>
+              <li>
+                <a href="/docs/affiliate" className="hover:text-foreground transition-colors">
+                  分销中心
                 </a>
               </li>
             </ul>
@@ -28,12 +48,17 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <a href="/tutorial" className="hover:text-foreground transition-colors">
-                  安装教程
+                  快速上手
                 </a>
               </li>
               <li>
                 <a href="/#faq" className="hover:text-foreground transition-colors">
                   常见问题
+                </a>
+              </li>
+              <li>
+                <a href="/docs/api" className="hover:text-foreground transition-colors">
+                  API 文档
                 </a>
               </li>
             </ul>
@@ -48,7 +73,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="/contact" className="hover:text-foreground transition-colors">
-                  与我们联系
+                  联系我们
                 </a>
               </li>
             </ul>
@@ -63,7 +88,7 @@ export function Footer() {
             <span className="font-semibold text-xl">Gate</span>
           </div>
 
-          <p className="text-sm text-muted-foreground">© 2025 Gate by LaunchX. 保留所有权利。</p>
+          <p className="text-sm text-muted-foreground">© 2026 Gate OS by LaunchX. The Ultimate AI Skill Exchange.</p>
         </div>
       </div>
     </footer>

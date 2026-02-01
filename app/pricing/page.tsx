@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { Check } from 'lucide-react'
+import { Check } from "lucide-react"
 
 export default function PricingPage() {
   const plans = [
@@ -34,16 +34,11 @@ export default function PricingPage() {
       <Navigation />
 
       <main className="pt-32 pb-24 px-6 sm:px-8 lg:px-12">
-        <div className="max-w-6xl mx-auto">
-          {/* Hero */}
+        <div className="container-default mx-auto">
           <div className="text-center mb-20">
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-foreground mb-6 leading-tight">
-              选择适合你的方案
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              从个人到企业,我们都有合适的方案
-            </p>
-            <div className="inline-block px-6 py-3 bg-accent/10 text-accent rounded-lg border border-accent/20">
+            <h1 className="heading-hero mb-6">选择适合你的方案</h1>
+            <p className="subtitle-hero mx-auto mb-8">从个人到企业,我们都有合适的方案</p>
+            <div className="inline-block px-6 py-3 bg-[#0071e3]/10 text-[#0071e3] rounded-lg border border-[#0071e3]/20">
               <p className="text-sm font-medium">🎉 推广期限时免费 · 立即申请即可使用</p>
             </div>
           </div>
@@ -52,42 +47,45 @@ export default function PricingPage() {
             {plans.map((plan) => (
               <Card
                 key={plan.name}
-                className={`p-10 hover:shadow-xl transition-all duration-300 ${
-                  plan.popular ? "border-accent border-2 scale-105" : ""
+                className={`card-base card-hover p-10 bg-white shadow-sm ${
+                  plan.popular ? "border-[#0071e3] border-2 scale-105" : ""
                 }`}
               >
                 {plan.popular && (
                   <div className="text-center mb-6">
-                    <span className="inline-block px-4 py-1.5 bg-accent text-accent-foreground text-sm font-medium rounded-full">
+                    <span className="inline-block px-4 py-1.5 bg-[#0071e3] text-white text-sm font-medium rounded-full">
                       最受欢迎
                     </span>
                   </div>
                 )}
                 <div className="text-center mb-8">
-                  <h3 className="font-serif text-2xl mb-4">{plan.name}</h3>
+                  <h3 className="heading-card mb-4">{plan.name}</h3>
                   <div className="mb-3">
                     {plan.promotional ? (
                       <div className="flex flex-col items-center gap-2">
-                        <span className="text-xl text-muted-foreground line-through">{plan.originalPrice}</span>
-                        <span className="text-5xl font-bold text-accent">免费</span>
+                        <span className="text-xl text-[#86868b] line-through">{plan.originalPrice}</span>
+                        <span className="text-5xl font-bold text-[#0071e3]">免费</span>
                       </div>
                     ) : (
-                      <span className="text-5xl font-bold text-foreground">{plan.price}</span>
+                      <span className="text-5xl font-bold text-[#1d1d1f]">{plan.price}</span>
                     )}
                   </div>
-                  <p className="text-sm text-muted-foreground">{plan.promotional ? "推广期间" : plan.period}</p>
+                  <p className="caption-text">{plan.promotional ? "推广期间" : plan.period}</p>
                 </div>
                 <ul className="space-y-4 mb-10">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground">{feature}</span>
+                      <Check className="w-5 h-5 text-[#0071e3] flex-shrink-0 mt-0.5" />
+                      <span className="body-text">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button
-                  className="w-full h-12 text-base"
-                  variant={plan.popular ? "default" : "outline"}
+                  className={`w-full h-12 rounded-full transition-colors active:scale-[0.98] ${
+                    plan.popular
+                      ? "bg-[#0071e3] text-white hover:bg-[#0077ed]"
+                      : "bg-white text-[#0071e3] border border-[#0071e3]/20 hover:bg-[#0071e3]/5"
+                  }`}
                   asChild
                 >
                   <a href={plan.price === "定制" ? "/contact" : "/contact"}>
@@ -98,32 +96,24 @@ export default function PricingPage() {
             ))}
           </div>
 
-          <div className="mt-24 max-w-4xl mx-auto">
-            <h2 className="font-serif text-3xl text-center mb-12">常见问题</h2>
+          <div className="section-spacing-lg max-w-4xl mx-auto">
+            <h2 className="heading-section text-center mb-12">常见问题</h2>
             <div className="grid sm:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold text-lg mb-3">如何申请免费版?</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  推广期间所有功能完全免费,无需支付任何费用。点击"立即申请"即可开始使用。
-                </p>
+                <h3 className="heading-card mb-3">如何申请免费版?</h3>
+                <p className="body-text">推广期间所有功能完全免费,无需支付任何费用。点击"立即申请"即可开始使用。</p>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-3">是否支持私有部署?</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  企业版支持私有部署,数据完全由企业掌控。联系我们获取详细方案。
-                </p>
+                <h3 className="heading-card mb-3">是否支持私有部署?</h3>
+                <p className="body-text">企业版支持私有部署,数据完全由企业掌控。联系我们获取详细方案。</p>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-3">如何升级到企业版?</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  联系我们的企业方案顾问,我们将根据您的需求提供定制化方案。
-                </p>
+                <h3 className="heading-card mb-3">如何升级到企业版?</h3>
+                <p className="body-text">联系我们的企业方案顾问,我们将根据您的需求提供定制化方案。</p>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-3">支持哪些支付方式?</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  支持支付宝、微信支付、银行转账等多种支付方式。企业版支持对公转账。
-                </p>
+                <h3 className="heading-card mb-3">支持哪些支付方式?</h3>
+                <p className="body-text">支持支付宝、微信支付、银行转账等多种支付方式。企业版支持对公转账。</p>
               </div>
             </div>
           </div>

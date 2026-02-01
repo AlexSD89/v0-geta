@@ -1,4 +1,4 @@
-/* Gate Design System v9.1 - Unified Blue-Purple System */
+/* Gate Design System v9.2 - Unified Blue-Purple System with Lumina Enhancements */
 /* 
  * COLOR HIERARCHY:
  * L1 (Homepage Hero): Blue-Purple Gradient (#0071e3 → #5856d6)
@@ -101,8 +101,11 @@
 
 @theme inline {
   /* Font stack */
-  --font-sans: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Noto Sans SC", system-ui, sans-serif;
-  --font-mono: "SF Mono", "JetBrains Mono", monospace;
+  /* Updated font stack to prioritize native Chinese system fonts */
+  /* PingFang SC (macOS/iOS) → Microsoft YaHei (Windows) → system defaults */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI",
+    "Helvetica Neue", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
 
   /* Design tokens */
   --color-background: var(--background);
@@ -296,15 +299,32 @@
    COMPONENT STYLES - LAYER RULES
    ======================================== */
 
+/* Added glassmorphism utility for Lumina-style effects */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-saturate: 180%;
+  -webkit-backdrop-saturate: 180%;
+}
+
+.glass-dark {
+  background: rgba(28, 28, 30, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
 .card-base {
   background-color: var(--card);
   border-radius: 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Enhanced hover effect with GPU acceleration */
 .card-hover:hover {
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0, 113, 227, 0.15);
+  transform: translateY(-8px) translateZ(0);
+  border-color: rgba(0, 113, 227, 0.4);
 }
 
 /* ----------------------------------------
@@ -324,7 +344,11 @@
 
 .btn-gradient:hover {
   box-shadow: 0 6px 20px 0 rgba(0, 113, 227, 0.35);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.btn-gradient:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .text-gradient-hero {
@@ -371,6 +395,11 @@
 
 .btn-primary:hover {
   background-color: #0077ed;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-secondary {
@@ -429,7 +458,7 @@
 }
 
 /* ========================================
-   ANIMATIONS
+   ANIMATIONS - Enhanced with GPU acceleration
    ======================================== */
 
 @keyframes fadeIn {
@@ -455,10 +484,10 @@
 @keyframes float {
   0%,
   100% {
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translate(0, -10px);
+    transform: translate3d(0, -10px, 0);
   }
 }
 
@@ -490,6 +519,18 @@
   }
 }
 
+/* Added scale animation for card hovers */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -498,9 +539,10 @@
 }
 .animate-float {
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
 }
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 .animate-pulse-soft {
   animation: pulse-soft 2s ease-in-out infinite;
@@ -509,6 +551,9 @@
   background: linear-gradient(90deg, transparent 0%, rgba(0, 113, 227, 0.1) 50%, transparent 100%);
   background-size: 200% 100%;
   animation: shimmer 2s ease-in-out infinite;
+}
+.animate-scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ========================================
@@ -527,5 +572,14 @@
   }
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Performance optimization for animations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
   }
 }

@@ -54,7 +54,7 @@ export default function TutorialClientPage() {
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-in fade-in duration-700">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">Gate MCP 安装教程</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Gate MCP 安装教程</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               本教程将指导你在本地环境中安装 Claude Code CLI，并连接 Gate MCP 服务。全程仅需 5–10 分钟。
             </p>
@@ -355,11 +355,7 @@ export default function TutorialClientPage() {
                   使用邮箱验证码完成登录。登录成功后，你将看到 AI Link Console 控制台：
                 </p>
                 <div className="border rounded-lg overflow-hidden">
-                  <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vYT4eFSMwVXXQaDdGK31sresiOkcaz.png"
-                    alt="AI Link Console Dashboard"
-                    className="w-full"
-                  />
+                  <img src="/images/image.png" alt="AI Link Console Dashboard" className="w-full" />
                 </div>
                 <p className="text-sm text-muted-foreground">
                   控制台显示你的连接状态、活跃连接数、可用工具包等关键指标。
@@ -382,11 +378,7 @@ export default function TutorialClientPage() {
                   按钮，进入账户连接管理页面。
                 </p>
                 <div className="border rounded-lg overflow-hidden">
-                  <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-qnNS9xmQ4AIlejACk38DAfvypM2nLp.png"
-                    alt="Account Connections Page"
-                    className="w-full"
-                  />
+                  <img src="/images/image.png" alt="Account Connections Page" className="w-full" />
                 </div>
               </div>
             </Card>

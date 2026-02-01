@@ -20,18 +20,18 @@ export function Navigation() {
           </a>
 
           <div className="hidden md:flex items-center gap-7">
-            <a href="/start" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
-              开始使用
+            <a href="/solutions-market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
+              Skill 市场
             </a>
             <a href="/marketplace" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              AI 工具集成库
+              工具集成
             </a>
-            <a href="/solutions-market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              AI 解决方案
+            <a href="/creator-studio" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
+              创作者工作室
             </a>
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors outline-none">
-                解决方案
+                行业方案
                 <ChevronDown className="w-3.5 h-3.5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent
@@ -56,7 +56,7 @@ export function Navigation() {
               定价
             </a>
             <a href="/tutorial" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              安装教程
+              文档
             </a>
           </div>
 
@@ -83,25 +83,25 @@ export function Navigation() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-1 border-t border-[#d2d2d7]/40 animate-fade-in">
             <a
-              href="/start"
+              href="/solutions-market"
               className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              开始使用
+              Skill 市场
             </a>
             <a
               href="/marketplace"
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              AI 工具集成库
+              工具集成
             </a>
             <a
-              href="/solutions-market"
+              href="/creator-studio"
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              AI 解决方案
+              创作者工作室
             </a>
             <a
               href="/solutions/enterprise"
@@ -129,7 +129,7 @@ export function Navigation() {
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              安装教程
+              文档
             </a>
             <div className="pt-3 px-4">
               <Button size="sm" className="w-full h-9 rounded-full bg-[#0071e3] text-white hover:bg-[#0077ed]" asChild>
