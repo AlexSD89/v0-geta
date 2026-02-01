@@ -2,7 +2,7 @@
 
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { CreatorsSidebar } from "@/components/creators-sidebar"
+import { DocsSidebar } from "@/components/docs-sidebar"
 import { Breadcrumb } from "@/components/breadcrumb"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Upload, DollarSign, Share2, Users, TrendingUp, Zap, Shield } from "lucide-react"
@@ -64,7 +64,7 @@ export default function CreatorsPage() {
       <div className="pt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-12">
-            <CreatorsSidebar />
+            <DocsSidebar />
             
             <article className="flex-1 pb-24">
               <Breadcrumb items={[
@@ -77,144 +77,136 @@ export default function CreatorsPage() {
               <div className="text-sm text-[#86868b] mb-6">
                 12 分钟阅读
               </div>
-            </article>
-          </div>
-        </div>
-      </div>
 
       {/* Hero Section */}
-      <section className="pb-16">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#1d1d1f] mb-6">
-              创作者中心
-            </h1>
-            
-            <p className="text-lg text-[#86868b] max-w-2xl mx-auto mb-8">
-              上传技能，开店变现，消费即创造。
-              <br className="hidden sm:block" />
-              在 Gate 上，每个人都可以成为 AI 能力的提供者。
-            </p>
+      <section className="mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#1d1d1f] mb-6">
+            创建 Skill
+          </h1>
+          
+          <p className="text-lg text-[#1d1d1f] leading-relaxed mb-8">
+            上传技能，开店变现，消费即创造。在 Gate 上，每个人都可以成为 AI 能力的提供者。
+          </p>
 
-            <Button className="h-12 px-8 rounded-full bg-[#0071e3] hover:bg-[#0077ed]" asChild>
-              <a href="/creators/upload">
-                上传我的第一个技能
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
-            </Button>
-          </motion.div>
-        </div>
+          <Button className="h-12 px-8 rounded-xl bg-[#0071e3] hover:bg-[#0077ed] shadow-lg" asChild>
+            <a href="/creators/upload" className="flex items-center gap-2">
+              上传我的第一个技能
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </Button>
+        </motion.div>
       </section>
 
       {/* Stats Banner */}
-      <section id="upload" className="py-8 bg-[#f5f5f7] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="flex items-center gap-4 bg-white rounded-2xl p-5 border border-[#d2d2d7]/50"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[#0071e3]/10 flex items-center justify-center">
-                  <stat.icon className="w-6 h-6 text-[#0071e3]" />
+      <section id="upload" className="py-8 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl mb-12">
+        <div className="mx-auto">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {stats.map((stat, i) => (
+                      <motion.div
+                        key={stat.label}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.1 }}
+                        className="flex items-center gap-4 bg-white rounded-2xl p-5 border border-[#d2d2d7]/50"
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-[#0071e3]/10 flex items-center justify-center">
+                          {stat.icon({ className: "w-6 h-6 text-[#0071e3]" })}
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-[#1d1d1f]">{stat.value}</div>
+                          <div className="text-sm text-[#86868b]">{stat.label}</div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold text-[#1d1d1f]">{stat.value}</div>
-                  <div className="text-sm text-[#86868b]">{stat.label}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+              </section>
 
-      {/* Three Phases */}
-      <section id="revenue" className="py-16">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-[#1d1d1f] mb-4">三阶段进化路径</h2>
-            <p className="text-[#86868b]">从托管到分销到共治，逐步解锁更多收益方式</p>
-          </motion.div>
+              {/* Three Phases */}
+              <section id="revenue" className="py-16">
+                <div className="max-w-5xl mx-auto">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-12"
+                  >
+                    <h2 className="text-3xl font-bold text-[#1d1d1f] mb-4">三阶段进化路径</h2>
+                    <p className="text-[#86868b]">从托管到分销到共治，逐步解锁更多收益方式</p>
+                  </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {phases.map((phase, i) => (
-              <motion.div
-                key={phase.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-6 border border-[#d2d2d7]/50 hover:shadow-lg hover:-translate-y-1 transition-all"
-              >
-                <div className={`w-12 h-12 rounded-xl ${phase.color} flex items-center justify-center mb-4`}>
-                  <phase.icon className="w-6 h-6 text-white" />
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {phases.map((phase, i) => (
+                      <motion.div
+                        key={phase.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className="bg-white rounded-2xl p-6 border border-[#d2d2d7]/50 hover:shadow-lg hover:-translate-y-1 transition-all"
+                      >
+                        <div className={`w-12 h-12 rounded-xl ${phase.color} flex items-center justify-center mb-4`}>
+                          {phase.icon({ className: "w-6 h-6 text-white" })}
+                        </div>
+                        
+                        <div className="text-xs font-medium text-[#86868b] mb-1">{phase.phase}</div>
+                        <h3 className="text-xl font-bold text-[#1d1d1f] mb-1">{phase.title}</h3>
+                        <p className="text-sm text-[#0071e3] font-medium mb-3">{phase.subtitle}</p>
+                        <p className="text-sm text-[#86868b] mb-6">{phase.desc}</p>
+                        
+                        <Button variant="outline" className="w-full rounded-full h-10 border-[#d2d2d7] bg-transparent hover:bg-[#f5f5f7]" asChild>
+                          <a href={phase.href}>
+                            {phase.cta}
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </a>
+                        </Button>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-                
-                <div className="text-xs font-medium text-[#86868b] mb-1">{phase.phase}</div>
-                <h3 className="text-xl font-bold text-[#1d1d1f] mb-1">{phase.title}</h3>
-                <p className="text-sm text-[#0071e3] font-medium mb-3">{phase.subtitle}</p>
-                <p className="text-sm text-[#86868b] mb-6">{phase.desc}</p>
-                
-                <Button variant="outline" className="w-full rounded-full h-10 border-[#d2d2d7] bg-transparent hover:bg-[#f5f5f7]" asChild>
-                  <a href={phase.href}>
-                    {phase.cta}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+              </section>
 
       {/* Benefits */}
-      <section id="best-practices" className="py-16 bg-[#f5f5f7] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-[#1d1d1f] mb-4">为什么选择 Gate</h2>
-          </motion.div>
+      <section id="best-practices" className="py-12 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl mb-12">
+        <div className="mx-auto">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-12"
+                  >
+                    <h2 className="text-3xl font-bold text-[#1d1d1f] mb-4">为什么选择 Gate</h2>
+                  </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {benefits.map((benefit, i) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-white border border-[#d2d2d7]/50 flex items-center justify-center mx-auto mb-4">
-                  <benefit.icon className="w-7 h-7 text-[#0071e3]" />
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    {benefits.map((benefit, i) => (
+                      <motion.div
+                        key={benefit.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className="text-center"
+                      >
+                        <div className="w-14 h-14 rounded-2xl bg-white border border-[#d2d2d7]/50 flex items-center justify-center mx-auto mb-4">
+                          {benefit.icon({ className: "w-7 h-7 text-[#0071e3]" })}
+                        </div>
+                        <h3 className="font-semibold text-[#1d1d1f] mb-2">{benefit.title}</h3>
+                        <p className="text-sm text-[#86868b]">{benefit.desc}</p>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="font-semibold text-[#1d1d1f] mb-2">{benefit.title}</h3>
-                <p className="text-sm text-[#86868b]">{benefit.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+              </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-16">
+        <div className="text-center">
           <h2 className="text-3xl font-bold text-[#1d1d1f] mb-4">准备好开始了吗？</h2>
           <p className="text-[#86868b] mb-8">
             只需 5 分钟，上传你的第一个技能，开始赚取收益
@@ -232,6 +224,10 @@ export default function CreatorsPage() {
           </div>
         </div>
       </section>
+            </article>
+          </div>
+        </div>
+      </div>
 
       <Footer />
     </main>
