@@ -97,7 +97,7 @@ export function Hero() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     if (searchQuery.trim()) {
-      window.location.href = `/solutions-market?q=${encodeURIComponent(searchQuery)}`
+      window.location.href = `/market?q=${encodeURIComponent(searchQuery)}`
     }
   }
 
@@ -183,7 +183,7 @@ export function Hero() {
                 </button>
               </div>
               <a
-                href="/solutions-market"
+                href="/market"
                 className="hidden sm:flex h-14 px-6 items-center text-[15px] font-medium text-[#1d1d1f] hover:text-[#0071e3] transition-colors"
               >
                 浏览市场
@@ -202,7 +202,7 @@ export function Hero() {
             {["PDF 解析", "代码审查", "文案生成", "数据分析", "法律合规"].map((tag) => (
               <a
                 key={tag}
-                href={`/solutions-market?q=${encodeURIComponent(tag)}`}
+                href={`/market?q=${encodeURIComponent(tag)}`}
                 className="px-3 py-1.5 text-sm rounded-full bg-[#f5f5f7] text-[#1d1d1f] hover:bg-[#0071e3]/10 hover:text-[#0071e3] transition-colors"
               >
                 {tag}

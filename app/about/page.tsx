@@ -40,13 +40,13 @@ export default function AboutPage() {
               
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <Button size="lg" className="btn-gradient h-12 px-8" asChild>
-                  <a href="/solutions-market" className="flex items-center gap-2">
+                  <a href="/market" className="flex items-center gap-2">
                     浏览技能市场
                     <ArrowRight className="w-5 h-5" />
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" className="h-12 px-8 rounded-full bg-transparent" asChild>
-                  <a href="/tutorial">接入指南</a>
+                  <a href="/docs">接入指南</a>
                 </Button>
               </div>
             </motion.div>
@@ -188,7 +188,7 @@ export default function AboutPage() {
                   ))}
                 </ul>
                 <Button className="mt-6 btn-gradient" asChild>
-                  <a href="/solutions-market">浏览技能市场</a>
+                  <a href="/market">浏览技能市场</a>
                 </Button>
               </motion.div>
               
@@ -216,7 +216,7 @@ export default function AboutPage() {
                   ))}
                 </ul>
                 <Button className="mt-6 bg-[#5856d6] hover:bg-[#4745b5] text-white" asChild>
-                  <a href="/creator-studio">进入运维大厅</a>
+                  <a href="/creators">进入创作者中心</a>
                 </Button>
               </motion.div>
             </div>
@@ -234,13 +234,13 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" className="btn-gradient h-12 px-8" asChild>
-                <a href="/solutions-market" className="flex items-center gap-2">
+                <a href="/market" className="flex items-center gap-2">
                   浏览技能市场
                   <ArrowRight className="w-5 h-5" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="h-12 px-8 rounded-full bg-transparent" asChild>
-                <a href="/creator-studio">成为创作者</a>
+                <a href="/creators">成为创作者</a>
               </Button>
             </div>
           </div>

@@ -14,7 +14,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5 hover:opacity-70 transition-opacity">
-            <div className="w-8 h-8 rounded-lg bg-[#0071e3] flex items-center justify-center grid grid-cols-2 gap-0.5 p-1.5">
+            <div className="w-8 h-8 rounded-lg bg-[#0071e3] grid grid-cols-2 gap-0.5 p-1.5">
               <div className="w-full h-full bg-white rounded-sm"></div>
               <div className="w-full h-full bg-white rounded-sm"></div>
               <div className="w-full h-full bg-white rounded-sm"></div>
@@ -23,19 +23,22 @@ export function Navigation() {
             <span className="font-semibold text-lg text-[#1d1d1f]">Gate</span>
           </a>
 
-          {/* Center Navigation */}
+          {/* Center Navigation - 按 PRD v3 结构 */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="/solutions-market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
+            <a href="/market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
               技能市场
             </a>
-            <a href="/creator-studio" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              运维大厅
+            <a href="/ecosystem" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
+              生态集成
             </a>
-            <a href="/tutorial" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              接入指南
+            <a href="/creators" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
+              创作者中心
+            </a>
+            <a href="/docs" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
+              文档
             </a>
             <a href="/about" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              关于 Gate
+              关于
             </a>
           </div>
 
@@ -86,39 +89,46 @@ export function Navigation() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-1 border-t border-[#d2d2d7]/40 animate-fade-in">
             <a
-              href="/solutions-market"
+              href="/market"
               className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               技能市场
             </a>
             <a
-              href="/creator-studio"
+              href="/ecosystem"
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              运维大厅
+              生态集成
             </a>
             <a
-              href="/tutorial"
+              href="/creators"
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              接入指南
+              创作者中心
+            </a>
+            <a
+              href="/docs"
+              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              文档
             </a>
             <a
               href="/about"
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              关于 Gate
+              关于
             </a>
             <div className="pt-3 px-4 flex gap-2">
               <Button size="sm" variant="outline" className="flex-1 h-9 rounded-full border-[#0071e3] text-[#0071e3] bg-transparent" asChild>
-                <a href="/solutions-market">使用者</a>
+                <a href="/market">使用者</a>
               </Button>
               <Button size="sm" className="flex-1 h-9 rounded-full bg-[#0071e3] text-white hover:bg-[#0077ed]" asChild>
-                <a href="/creator-studio">开发者</a>
+                <a href="/creators">开发者</a>
               </Button>
             </div>
           </div>
