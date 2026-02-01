@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/card"
 import { Check, Copy, Terminal, CheckCircle2, HelpCircle, Lightbulb } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { DocsSidebar } from "@/components/docs-sidebar"
+import { Breadcrumb } from "@/components/breadcrumb"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 export default function QuickstartClient() {

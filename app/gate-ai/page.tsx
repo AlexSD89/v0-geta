@@ -12,21 +12,26 @@ export default function GateAIPage() {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      <main className="pt-24">
+      <main className="pt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-12">
             <DocsSidebar />
             
-            <div className="flex-1">
+            <article className="flex-1 max-w-3xl pb-24">
               <Breadcrumb items={[
                 { label: "首页", href: "/" },
                 { label: "指引中心", href: "/about" },
                 { label: "About Gate AI" }
               ]} />
               
+              {/* 阅读时间 */}
+              <div className="text-sm text-[#86868b] mb-6">
+                8 分钟阅读
+              </div>
+              
               {/* Hero Section */}
-              <section className="py-12">
-                <div className="max-w-4xl mx-auto text-center">
+              <section className="mb-12">
+                <div className="text-center">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#ff6b4a]/10 text-[#ff6b4a] text-sm font-medium mb-6">
                     <Sparkles className="w-4 h-4" />
                     Gate AI 将军
@@ -339,7 +344,7 @@ export default function GateAIPage() {
                   </div>
                 </div>
               </section>
-            </div>
+            </article>
           </div>
         </div>
       </main>

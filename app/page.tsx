@@ -14,12 +14,13 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      {/* 刚接触 Skills? - 紧跟 Hero */}
+      {/* Hero 下面：刚接触 Skills? */}
       <SkillsIntro />
       {/* 今日可用 Skills */}
       <SkillsShowcase />
-      {/* 如何使用 - Gate 平台 vs Gate AI 对比移到这里 */}
+      {/* 如何使用 */}
       <SkillsHowItWorks />
+      {/* 如何使用下面：完整的 AI Skills 生态系统 */}
       <PlatformComparison />
       {/* 创作者 CTA */}
       <CreatorCTA />

@@ -13,17 +13,17 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[rgba(255,255,255,0.72)] backdrop-blur-xl backdrop-saturate-[180%] border-b border-[#d2d2d7]/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity">
-            <div className="w-9 h-9 rounded-lg bg-[#0071e3] grid grid-cols-2 gap-0.5 p-1.5">
+          <a href="/" className="flex items-center gap-2.5 hover:opacity-70 transition-opacity">
+            <div className="w-8 h-8 rounded-lg bg-[#0071e3] grid grid-cols-2 gap-0.5 p-1.5">
               <div className="w-full h-full bg-white rounded-sm"></div>
               <div className="w-full h-full bg-white rounded-sm"></div>
               <div className="w-full h-full bg-white rounded-sm"></div>
               <div className="w-full h-full bg-white rounded-sm"></div>
             </div>
-            <span className="font-semibold text-xl text-[#1d1d1f]">Gate</span>
+            <span className="font-semibold text-lg text-[#1d1d1f]">Gate</span>
           </a>
 
           {/* Center Navigation */}
@@ -34,6 +34,9 @@ export function Navigation() {
             <a href="/gate-ai" className="text-[15px] text-[#1d1d1f] hover:text-[#ff6b4a] transition-colors font-medium">
               About Gate AI
             </a>
+            <a href="/creators" className="text-[15px] text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
+              创作者
+            </a>
             <a href="/about" className="text-[15px] text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
               指引
             </a>
@@ -42,19 +45,19 @@ export function Navigation() {
           {/* Right: Role Switcher + User */}
           <div className="hidden md:flex items-center gap-3">
             {/* Role Switcher */}
-            <div className="flex items-center p-1 rounded-full border border-[#d2d2d7]/50 bg-[#f5f5f7]">
+            <div className="flex items-center p-0.5 rounded-full border border-[#d2d2d7]/50 bg-[#f5f5f7]">
               <button
                 onClick={() => {
                   setMode("user")
                   window.dispatchEvent(new CustomEvent('roleChanged', { detail: { mode: 'user' } }))
                 }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                   mode === "user"
-                    ? "bg-white text-[#0071e3] shadow-md"
+                    ? "bg-white text-[#0071e3] shadow-sm"
                     : "text-[#86868b] hover:text-[#1d1d1f]"
                 }`}
               >
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-3.5 h-3.5" />
                 使用者
               </button>
               <button
@@ -62,28 +65,28 @@ export function Navigation() {
                   setMode("dev")
                   window.dispatchEvent(new CustomEvent('roleChanged', { detail: { mode: 'dev' } }))
                 }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                   mode === "dev"
-                    ? "bg-white text-[#ff6b4a] shadow-md"
+                    ? "bg-gradient-to-r from-[#5856d6] to-[#007aff] text-white shadow-sm"
                     : "text-[#86868b] hover:text-[#1d1d1f]"
                 }`}
               >
-                <Code2 className="w-4 h-4" />
+                <Code2 className="w-3.5 h-3.5" />
                 开发者
               </button>
             </div>
             
             {/* User Avatar */}
             {isLoggedIn ? (
-              <a href="/profile" className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0071e3] to-[#5856d6] flex items-center justify-center hover:opacity-80 transition-opacity">
-                <User className="w-5 h-5 text-white" />
+              <a href="/profile" className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0071e3] to-[#5856d6] flex items-center justify-center hover:opacity-80 transition-opacity">
+                <User className="w-4 h-4 text-white" />
               </a>
             ) : (
               <button 
                 onClick={() => setLoginModalOpen(true)}
-                className="w-10 h-10 rounded-full bg-[#f5f5f7] flex items-center justify-center hover:bg-[#e8e8ed] transition-colors"
+                className="w-8 h-8 rounded-full bg-[#f5f5f7] flex items-center justify-center hover:bg-[#e8e8ed] transition-colors"
               >
-                <User className="w-5 h-5 text-[#86868b]" />
+                <User className="w-4 h-4 text-[#86868b]" />
               </button>
             )}
           </div>
@@ -122,6 +125,13 @@ export function Navigation() {
               onClick={() => setMobileMenuOpen(false)}
             >
               About Gate AI
+            </a>
+            <a
+              href="/creators"
+              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              创作者
             </a>
             <a
               href="/about"

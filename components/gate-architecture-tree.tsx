@@ -146,11 +146,11 @@ export function GateArchitectureTree() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="group bg-card/80 backdrop-blur-sm border border-border rounded-2xl p-10 hover:shadow-2xl transition-all duration-300 cursor-pointer hover:border-[var(--hover-border)]"
-                style={{
-                  ["--hover-border" as string]:
-                    item.layer === "knowledge" ? "#1d4ed8" : item.layer === "gate" ? "#0071e3" : "#0ea5e9",
-                }}
+                className={`group bg-card/80 backdrop-blur-sm border border-border rounded-2xl p-10 hover:shadow-2xl transition-all duration-300 cursor-pointer ${
+                  item.layer === "knowledge" ? "hover:border-[#1d4ed8]" : 
+                  item.layer === "gate" ? "hover:border-[#0071e3]" : 
+                  "hover:border-[#0ea5e9]"
+                }`}
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -159,8 +159,11 @@ export function GateArchitectureTree() {
                 >
                   <Icon className={`w-8 h-8 ${colors.icon} stroke-[1.5]`} />
                 </motion.div>
-
-                <h4 className="font-semibold text-xl text-foreground mb-4 leading-snug group-hover:text-[var(--hover-border)] transition-colors">
+                <h4 className={`font-semibold text-xl text-foreground mb-4 leading-snug transition-colors ${
+                  item.layer === "knowledge" ? "group-hover:text-[#1d4ed8]" : 
+                  item.layer === "gate" ? "group-hover:text-[#0071e3]" : 
+                  "group-hover:text-[#0ea5e9]"
+                }`}>
                   {item.title}
                 </h4>
 
