@@ -3,10 +3,13 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Sparkles, Code2, User } from "lucide-react"
+import { LoginModal } from "@/components/login-modal"
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mode, setMode] = useState<"user" | "dev">("user")
+  const [loginModalOpen, setLoginModalOpen] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[rgba(255,255,255,0.72)] backdrop-blur-xl backdrop-saturate-[180%] border-b border-[#d2d2d7]/30">
@@ -24,12 +27,9 @@ export function Navigation() {
           </a>
 
           {/* Center Navigation */}
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden md:flex items-center gap-6">
             <a href="/market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
               Skills
-            </a>
-            <a href="/tools" className="text-sm text-[#1d1d1f] hover:text-[#5856d6] transition-colors font-medium">
-              AI 工具
             </a>
             <a href="/gate-ai" className="text-sm text-[#1d1d1f] hover:text-[#ff6b4a] transition-colors font-medium">
               Gate AI
@@ -38,7 +38,7 @@ export function Navigation() {
               创作者
             </a>
             <a href="/about" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              学习
+              指引
             </a>
           </div>
 
@@ -47,7 +47,10 @@ export function Navigation() {
             {/* Role Switcher */}
             <div className="flex items-center p-0.5 rounded-full border border-[#d2d2d7]/50 bg-[#f5f5f7]">
               <button
-                onClick={() => setMode("user")}
+                onClick={() => {
+                  setMode("user")
+                  window.dispatchEvent(new CustomEvent('roleChanged', { detail: { mode: 'user' } }))
+                }}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                   mode === "user"
                     ? "bg-white text-[#0071e3] shadow-sm"
@@ -58,10 +61,13 @@ export function Navigation() {
                 使用者
               </button>
               <button
-                onClick={() => setMode("dev")}
+                onClick={() => {
+                  setMode("dev")
+                  window.dispatchEvent(new CustomEvent('roleChanged', { detail: { mode: 'dev' } }))
+                }}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                   mode === "dev"
-                    ? "bg-white text-[#0071e3] shadow-sm"
+                    ? "bg-white text-[#ff6b4a] shadow-sm"
                     : "text-[#86868b] hover:text-[#1d1d1f]"
                 }`}
               >
@@ -71,10 +77,28 @@ export function Navigation() {
             </div>
             
             {/* User Avatar */}
-            <button className="w-8 h-8 rounded-full bg-[#f5f5f7] flex items-center justify-center hover:bg-[#e8e8ed] transition-colors">
-              <User className="w-4 h-4 text-[#86868b]" />
-            </button>
+            {isLoggedIn ? (
+              <a href="/profile" className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0071e3] to-[#5856d6] flex items-center justify-center hover:opacity-80 transition-opacity">
+                <User className="w-4 h-4 text-white" />
+              </a>
+            ) : (
+              <button 
+                onClick={() => setLoginModalOpen(true)}
+                className="w-8 h-8 rounded-full bg-[#f5f5f7] flex items-center justify-center hover:bg-[#e8e8ed] transition-colors"
+              >
+                <User className="w-4 h-4 text-[#86868b]" />
+              </button>
+            )}
           </div>
+          
+          <LoginModal 
+            isOpen={loginModalOpen} 
+            onClose={() => setLoginModalOpen(false)}
+            onLogin={() => {
+              setIsLoggedIn(true)
+              setLoginModalOpen(false)
+            }}
+          />
 
           <button
             className="md:hidden p-2 hover:bg-black/5 rounded-lg transition-colors"
@@ -96,13 +120,6 @@ export function Navigation() {
               Skills
             </a>
             <a
-              href="/tools"
-              className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              AI 工具
-            </a>
-            <a
               href="/gate-ai"
               className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
@@ -121,7 +138,7 @@ export function Navigation() {
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              学习
+              指引
             </a>
             <div className="pt-3 px-4 flex gap-2">
               <Button size="sm" variant="outline" className="flex-1 h-9 rounded-full border-[#0071e3] text-[#0071e3] bg-transparent" asChild>

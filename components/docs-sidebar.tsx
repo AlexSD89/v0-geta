@@ -4,20 +4,19 @@ import { usePathname } from "next/navigation"
 
 const docNav = [
   {
-    title: "学习中心",
+    title: "指引中心",
     items: [
       { label: "01 什么是 Skill?", href: "/about" },
       { label: "02 快速开始", href: "/docs/quickstart" },
       { label: "03 Gate AI", href: "/gate-ai" },
-      { label: "04 AI 工具市场", href: "/tools" },
     ]
   },
   {
     title: "创作者",
     items: [
-      { label: "05 创建 Skill", href: "/creators" },
-      { label: "06 收益分成", href: "/creators#revenue" },
-      { label: "07 最佳实践", href: "/creators#best-practices" },
+      { label: "04 创建 Skill", href: "/creators" },
+      { label: "05 收益分成", href: "/creators#revenue" },
+      { label: "06 最佳实践", href: "/creators#best-practices" },
     ]
   }
 ]
