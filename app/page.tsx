@@ -1,6 +1,7 @@
 "use client"
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
+import { PlatformComparison } from "@/components/platform-comparison"
 import { SkillsIntro } from "@/components/skills-intro"
 import { SkillsShowcase } from "@/components/skills-showcase"
 import { SkillsHowItWorks } from "@/components/skills-how-it-works"
@@ -13,6 +14,8 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      {/* Gate 平台 vs Gate AI 对比 */}
+      <PlatformComparison />
       {/* 刚接触 Skills? */}
       <SkillsIntro />
       {/* 今日可用 Skills */}

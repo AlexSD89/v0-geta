@@ -24,21 +24,21 @@ export function Navigation() {
           </a>
 
           {/* Center Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <a href="/market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
               Skills 市场
             </a>
-            <a href="/ecosystem" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              生态集成
+            <a href="/gate-ai" className="text-sm text-[#1d1d1f] hover:text-[#ff6b4a] transition-colors font-medium">
+              Gate AI
             </a>
             <a href="/creators" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              创作者中心
+              创作者
             </a>
             <a href="/docs" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
               文档
             </a>
             <a href="/about" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              关于 Gate
+              学习
             </a>
           </div>
 
@@ -96,18 +96,18 @@ export function Navigation() {
               Skills 市场
             </a>
             <a
-              href="/ecosystem"
-              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
+              href="/gate-ai"
+              className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              生态集成
+              Gate AI
             </a>
             <a
               href="/creators"
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              创作者中心
+              创作者
             </a>
             <a
               href="/docs"
@@ -121,7 +121,7 @@ export function Navigation() {
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              关于 Gate
+              学习
             </a>
             <div className="pt-3 px-4 flex gap-2">
               <Button size="sm" variant="outline" className="flex-1 h-9 rounded-full border-[#0071e3] text-[#0071e3] bg-transparent" asChild>
