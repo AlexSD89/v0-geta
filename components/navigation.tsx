@@ -2,73 +2,100 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Menu, X, Sparkles, Code2, User } from "lucide-react"
+import { LoginModal } from "@/components/login-modal"
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mode, setMode] = useState<"user" | "dev">("user")
+  const [loginModalOpen, setLoginModalOpen] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[rgba(255,255,255,0.72)] backdrop-blur-xl backdrop-saturate-[180%] border-b border-[#d2d2d7]/30">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
           <a href="/" className="flex items-center gap-2.5 hover:opacity-70 transition-opacity">
-            <div className="w-8 h-8 rounded-lg bg-[#0071e3] flex items-center justify-center">
-              <span className="text-white font-semibold text-base">G</span>
+            <div className="w-8 h-8 rounded-lg bg-[#0071e3] grid grid-cols-2 gap-0.5 p-1.5">
+              <div className="w-full h-full bg-white rounded-sm"></div>
+              <div className="w-full h-full bg-white rounded-sm"></div>
+              <div className="w-full h-full bg-white rounded-sm"></div>
+              <div className="w-full h-full bg-white rounded-sm"></div>
             </div>
             <span className="font-semibold text-lg text-[#1d1d1f]">Gate</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-7">
-            <a href="/start" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
-              开始使用
+          {/* Center Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            <a href="/market" className="text-[15px] text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
+              Skills 市场
             </a>
-            <a href="/marketplace" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              AI 工具集成库
+            <a href="/gate-ai" className="text-[15px] text-[#1d1d1f] hover:text-[#ff6b4a] transition-colors font-medium">
+              About Gate AI
             </a>
-            <a href="/solutions-market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              AI 解决方案
-            </a>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors outline-none">
-                解决方案
-                <ChevronDown className="w-3.5 h-3.5" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align="center"
-                className="w-48 bg-white/95 backdrop-blur-xl border-[#d2d2d7]/60 shadow-lg rounded-xl p-1"
-              >
-                <DropdownMenuItem asChild className="text-sm cursor-pointer rounded-lg">
-                  <a href="/solutions/enterprise">企业解决方案</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild className="text-sm cursor-pointer rounded-lg">
-                  <a href="/solutions/development">开发者工具</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild className="text-sm cursor-pointer rounded-lg">
-                  <a href="/solutions/providers">AI 能力提供商</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild className="text-sm cursor-pointer rounded-lg">
-                  <a href="/solutions/social">社交媒体自动化</a>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <a href="/pricing" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              定价
-            </a>
-            <a href="/tutorial" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              安装教程
+            <a href="/about" className="text-[15px] text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
+              指引
             </a>
           </div>
 
-          <div className="hidden md:flex items-center">
-            <Button
-              size="sm"
-              className="h-8 px-4 text-sm rounded-full bg-[#0071e3] text-white hover:bg-[#0077ed] transition-colors"
-              asChild
-            >
-              <a href="/contact">联系我们</a>
-            </Button>
+          {/* Right: Role Switcher + User */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Role Switcher */}
+            <div className="flex items-center p-0.5 rounded-full border border-[#d2d2d7]/50 bg-[#f5f5f7]">
+              <button
+                onClick={() => {
+                  setMode("user")
+                  window.dispatchEvent(new CustomEvent('roleChanged', { detail: { mode: 'user' } }))
+                }}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                  mode === "user"
+                    ? "bg-white text-[#0071e3] shadow-sm"
+                    : "text-[#86868b] hover:text-[#1d1d1f]"
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                使用者
+              </button>
+              <button
+                onClick={() => {
+                  setMode("dev")
+                  window.dispatchEvent(new CustomEvent('roleChanged', { detail: { mode: 'dev' } }))
+                }}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                  mode === "dev"
+                    ? "bg-gradient-to-r from-[#4f46e5] to-[#7c3aed] text-white shadow-sm"
+                    : "text-[#86868b] hover:text-[#1d1d1f]"
+                }`}
+              >
+                <Code2 className="w-3.5 h-3.5" />
+                开发者
+              </button>
+            </div>
+            
+            {/* User Avatar */}
+            {isLoggedIn ? (
+              <a href="/profile" className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0071e3] to-[#5856d6] flex items-center justify-center hover:opacity-80 transition-opacity">
+                <User className="w-4 h-4 text-white" />
+              </a>
+            ) : (
+              <button 
+                onClick={() => setLoginModalOpen(true)}
+                className="w-8 h-8 rounded-full bg-[#f5f5f7] flex items-center justify-center hover:bg-[#e8e8ed] transition-colors"
+              >
+                <User className="w-4 h-4 text-[#86868b]" />
+              </button>
+            )}
           </div>
+          
+          <LoginModal 
+            isOpen={loginModalOpen} 
+            onClose={() => setLoginModalOpen(false)}
+            onLogin={() => {
+              setIsLoggedIn(true)
+              setLoginModalOpen(false)
+            }}
+          />
 
           <button
             className="md:hidden p-2 hover:bg-black/5 rounded-lg transition-colors"
@@ -83,58 +110,40 @@ export function Navigation() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-1 border-t border-[#d2d2d7]/40 animate-fade-in">
             <a
-              href="/start"
+              href="/market"
               className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              开始使用
+              Skills 市场
             </a>
             <a
-              href="/marketplace"
+              href="/gate-ai"
+              className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About Gate AI
+            </a>
+            <a
+              href="/about"
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              AI 工具集成库
-            </a>
-            <a
-              href="/solutions-market"
-              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              AI 解决方案
-            </a>
-            <a
-              href="/solutions/enterprise"
-              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              企业解决方案
-            </a>
-            <a
-              href="/solutions/development"
-              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              开发者工具
-            </a>
-            <a
-              href="/pricing"
-              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              定价
-            </a>
-            <a
-              href="/tutorial"
-              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              安装教程
+              指引
             </a>
             <div className="pt-3 px-4">
-              <Button size="sm" className="w-full h-9 rounded-full bg-[#0071e3] text-white hover:bg-[#0077ed]" asChild>
-                <a href="/contact">联系我们</a>
-              </Button>
+              <button
+                onClick={() => {
+                  if (isLoggedIn) {
+                    window.location.href = '/profile'
+                  } else {
+                    setLoginModalOpen(true)
+                  }
+                  setMobileMenuOpen(false)
+                }}
+                className="w-full h-9 rounded-full bg-[#0071e3] text-white text-sm font-medium hover:bg-[#0077ed] transition-colors"
+              >
+                {isLoggedIn ? '我的账户' : '登录 / 注册'}
+              </button>
             </div>
           </div>
         )}

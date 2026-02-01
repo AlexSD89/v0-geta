@@ -1,40 +1,31 @@
 "use client"
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
-import { GateWorkflow } from "@/components/gate-workflow"
-import { UsecaseTabs } from "@/components/usecase-tabs"
+import { PlatformComparison } from "@/components/platform-comparison"
+import { SkillsIntro } from "@/components/skills-intro"
+import { SkillsShowcase } from "@/components/skills-showcase"
+import { SkillsHowItWorks } from "@/components/skills-how-it-works"
+import { CreatorCTA } from "@/components/creator-cta"
 import { LogoMarquee } from "@/components/logo-marquee"
-import { GateArchitectureTree } from "@/components/gate-architecture-tree"
-import { InstallOptions } from "@/components/install-options"
-import { FAQ } from "@/components/faq"
-import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
-import { CompetitorComparison } from "@/components/competitor-comparison" // Imported new component
 
 export default function Home() {
-  const router = useRouter()
-
-  useEffect(() => {
-    const hasCompletedOnboarding = localStorage.getItem("gate_onboarding_completed")
-    if (!hasCompletedOnboarding) {
-      router.push("/start")
-    }
-  }, [router])
-
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <CompetitorComparison />
-      <GateWorkflow />
-      <UsecaseTabs />
-      <GateArchitectureTree />
+      {/* Hero 下面：刚接触 Skills? */}
+      <SkillsIntro />
+      {/* 今日可用 Skills */}
+      <SkillsShowcase />
+      {/* 如何使用 */}
+      <SkillsHowItWorks />
+      {/* 如何使用下面：完整的 AI Skills 生态系统 */}
+      <PlatformComparison />
+      {/* 创作者 CTA */}
+      <CreatorCTA />
+      {/* 合作伙伴 */}
       <LogoMarquee />
-      <InstallOptions />
-      <FAQ />
-      <FinalCTA />
       <Footer />
     </main>
   )

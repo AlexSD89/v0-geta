@@ -1,6 +1,7 @@
 "use client"
 
 import { Database, Zap, TrendingDown, Layers, Workflow, Brain, Building2, Sparkles, Cloud } from "lucide-react"
+import { motion } from "framer-motion"
 
 // 第一层（知识封装）：深蓝 - 代表内部核心
 // 第二层（Gate智能）：主蓝 - 代表中枢连接
@@ -101,7 +102,13 @@ export function GateArchitectureTree() {
   return (
     <section className="py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl text-foreground mb-3 leading-tight">
             <span className="font-normal">让</span> <span className="font-bold">Gate</span>{" "}
             <span className="font-normal">为您的知识自动工作</span>
@@ -110,37 +117,55 @@ export function GateArchitectureTree() {
           <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             筛选最适合的 AI 供应商，整合外部工具，标准化封装企业和个人知识
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-6 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex flex-wrap justify-center gap-6 mb-12"
+        >
           {Object.entries(layerColors).map(([key, value]) => (
             <div key={key} className="flex items-center gap-2">
               <div className={`w-3 h-3 rounded-full ${value.labelBg}`} />
               <span className="text-sm text-muted-foreground">{value.label}</span>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {capabilities.map((item, index) => {
             const Icon = item.icon
             const colors = layerColors[item.layer]
             return (
-              <div
+              <motion.div
                 key={index}
-                className="group bg-card border border-border rounded-xl p-10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-                style={{
-                  ["--hover-border" as string]:
-                    item.layer === "knowledge" ? "#1d4ed8" : item.layer === "gate" ? "#0071e3" : "#0ea5e9",
-                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className={`group bg-card/80 backdrop-blur-sm border border-border rounded-2xl p-10 hover:shadow-2xl transition-all duration-300 cursor-pointer ${
+                  item.layer === "knowledge" ? "hover:border-[#1d4ed8]" : 
+                  item.layer === "gate" ? "hover:border-[#0071e3]" : 
+                  "hover:border-[#0ea5e9]"
+                }`}
               >
-                <div
-                  className={`w-16 h-16 rounded-xl ${colors.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.2 }}
+                  className={`w-16 h-16 rounded-xl ${colors.bg} flex items-center justify-center mb-6`}
                 >
                   <Icon className={`w-8 h-8 ${colors.icon} stroke-[1.5]`} />
-                </div>
-
-                <h4 className="font-semibold text-xl text-foreground mb-4 leading-snug">{item.title}</h4>
+                </motion.div>
+                <h4 className={`font-semibold text-xl text-foreground mb-4 leading-snug transition-colors ${
+                  item.layer === "knowledge" ? "group-hover:text-[#1d4ed8]" : 
+                  item.layer === "gate" ? "group-hover:text-[#0071e3]" : 
+                  "group-hover:text-[#0ea5e9]"
+                }`}>
+                  {item.title}
+                </h4>
 
                 <p className="text-muted-foreground leading-relaxed text-base mb-4">{item.description}</p>
 
@@ -149,14 +174,14 @@ export function GateArchitectureTree() {
                     {item.tools.map((tool, toolIndex) => (
                       <span
                         key={toolIndex}
-                        className={`px-3 py-1.5 text-xs font-medium bg-muted text-muted-foreground rounded-lg hover:${colors.bg} hover:${colors.icon} transition-colors`}
+                        className={`px-3 py-1.5 text-xs font-medium bg-muted text-muted-foreground rounded-lg transition-all hover:bg-opacity-100 hover:${colors.bg} hover:${colors.icon}`}
                       >
                         {tool}
                       </span>
                     ))}
                   </div>
                 )}
-              </div>
+              </motion.div>
             )
           })}
         </div>

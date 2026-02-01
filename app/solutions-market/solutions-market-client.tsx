@@ -3,6 +3,7 @@
 import type React from "react"
 import { Phone, User, Book, Search } from "lucide-react"
 import { ExternalLink } from "lucide-react"
+import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -30,7 +31,6 @@ import {
   Slack,
   Twitter,
   Instagram,
-  Coins,
   Target,
 } from "lucide-react"
 import { useState } from "react"
@@ -314,13 +314,13 @@ export default function SolutionsMarketClient() {
         <div className="container-default mb-12 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0071e3]/10 text-[#0071e3] text-sm font-medium mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>即插即用 · 一键部署</span>
+            <span>The Bazaar - AI Skill 交易所</span>
           </div>
 
-          <h1 className="heading-section mb-4">AI 解决方案</h1>
+          <h1 className="heading-section mb-4">Skill 市场</h1>
 
-          <p className="subtitle-section mx-auto mb-2">找到你的业务场景，一键部署专业 AI 工作流</p>
-          <p className="caption-text max-w-xl mx-auto">每个方案都包含：行业知识库 + 工作流编排 + 工具集成</p>
+          <p className="subtitle-section mx-auto mb-2">发现、使用、混搭 1,000+ AI Skills</p>
+          <p className="caption-text max-w-xl mx-auto">每个 Skill 都包含：行业知识 + 工作流 + API 调用 — 消费即创造</p>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 mb-8">
@@ -390,124 +390,130 @@ export default function SolutionsMarketClient() {
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-12">
-                {filteredSolutions.map((solution) => (
-                  <Link key={solution.id} href={`/solutions-market/${solution.id}`} className="block">
-                    <Card className="p-5 hover:shadow-lg hover:border-[#0071e3]/40 transition-all duration-200 border-2 group flex flex-col h-full cursor-pointer">
-                      <div className="flex flex-wrap gap-1.5 mb-3">
-                        {solution.sceneTags.map((tag) => (
-                          <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-[#f5f5f7] text-[#86868b]">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <h4 className="font-bold text-lg mb-2 group-hover:text-[#0071e3] transition-colors">
-                        {solution.name}
-                      </h4>
-
-                      <p className="text-sm text-[#86868b] mb-4 line-clamp-2 flex-1">{solution.description}</p>
-
-                      <div className="flex items-center gap-4 mb-4 py-3 px-3 rounded-lg bg-[#f5f5f7]">
-                        <div className="flex items-center gap-1.5">
-                          <Target className="w-4 h-4 text-[#0071e3]" />
-                          <span className="text-sm font-bold text-[#1d1d1f]">{solution.efficiency}</span>
-                          <span className="text-xs text-[#86868b]">效率</span>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
+                {filteredSolutions.map((solution, index) => (
+                  <motion.div
+                    key={solution.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    <Link href={`/solutions-market/${solution.id}`} className="block h-full">
+                      <Card className="p-6 hover:shadow-2xl hover:border-[#0071e3]/60 transition-all duration-300 border-2 group flex flex-col h-full cursor-pointer backdrop-blur-sm bg-white/80">
+                        <div className="flex flex-wrap gap-1.5 mb-4">
+                          {solution.sceneTags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-xs px-2.5 py-1 rounded-full bg-[#f5f5f7] text-[#86868b] font-medium"
+                            >
+                              {tag}
+                            </span>
+                          ))}
                         </div>
-                        <div className="w-px h-4 bg-[#d2d2d7]" />
-                        <div className="flex items-center gap-1.5">
-                          <TrendingUp className="w-4 h-4 text-[#34c759]" />
-                          <span className="text-sm font-bold text-[#1d1d1f]">{solution.roi}</span>
-                          <span className="text-xs text-[#86868b]">ROI</span>
+
+                        <h4 className="font-bold text-xl mb-3 group-hover:text-[#0071e3] transition-colors">
+                          {solution.name}
+                        </h4>
+
+                        <p className="text-[15px] text-[#86868b] mb-5 line-clamp-2 flex-1 leading-relaxed">
+                          {solution.description}
+                        </p>
+
+                        <div className="flex items-center gap-4 mb-5 py-4 px-4 rounded-xl bg-gradient-to-br from-[#f5f5f7] to-[#fafafa]">
+                          <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg bg-[#0071e3]/10 flex items-center justify-center">
+                              <Target className="w-4 h-4 text-[#0071e3]" />
+                            </div>
+                            <div>
+                              <span className="text-base font-bold text-[#1d1d1f] block">{solution.efficiency}</span>
+                              <span className="text-xs text-[#86868b]">效率提升</span>
+                            </div>
+                          </div>
+                          <div className="w-px h-10 bg-[#d2d2d7]" />
+                          <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg bg-[#34c759]/10 flex items-center justify-center">
+                              <TrendingUp className="w-4 h-4 text-[#34c759]" />
+                            </div>
+                            <div>
+                              <span className="text-base font-bold text-[#1d1d1f] block">{solution.roi}</span>
+                              <span className="text-xs text-[#86868b]">投资回报</span>
+                            </div>
+                          </div>
                         </div>
-                      </div>
 
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {solution.integrations.slice(0, 3).map((tool, i) => (
-                          <span key={i} className="px-2 py-0.5 text-xs bg-[#f5f5f7] text-[#86868b] rounded">
-                            {tool}
-                          </span>
-                        ))}
-                        {solution.integrations.length > 3 && (
-                          <span className="px-2 py-0.5 text-xs bg-[#f5f5f7] text-[#86868b] rounded">
-                            +{solution.integrations.length - 3}
-                          </span>
-                        )}
-                      </div>
+                        <div className="flex flex-wrap gap-2 mb-5">
+                          {solution.integrations.slice(0, 3).map((tool, i) => (
+                            <span
+                              key={i}
+                              className="px-2.5 py-1 text-xs bg-[#f5f5f7] text-[#86868b] rounded-md font-medium"
+                            >
+                              {tool}
+                            </span>
+                          ))}
+                          {solution.integrations.length > 3 && (
+                            <span className="px-2.5 py-1 text-xs bg-[#f5f5f7] text-[#86868b] rounded-md font-medium">
+                              +{solution.integrations.length - 3}
+                            </span>
+                          )}
+                        </div>
 
-                      <div className="flex items-center gap-2 pt-3 border-t border-[#d2d2d7]/50">
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          className="flex-1 h-9 text-sm"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          查看详情
-                          <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                        </Button>
-                        <Button
-                          size="sm"
-                          className="flex-1 h-9 text-sm bg-[#0071e3] hover:bg-[#0077ed] text-white"
-                          onClick={(e) => {
-                            e.preventDefault()
-                            e.stopPropagation()
-                            window.location.href = "/contact"
-                          }}
-                        >
-                          免费试用
-                        </Button>
-                      </div>
-                    </Card>
-                  </Link>
+                        <div className="flex items-center gap-3 pt-4 border-t border-[#d2d2d7]/50">
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            className="flex-1 h-10 text-[15px] hover:bg-[#f5f5f7]"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            查看详情
+                            <ArrowRight className="w-4 h-4 ml-1.5" />
+                          </Button>
+                          <Button
+                            size="sm"
+                            className="flex-1 h-10 text-[15px] bg-[#0071e3] hover:bg-[#0077ed] text-white shadow-md"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              window.location.href = "/contact"
+                            }}
+                          >
+                            免费试用
+                          </Button>
+                        </div>
+                      </Card>
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
 
-              <Card className="p-8 bg-gradient-to-br from-primary/10 via-primary/5 to-background border-2 border-primary/20">
-                <div className="max-w-3xl mx-auto text-center">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-                    <Coins className="w-4 h-4" />
-                    <span>共创共享 · 使用即分佣</span>
-                  </div>
-
-                  <h3 className="font-serif text-2xl sm:text-3xl mb-3">成为 Gate 方案贡献者</h3>
-                  <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                    将您的行业专业知识与 Gate 标准化架构结合,打造可复用的 AI 自动化解决方案。Gate
-                    帮您封装、编排、对接,每次方案被使用,您都将获得收益分成
-                  </p>
-
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
-                    <Button size="lg" className="font-semibold" asChild>
-                      <a href="/contact">
-                        <Users className="w-5 h-5 mr-2" />
-                        立即加入共创
-                      </a>
-                    </Button>
-                    <Button size="lg" variant="outline" asChild>
-                      <a href="/#waitlist">
-                        了解共创流程
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </a>
+              <Card className="mt-8 p-6 sm:p-8 bg-gradient-to-br from-[#0071e3]/5 via-white to-white border-2 border-[#0071e3]/20 hover:border-[#0071e3]/40 transition-all duration-300 backdrop-blur-md">
+                <div className="grid md:grid-cols-[1fr,auto] gap-6 items-center">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-[#1d1d1f]">AI 工具集成库</h3>
+                    <p className="text-[15px] text-[#86868b] mb-5 text-pretty leading-relaxed">
+                      探索精选集成工具，让你的 AI 助手连接更多服务
+                    </p>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="group bg-transparent h-11 px-6 text-[15px] border-[#0071e3]/30 hover:border-[#0071e3] hover:bg-[#0071e3]/5"
+                      onClick={() => {
+                        window.location.href = "/marketplace"
+                      }}
+                    >
+                      浏览工具集成库
+                      <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </Button>
                   </div>
-
-                  <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border/50">
-                    <div>
-                      <div className="text-2xl font-bold text-foreground mb-1">10</div>
-                      <div className="text-xs text-muted-foreground">活跃方案</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-foreground mb-1">542</div>
-                      <div className="text-xs text-muted-foreground">总部署次数</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-foreground mb-1">6x</div>
-                      <div className="text-xs text-muted-foreground">平均效率提升</div>
+                  <div className="hidden md:block">
+                    <div className="w-24 h-24 bg-[#0071e3]/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                      <Package className="w-12 h-12 text-[#0071e3]" />
                     </div>
                   </div>
                 </div>
               </Card>
 
-              <Card className="mt-6 p-5 sm:p-6 bg-gradient-to-br from-primary/5 via-background to-background border-2 border-primary/20 hover:border-primary/40 transition-all duration-300">
+              <Card className="mt-6 p-5 sm:p-6 bg-gradient-to-br from-primary/10 via-background to-background border-2 border-primary/20 hover:border-primary/40 transition-all duration-300">
                 <div className="grid md:grid-cols-[1fr,auto] gap-4 items-center">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold mb-2">Gate Market</h3>

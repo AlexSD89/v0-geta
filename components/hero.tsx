@@ -1,80 +1,31 @@
 "use client"
 
+import React from "react"
+
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Zap, Trophy, Plus, Heart, HelpCircle } from "lucide-react"
+import { motion } from "framer-motion"
+import { useState } from "react"
 
-function PremiumBackground() {
-  const particles = [
-    { top: "10%", left: "8%", size: 3, color: "rgba(0, 113, 227, 0.15)" },
-    { top: "25%", left: "12%", size: 5, color: "rgba(88, 86, 214, 0.12)" },
-    { top: "45%", left: "6%", size: 3, color: "rgba(0, 113, 227, 0.12)" },
-    { top: "65%", left: "14%", size: 4, color: "rgba(88, 86, 214, 0.1)" },
-    { top: "85%", left: "10%", size: 3, color: "rgba(0, 113, 227, 0.08)" },
-    { top: "15%", left: "88%", size: 4, color: "rgba(88, 86, 214, 0.1)" },
-    { top: "30%", left: "92%", size: 3, color: "rgba(0, 113, 227, 0.12)" },
-    { top: "50%", left: "85%", size: 5, color: "rgba(88, 86, 214, 0.08)" },
-    { top: "70%", left: "90%", size: 3, color: "rgba(0, 113, 227, 0.1)" },
-    { top: "12%", left: "75%", size: 3, color: "rgba(88, 86, 214, 0.1)" },
-    { top: "35%", left: "70%", size: 3, color: "rgba(0, 113, 227, 0.08)" },
-    { top: "55%", left: "72%", size: 4, color: "rgba(88, 86, 214, 0.08)" },
-    { top: "20%", left: "45%", size: 4, color: "rgba(0, 113, 227, 0.08)" },
-    { top: "40%", left: "52%", size: 5, color: "rgba(88, 86, 214, 0.06)" },
-    { top: "60%", left: "48%", size: 3, color: "rgba(0, 113, 227, 0.1)" },
-  ]
+// Live Ticker 数据 - 全宽滚动
+const tickerItems = [
+  { icon: Zap, text: "Skill `PDF-Parser` 刚刚在任务 #8921 中赚取了 $50", color: "text-yellow-400" },
+  { icon: Trophy, text: "Skill `DeepSeek-Coder` 赢得了 Python 赏金挑战 ($500)", color: "text-yellow-400" },
+  { icon: Zap, text: "新 SaaS 工具 `Bolt.new` 集成现已上线!", color: "text-green-400" },
+  { icon: Heart, text: "用户 `Sarah_99` 收藏了 `Legal-Check` Skill", color: "text-pink-400" },
+  { icon: Plus, text: "创作者 `张三` 上架了新 Skill `Video-Summarizer`", color: "text-blue-400" },
+]
 
-  const connections: Array<{ from: number; to: number }> = []
-  particles.forEach((p1, i) => {
-    particles.forEach((p2, j) => {
-      if (i < j) {
-        const dx = Number.parseFloat(p2.left) - Number.parseFloat(p1.left)
-        const dy = Number.parseFloat(p2.top) - Number.parseFloat(p1.top)
-        const distance = Math.sqrt(dx * dx + dy * dy)
-        if (distance < 25) {
-          connections.push({ from: i, to: j })
-        }
-      }
-    })
-  })
-
+// 全宽深色 Ticker 滚动条
+function FullWidthTicker() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#f8fafc] via-white to-white" />
-
-      {/* Subtle radial glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-to-br from-[#0071e3]/5 via-[#5856d6]/5 to-transparent rounded-full blur-[100px]" />
-
-      <svg className="absolute inset-0 w-full h-full">
-        {connections.map(({ from, to }, i) => (
-          <line
-            key={i}
-            x1={`${Number.parseFloat(particles[from].left)}%`}
-            y1={`${Number.parseFloat(particles[from].top)}%`}
-            x2={`${Number.parseFloat(particles[to].left)}%`}
-            y2={`${Number.parseFloat(particles[to].top)}%`}
-            stroke="rgba(0, 113, 227, 0.06)"
-            strokeWidth="1"
-            className="animate-pulse-soft"
-            style={{ animationDuration: "4s", animationDelay: `${i * 0.2}s` }}
-          />
-        ))}
-      </svg>
-
-      <div className="absolute inset-0">
-        {particles.map((particle, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full animate-float"
-            style={{
-              top: particle.top,
-              left: particle.left,
-              width: `${particle.size}px`,
-              height: `${particle.size}px`,
-              backgroundColor: particle.color,
-              boxShadow: `0 0 ${particle.size * 4}px ${particle.color}`,
-              animationDelay: `${i * 0.3}s`,
-              animationDuration: `${8 + (i % 4) * 2}s`,
-            }}
-          />
+    <div className="w-full bg-[#1d1d1f] py-2.5 overflow-hidden">
+      <div className="flex animate-marquee whitespace-nowrap">
+        {[...tickerItems, ...tickerItems].map((item, i) => (
+          <div key={i} className="flex items-center gap-6 mx-8">
+            <item.icon className={`w-4 h-4 ${item.color}`} />
+            <span className="text-sm text-white/90">{item.text}</span>
+          </div>
         ))}
       </div>
     </div>
@@ -82,93 +33,152 @@ function PremiumBackground() {
 }
 
 export function Hero() {
+  const [searchQuery, setSearchQuery] = useState("")
+  const [mode, setMode] = useState<"user" | "dev">("user")
+
+  React.useEffect(() => {
+    const handleRoleChange = (e: CustomEvent) => {
+      setMode(e.detail.mode)
+    }
+    window.addEventListener('roleChanged', handleRoleChange as EventListener)
+    return () => window.removeEventListener('roleChanged', handleRoleChange as EventListener)
+  }, [])
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      window.location.href = `/market?q=${encodeURIComponent(searchQuery)}`
+    }
+  }
+
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center px-4 sm:px-6 py-20 sm:py-28 overflow-hidden bg-white">
-      <PremiumBackground />
-
-      <div className="relative z-10 container-default text-center">
-        <div className="mb-6 animate-fade-in-up">
-          <span className="tag-gradient">Gate 支持知识即服务</span>
-        </div>
-
-        <div className="mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          <h1 className="heading-hero text-balance">
-            让 Gate 为您的知识
-            <br />
-            <span className="text-gradient-hero">自动工作</span>
-          </h1>
-        </div>
-
-        <div className="mb-10 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          <p className="subtitle-hero mx-auto text-balance max-w-3xl">
-            Gate <span className="text-[#1d1d1f] font-medium">封装业务知识</span>，
-            <span className="text-[#1d1d1f] font-medium">编排全球 AI 能力</span>
-            <br className="hidden sm:block" />
-            为您构建<span className="text-[#1d1d1f] font-medium">自动化</span>、
-            <span className="text-[#1d1d1f] font-medium">低成本</span>的专属 AI 业务系统
-          </p>
-        </div>
-
-        <div
-          className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mb-12 animate-fade-in-up"
-          style={{ animationDelay: "0.3s" }}
-        >
-          <div className="flex items-center gap-3">
-            <div className="icon-container">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <span className="text-sm font-medium text-[#1d1d1f]">10分钟上手</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="icon-container">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
-            </div>
-            <span className="text-sm font-medium text-[#1d1d1f]">本地执行</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="icon-container">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                />
-              </svg>
-            </div>
-            <span className="text-sm font-medium text-[#1d1d1f]">持续更新</span>
-          </div>
-        </div>
-
-        <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
-          style={{ animationDelay: "0.35s" }}
-        >
-          <Button size="lg" className="btn-gradient h-12 px-8 text-[17px]" asChild>
-            <a href="/start" className="flex items-center gap-2">
-              免费开始使用
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </Button>
-          <Button
-            size="lg"
-            variant="ghost"
-            className="h-12 px-8 text-[17px] rounded-full text-[#0071e3] hover:bg-[#0071e3]/5 transition-all duration-200"
-            asChild
-          >
-            <a href="/tutorial">查看安装教程</a>
-          </Button>
-        </div>
+    <>
+      {/* Full-width Ticker - 在导航栏下方 */}
+      <div className="fixed top-12 left-0 right-0 z-40">
+        <FullWidthTicker />
       </div>
-    </section>
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-16 px-4 sm:px-6 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Status Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0071e3]/30 bg-[#0071e3]/5">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0071e3] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0071e3]"></span>
+              </span>
+              <span className="text-sm text-[#0071e3] font-medium">Gate Skills 市场 v3.0 已上线</span>
+            </div>
+          </motion.div>
+
+          {/* Main Headline - 类似 Lawvable */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-6"
+          >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+              <span className="text-[#1d1d1f]">The Ultimate</span>
+              <br />
+              <span className="text-gradient-hero">Agent Skills</span>{" "}
+              <span className="text-[#1d1d1f]">交易所</span>
+            </h1>
+          </motion.div>
+
+          {/* Sub-headline - 根据角色变化，带卡牌翻转动画 */}
+          <motion.div
+            key={mode}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-10 animate-card-flip"
+          >
+            {mode === "user" ? (
+              <p className="text-lg sm:text-xl text-[#86868b] mx-auto max-w-2xl leading-relaxed">
+                发现并使用专业开发者构建的 AI Agent Skills。
+                <br className="hidden sm:block" />
+                即刻在{" "}
+                <span className="font-medium text-[#0071e3]">Claude Code</span>、
+                <span className="font-medium text-[#0071e3]">Cursor</span> 或任何{" "}
+                <span className="font-medium text-[#0071e3]">Terminal & IDE</span>{" "}
+                中使用。
+              </p>
+            ) : (
+              <p className="text-lg sm:text-xl text-[#86868b] mx-auto max-w-2xl leading-relaxed">
+                托管你的 Skills，获得被动收入。
+                <br className="hidden sm:block" />
+                加入{" "}
+                <span className="font-medium text-gradient-developer">1000+</span>{" "}
+                开发者，开始在 Gate 平台上{" "}
+                <span className="font-medium text-gradient-developer">赚取收益</span>。
+              </p>
+            )}
+          </motion.div>
+
+          {/* CTA Buttons - 根据角色变化，带奇幻卡牌效果 */}
+          <motion.div
+            key={`cta-${mode}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-wrap items-center justify-center gap-4 mb-16 animate-card-flip"
+          >
+            {mode === "user" ? (
+              <>
+                <Button 
+                  size="lg" 
+                  className="h-12 px-8 text-base rounded-xl bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium shadow-lg hover:shadow-xl transition-all border-lawvable" 
+                  asChild
+                >
+                  <a href="/market" className="flex items-center gap-2">
+                    浏览 Skills
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="h-12 px-8 text-base rounded-xl border-2 border-[#d2d2d7] text-[#1d1d1f] hover:border-[#0071e3] hover:bg-[#0071e3]/5 bg-white font-medium transition-all" 
+                  asChild
+                >
+                  <a href="/about" className="flex items-center gap-2">
+                    <HelpCircle className="w-4 h-4" />
+                    什么是 Skill?
+                  </a>
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button 
+                  size="lg" 
+                  className="h-12 px-8 text-base rounded-xl btn-developer animate-glow-pulse" 
+                  asChild
+                >
+                  <a href="/creators" className="flex items-center gap-2">
+                    开始创作
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="h-12 px-8 text-base rounded-xl border-2 border-[#4f46e5] text-[#4f46e5] hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#7c3aed] hover:text-white bg-white font-medium transition-all" 
+                  asChild
+                >
+                  <a href="/creators#revenue">查看收益</a>
+                </Button>
+              </>
+            )}
+          </motion.div>
+        </div>
+      </section>
+    </>
   )
 }
