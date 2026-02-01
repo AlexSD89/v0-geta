@@ -1,10 +1,11 @@
 "use client"
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
-import { UsecaseTabs } from "@/components/usecase-tabs"
+import { SkillsIntro } from "@/components/skills-intro"
+import { SkillsShowcase } from "@/components/skills-showcase"
+import { SkillsHowItWorks } from "@/components/skills-how-it-works"
+import { CreatorCTA } from "@/components/creator-cta"
 import { LogoMarquee } from "@/components/logo-marquee"
-import { FAQ } from "@/components/faq"
-import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -12,14 +13,16 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      {/* 热门技能展示 */}
-      <UsecaseTabs />
+      {/* 刚接触 Skills? */}
+      <SkillsIntro />
+      {/* 今日可用 Skills */}
+      <SkillsShowcase />
+      {/* 如何使用 */}
+      <SkillsHowItWorks />
+      {/* 创作者 CTA */}
+      <CreatorCTA />
       {/* 合作伙伴 */}
       <LogoMarquee />
-      {/* 常见问题 */}
-      <FAQ />
-      {/* 底部 CTA */}
-      <FinalCTA />
       <Footer />
     </main>
   )

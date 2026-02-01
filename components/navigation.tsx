@@ -23,10 +23,10 @@ export function Navigation() {
             <span className="font-semibold text-lg text-[#1d1d1f]">Gate</span>
           </a>
 
-          {/* Center Navigation - 按 PRD v3 结构 */}
+          {/* Center Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <a href="/market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
-              技能市场
+              Skills 市场
             </a>
             <a href="/ecosystem" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
               生态集成
@@ -38,7 +38,7 @@ export function Navigation() {
               文档
             </a>
             <a href="/about" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              关于
+              关于 Gate
             </a>
           </div>
 
@@ -93,7 +93,7 @@ export function Navigation() {
               className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              技能市场
+              Skills 市场
             </a>
             <a
               href="/ecosystem"
@@ -121,7 +121,7 @@ export function Navigation() {
               className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              关于
+              关于 Gate
             </a>
             <div className="pt-3 px-4 flex gap-2">
               <Button size="sm" variant="outline" className="flex-1 h-9 rounded-full border-[#0071e3] text-[#0071e3] bg-transparent" asChild>
