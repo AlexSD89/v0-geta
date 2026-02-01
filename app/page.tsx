@@ -1,39 +1,24 @@
 "use client"
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
-import { GateWorkflow } from "@/components/gate-workflow"
 import { UsecaseTabs } from "@/components/usecase-tabs"
 import { LogoMarquee } from "@/components/logo-marquee"
-import { GateArchitectureTree } from "@/components/gate-architecture-tree"
-import { InstallOptions } from "@/components/install-options"
 import { FAQ } from "@/components/faq"
 import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
-import { CompetitorComparison } from "@/components/competitor-comparison" // Imported new component
 
 export default function Home() {
-  const router = useRouter()
-
-  useEffect(() => {
-    const hasCompletedOnboarding = localStorage.getItem("gate_onboarding_completed")
-    if (!hasCompletedOnboarding) {
-      router.push("/start")
-    }
-  }, [router])
-
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <CompetitorComparison />
-      <GateWorkflow />
+      {/* 热门技能展示 */}
       <UsecaseTabs />
-      <GateArchitectureTree />
+      {/* 合作伙伴 */}
       <LogoMarquee />
-      <InstallOptions />
+      {/* 常见问题 */}
       <FAQ />
+      {/* 底部 CTA */}
       <FinalCTA />
       <Footer />
     </main>
