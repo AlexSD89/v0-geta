@@ -2,6 +2,8 @@
 
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { CreatorsSidebar } from "@/components/creators-sidebar"
+import { Breadcrumb } from "@/components/breadcrumb"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Upload, DollarSign, Share2, Users, TrendingUp, Zap, Shield } from "lucide-react"
 import { motion } from "framer-motion"
@@ -59,8 +61,29 @@ export default function CreatorsPage() {
     <main className="min-h-screen bg-white">
       <Navigation />
       
+      <div className="pt-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex gap-12">
+            <CreatorsSidebar />
+            
+            <article className="flex-1 pb-24">
+              <Breadcrumb items={[
+                { label: "首页", href: "/" },
+                { label: "指引中心", href: "/about" },
+                { label: "创建 Skill" }
+              ]} />
+              
+              {/* 阅读时间 */}
+              <div className="text-sm text-[#86868b] mb-6">
+                12 分钟阅读
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6">
+      <section className="pb-16">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -88,7 +111,7 @@ export default function CreatorsPage() {
       </section>
 
       {/* Stats Banner */}
-      <section className="py-8 px-4 sm:px-6 bg-[#f5f5f7]">
+      <section id="upload" className="py-8 bg-[#f5f5f7] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {stats.map((stat, i) => (
@@ -113,7 +136,7 @@ export default function CreatorsPage() {
       </section>
 
       {/* Three Phases */}
-      <section className="py-16 px-4 sm:px-6">
+      <section id="revenue" className="py-16">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -157,7 +180,7 @@ export default function CreatorsPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-16 px-4 sm:px-6 bg-[#f5f5f7]">
+      <section id="best-practices" className="py-16 bg-[#f5f5f7] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

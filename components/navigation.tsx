@@ -27,15 +27,12 @@ export function Navigation() {
           </a>
 
           {/* Center Navigation */}
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden md:flex items-center gap-8">
             <a href="/market" className="text-[15px] text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
               Skills 市场
             </a>
             <a href="/gate-ai" className="text-[15px] text-[#1d1d1f] hover:text-[#ff6b4a] transition-colors font-medium">
               About Gate AI
-            </a>
-            <a href="/creators" className="text-[15px] text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              创作者
             </a>
             <a href="/about" className="text-[15px] text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
               指引
@@ -125,13 +122,6 @@ export function Navigation() {
               onClick={() => setMobileMenuOpen(false)}
             >
               About Gate AI
-            </a>
-            <a
-              href="/creators"
-              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              创作者
             </a>
             <a
               href="/about"
