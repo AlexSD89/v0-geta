@@ -2,10 +2,10 @@
 
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { DocsSidebar } from "@/components/docs-sidebar"
+import { Breadcrumb } from "@/components/breadcrumb"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import { motion } from "framer-motion"
-import { Sparkles, Zap, Shield, RefreshCw, Layers, Globe, Users, Code2 } from "lucide-react"
 
 export default function AboutPage() {
   return (
@@ -13,52 +13,18 @@ export default function AboutPage() {
       <Navigation />
       
       <main className="pt-24">
-        {/* Lawvable 风格 - 左侧导航栏 + 右侧文章内容 */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-12">
-            {/* 左侧固定导航 */}
-            <aside className="hidden lg:block w-64 flex-shrink-0">
-              <div className="sticky top-24">
-                <div className="text-xs font-semibold text-[#86868b] uppercase tracking-wider mb-4">
-                  学习中心
-                </div>
-                <nav className="space-y-1">
-                  <a 
-                    href="/about" 
-                    className="block px-3 py-2 text-sm font-medium text-[#1d1d1f] bg-[#f5f5f7] rounded-lg"
-                  >
-                    01 什么是 Skill?
-                  </a>
-                  <a 
-                    href="/docs/quickstart" 
-                    className="block px-3 py-2 text-sm text-[#86868b] hover:text-[#1d1d1f] hover:bg-[#f5f5f7] rounded-lg transition-colors"
-                  >
-                    02 快速开始
-                  </a>
-                  <a 
-                    href="/gate-ai" 
-                    className="block px-3 py-2 text-sm text-[#86868b] hover:text-[#1d1d1f] hover:bg-[#f5f5f7] rounded-lg transition-colors"
-                  >
-                    03 Gate AI
-                  </a>
-                  <a 
-                    href="/creators" 
-                    className="block px-3 py-2 text-sm text-[#86868b] hover:text-[#1d1d1f] hover:bg-[#f5f5f7] rounded-lg transition-colors"
-                  >
-                    04 创建 Skill
-                  </a>
-                  <a 
-                    href="/" 
-                    className="block px-3 py-2 text-sm text-[#86868b] hover:text-[#1d1d1f] hover:bg-[#f5f5f7] rounded-lg transition-colors mt-6 border-t border-[#e5e5e5] pt-4"
-                  >
-                    ← 返回首页
-                  </a>
-                </nav>
-              </div>
-            </aside>
+            <DocsSidebar />
 
             {/* 主要文章内容 */}
             <article className="flex-1 max-w-3xl pb-24">
+              <Breadcrumb items={[
+                { label: "首页", href: "/" },
+                { label: "学习中心", href: "/about" },
+                { label: "什么是 Skill?" }
+              ]} />
+
               {/* 阅读时间 */}
               <div className="text-sm text-[#86868b] mb-6">
                 5 分钟阅读

@@ -24,18 +24,18 @@ export function Navigation() {
           </a>
 
           {/* Center Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-5">
             <a href="/market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
-              Skills 市场
+              Skills
+            </a>
+            <a href="/tools" className="text-sm text-[#1d1d1f] hover:text-[#5856d6] transition-colors font-medium">
+              AI 工具
             </a>
             <a href="/gate-ai" className="text-sm text-[#1d1d1f] hover:text-[#ff6b4a] transition-colors font-medium">
               Gate AI
             </a>
             <a href="/creators" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
               创作者
-            </a>
-            <a href="/docs" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
-              文档
             </a>
             <a href="/about" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
               学习
@@ -93,7 +93,14 @@ export function Navigation() {
               className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Skills 市场
+              Skills
+            </a>
+            <a
+              href="/tools"
+              className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              AI 工具
             </a>
             <a
               href="/gate-ai"
@@ -108,13 +115,6 @@ export function Navigation() {
               onClick={() => setMobileMenuOpen(false)}
             >
               创作者
-            </a>
-            <a
-              href="/docs"
-              className="block px-4 py-2.5 text-sm hover:bg-black/5 rounded-lg"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              文档
             </a>
             <a
               href="/about"
