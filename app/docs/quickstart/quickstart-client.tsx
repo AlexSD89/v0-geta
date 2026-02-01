@@ -31,44 +31,40 @@ export default function QuickstartClient() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
-        <div className="flex flex-col gap-3 bg-background/80 backdrop-blur-sm border rounded-lg p-3 shadow-lg">
-          {[1, 2, 3, 4].map((num) => (
-            <button
-              key={num}
-              onClick={() => scrollToSection(num)}
-              className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
-                activeSection === num
-                  ? "bg-accent text-accent-foreground scale-110 shadow-md"
-                  : "bg-muted text-muted-foreground hover:bg-accent/20 hover:scale-105"
-              }`}
-              aria-label={`跳转到步骤 ${num}`}
-            >
-              {num}
-            </button>
-          ))}
-        </div>
-      </div>
+      <main className="pt-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex gap-12">
+            <DocsSidebar />
+            
+            <article className="flex-1 max-w-3xl pb-24">
+              <Breadcrumb items={[
+                { label: "首页", href: "/" },
+                { label: "指引中心", href: "/about" },
+                { label: "快速开始" }
+              ]} />
+              
+              {/* 阅读时间 */}
+              <div className="text-sm text-[#86868b] mb-6">
+                10 分钟阅读
+              </div>
 
-      <main className="pt-24 pb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-in fade-in duration-700">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Gate MCP 安装教程</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              本教程将指导你在本地环境中安装 Claude Code CLI，并连接 Gate MCP 服务。全程仅需 5–10 分钟。
-            </p>
-          </div>
+              <div className="mb-12">
+                <h1 className="text-4xl sm:text-5xl font-bold text-[#1d1d1f] mb-6">快速开始</h1>
+                <p className="text-lg text-[#1d1d1f] leading-relaxed">
+                  本教程将指导你在本地环境中安装 Claude Code CLI，并连接 Gate MCP 服务。全程仅需 5–10 分钟。
+                </p>
+              </div>
 
           {/* Step 1: Install Claude Code CLI */}
-          <section id="step-1" className="mb-16 animate-in fade-in duration-700 delay-150 scroll-mt-24">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-lg">
+          <section id="step-1" className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-[#0071e3] text-white flex items-center justify-center font-bold text-lg">
                 1
               </div>
-              <h2 className="text-2xl font-bold">安装 Claude Code CLI</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f]">安装 Claude Code CLI</h2>
             </div>
 
             <Card className="p-6 mb-6">
@@ -645,6 +641,8 @@ export default function QuickstartClient() {
               </AccordionItem>
             </Accordion>
           </section>
+            </article>
+          </div>
         </div>
       </main>
 
