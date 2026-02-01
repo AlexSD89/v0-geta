@@ -8,8 +8,8 @@ const docNav = [
     items: [
       { label: "01 什么是 Skill?", href: "/about" },
       { label: "02 快速开始", href: "/docs/quickstart" },
-      { label: "03 Gate AI", href: "/gate-ai" },
-      { label: "04 创建 Skill", href: "/creators" },
+      { label: "03 About Gate AI", href: "/gate-ai" },
+      { label: "04 创作者指南", href: "/creators" },
     ]
   }
 ]

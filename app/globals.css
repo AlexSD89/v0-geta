@@ -105,7 +105,7 @@
     "Helvetica Neue", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
 
-  /* Design tokens - using direct values instead of var() */
+  /* Design tokens - using direct color values */
   --color-background: #ffffff;
   --color-foreground: #1d1d1f;
   --color-card: #ffffff;
@@ -133,6 +133,10 @@
   --color-sidebar-accent-foreground: #1d1d1f;
   --color-sidebar-border: #d2d2d7;
   --color-sidebar-ring: #0071e3;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
 
 /* ========================================

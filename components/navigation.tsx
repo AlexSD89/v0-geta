@@ -29,10 +29,10 @@ export function Navigation() {
           {/* Center Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <a href="/market" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors font-medium">
-              Skills
+              Skills 市场
             </a>
             <a href="/gate-ai" className="text-sm text-[#1d1d1f] hover:text-[#ff6b4a] transition-colors font-medium">
-              Gate AI
+              About Gate AI
             </a>
             <a href="/creators" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
               创作者
@@ -117,14 +117,14 @@ export function Navigation() {
               className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Skills
+              Skills 市场
             </a>
             <a
               href="/gate-ai"
               className="block px-4 py-2.5 text-sm font-medium hover:bg-black/5 rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Gate AI
+              About Gate AI
             </a>
             <a
               href="/creators"
