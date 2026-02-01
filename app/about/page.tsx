@@ -21,7 +21,7 @@ export default function AboutPage() {
             <article className="flex-1 max-w-3xl pb-24">
               <Breadcrumb items={[
                 { label: "首页", href: "/" },
-                { label: "指引", href: "/about" },
+                { label: "指引中心", href: "/about" },
                 { label: "什么是 Skill?" }
               ]} />
 
