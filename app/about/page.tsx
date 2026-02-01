@@ -166,8 +166,6 @@ export default function AboutPage() {
             </article>
           </div>
         </div>
-
-
       </main>
       
       <Footer />
