@@ -60,33 +60,71 @@ export default function MarketPage() {
       <section className="pt-24 pb-8 px-4 sm:px-6 bg-white border-b border-[#d2d2d7]/30">
         <div className="max-w-6xl mx-auto">
           {/* Role Switcher & Login */}
-          <div className="flex items-center justify-between mb-6">
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center justify-between mb-6"
+          >
             <div className="flex items-center gap-3">
-              {/* Role Switcher */}
-              <div className="flex items-center p-0.5 rounded-full border border-[#d2d2d7]/50 bg-[#f5f5f7]">
+              {/* Role Switcher with Animation */}
+              <div className="relative flex items-center p-0.5 rounded-full border border-[#d2d2d7]/50 bg-[#f5f5f7]">
+                {/* Animated Background */}
+                <motion.div
+                  className="absolute top-0.5 h-[calc(100%-4px)] rounded-full bg-white shadow-md"
+                  initial={false}
+                  animate={{
+                    left: userMode === "user" ? "2px" : "calc(50% - 2px)",
+                    width: "calc(50% - 2px)",
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+                
                 <button
                   onClick={() => setUserMode("user")}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    userMode === "user"
-                      ? "bg-white text-[#0071e3] shadow-sm"
-                      : "text-[#86868b] hover:text-[#1d1d1f]"
+                  className={`relative z-10 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    userMode === "user" ? "text-[#0071e3]" : "text-[#86868b] hover:text-[#1d1d1f]"
                   }`}
                 >
-                  <Sparkles className="w-4 h-4" />
+                  <motion.div
+                    animate={{ 
+                      scale: userMode === "user" ? 1.15 : 1,
+                      rotate: userMode === "user" ? 5 : 0,
+                    }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Sparkles className="w-4 h-4" />
+                  </motion.div>
                   使用者
                 </button>
                 <button
                   onClick={() => setUserMode("dev")}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    userMode === "dev"
-                      ? "bg-white text-[#0071e3] shadow-sm"
-                      : "text-[#86868b] hover:text-[#1d1d1f]"
+                  className={`relative z-10 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    userMode === "dev" ? "text-[#0071e3]" : "text-[#86868b] hover:text-[#1d1d1f]"
                   }`}
                 >
-                  <Code2 className="w-4 h-4" />
+                  <motion.div
+                    animate={{ 
+                      scale: userMode === "dev" ? 1.15 : 1,
+                      rotate: userMode === "dev" ? -5 : 0,
+                    }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Code2 className="w-4 h-4" />
+                  </motion.div>
                   开发者
                 </button>
               </div>
+              
+              {/* Mode Description */}
+              <motion.div
+                key={userMode}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                className="hidden sm:block text-sm text-[#86868b]"
+              >
+                {userMode === "user" ? "浏览和使用 Skills" : "创建和管理 Skills"}
+              </motion.div>
             </div>
 
             {/* Login Toggle (Demo) */}
@@ -94,11 +132,11 @@ export default function MarketPage() {
               onClick={() => setIsLoggedIn(!isLoggedIn)}
               variant={isLoggedIn ? "default" : "outline"}
               size="sm"
-              className="rounded-full h-9"
+              className="rounded-full h-9 px-6"
             >
               {isLoggedIn ? "已登录 (演示)" : "登录"}
             </Button>
-          </div>
+          </motion.div>
 
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>

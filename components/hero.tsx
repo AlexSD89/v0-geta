@@ -1,11 +1,8 @@
 "use client"
 
-import React from "react"
-
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap, Trophy, Plus, Heart, HelpCircle } from "lucide-react"
+import { ArrowRight, Zap, Trophy, Plus, Heart, Github } from "lucide-react"
 import { motion } from "framer-motion"
-import { useState } from "react"
 
 // Live Ticker 数据 - 全宽滚动
 const tickerItems = [
@@ -33,15 +30,6 @@ function FullWidthTicker() {
 }
 
 export function Hero() {
-  const [searchQuery, setSearchQuery] = useState("")
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (searchQuery.trim()) {
-      window.location.href = `/market?q=${encodeURIComponent(searchQuery)}`
-    }
-  }
-
   return (
     <>
       {/* Full-width Ticker - 在导航栏下方 */}
@@ -49,73 +37,135 @@ export function Hero() {
         <FullWidthTicker />
       </div>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 px-4 sm:px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Status Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0071e3]/30 bg-[#0071e3]/5">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0071e3] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0071e3]"></span>
-              </span>
-              <span className="text-sm text-[#0071e3] font-medium">Gate Skills 市场 v3.0 已上线</span>
+      {/* Hero Section - Lawvable Style */}
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Content */}
+            <div>
+              {/* Main Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6"
+              >
+                <span className="text-[#1d1d1f]">The Ultimate</span>
+                <br />
+                <span className="text-gradient-hero">Agent Skills</span>{" "}
+                <span className="text-[#1d1d1f]">交易所</span>
+              </motion.h1>
+
+              {/* Sub-headline */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-lg sm:text-xl text-[#86868b] mb-8 leading-relaxed"
+              >
+                发现由专业开发者构建的可复用 AI 自动化。
+                <br />
+                即刻在 <span className="font-medium text-[#1d1d1f]">Claude</span>、
+                <span className="font-medium text-[#1d1d1f]">ChatGPT</span>、
+                <span className="font-medium text-[#1d1d1f]">Cursor</span> 中使用。
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex flex-wrap items-center gap-4 mb-8"
+              >
+                <Button 
+                  size="lg" 
+                  className="h-12 px-8 text-base rounded-xl bg-[#ff6b4a] hover:bg-[#ff5a39] text-white shadow-lg shadow-[#ff6b4a]/20"
+                  asChild
+                >
+                  <a href="/market" className="flex items-center gap-2">
+                    浏览 Skills
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="h-12 px-8 text-base rounded-xl border-2 border-[#1d1d1f] text-[#1d1d1f] hover:bg-[#1d1d1f] hover:text-white bg-transparent"
+                  asChild
+                >
+                  <a href="/about">什么是 Skill?</a>
+                </Button>
+              </motion.div>
+
+              {/* GitHub Style Repo Link */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex items-center gap-2 p-3 rounded-lg bg-[#1d1d1f] text-white w-fit"
+              >
+                <Github className="w-5 h-5" />
+                <span className="text-sm font-mono">gate-ai/awesome-skills</span>
+              </motion.div>
             </div>
-          </motion.div>
 
-          {/* Main Headline - 类似 Lawvable */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-6"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
-              <span className="text-[#1d1d1f]">全场景</span>
-              <br />
-              <span className="text-gradient-hero">AI Skills 交易平台</span>
-            </h1>
-          </motion.div>
+            {/* Right: Visual Diagram */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="hidden lg:block relative"
+            >
+              {/* AI Agent Node */}
+              <div className="absolute top-0 right-0 bg-white border-2 border-[#d2d2d7] rounded-2xl px-6 py-3 shadow-xl">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-400 to-red-500"></div>
+                  <span className="font-semibold text-[#1d1d1f]">AI Agent</span>
+                </div>
+              </div>
 
-          {/* Sub-headline */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-10"
-          >
-            <p className="text-lg sm:text-xl text-[#86868b] mx-auto max-w-2xl leading-relaxed">
-              发现由专业开发者构建的可复用 AI 自动化 Skills。
-              <br className="hidden sm:block" />
-              即刻在 Claude、ChatGPT、Cursor 中使用。
-            </p>
-          </motion.div>
+              {/* Skills Integration Visual */}
+              <div className="mt-24 space-y-4">
+                {/* Skill Card 1 */}
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-xl p-4 shadow-lg">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white flex items-center justify-center">
+                      <span className="text-lg">📄</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-xs font-medium text-orange-600">name:</span>
+                        <span className="text-sm font-mono text-[#1d1d1f]">pdf-parser</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-xs font-medium text-orange-600">description:</span>
+                        <span className="text-xs text-[#86868b] line-clamp-2">
+                          Parse PDF documents with OCR support...
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-          {/* CTA Buttons - 类似 Lawvable */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-4 mb-16"
-          >
-            <Button size="lg" className="btn-gradient h-12 px-8 text-base" asChild>
-              <a href="/market" className="flex items-center gap-2">
-                浏览 Skills
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base rounded-full bg-transparent" asChild>
-              <a href="/about" className="flex items-center gap-2">
-                <HelpCircle className="w-4 h-4" />
-                什么是 Skill?
-              </a>
-            </Button>
-          </motion.div>
+                {/* Skill Card 2 - Placeholder */}
+                <div className="border-2 border-dashed border-[#d2d2d7] rounded-xl p-4 flex items-center justify-center h-24">
+                  <span className="text-4xl text-[#d2d2d7]">+</span>
+                </div>
+              </div>
+
+              {/* Connecting Lines */}
+              <svg className="absolute top-16 right-12 w-32 h-32 pointer-events-none" viewBox="0 0 100 100">
+                <path 
+                  d="M 50 10 Q 50 50, 10 50" 
+                  stroke="#ff6b4a" 
+                  strokeWidth="2" 
+                  fill="none" 
+                  strokeDasharray="5,5"
+                  className="animate-pulse"
+                />
+              </svg>
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
