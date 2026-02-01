@@ -35,7 +35,7 @@
 
 ## 3. 站点地图
 
-```
+\`\`\`
 Home (The Exchange)
 ├── Skill Market (The Bazaar)
 │   ├── Skill Detail
@@ -46,7 +46,7 @@ Home (The Exchange)
 ├── Pricing
 ├── Tutorial
 └── Contact
-```
+\`\`\`
 
 ---
 
