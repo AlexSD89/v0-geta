@@ -67,7 +67,7 @@ export function Navigation() {
                 }}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                   mode === "dev"
-                    ? "bg-gradient-to-r from-[#5856d6] to-[#007aff] text-white shadow-sm"
+                    ? "bg-gradient-to-r from-[#4f46e5] to-[#7c3aed] text-white shadow-sm"
                     : "text-[#86868b] hover:text-[#1d1d1f]"
                 }`}
               >

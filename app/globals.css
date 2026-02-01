@@ -27,8 +27,8 @@
 
   /* ========================================
      10% - Accent Colors
-     Primary: Apple Blue #0071e3 (used everywhere)
-     Accent: Apple Purple #5856d6 (L1 Hero only)
+     Primary: Apple Blue #0071e3 (使用者模式)
+     Developer: Indigo-Purple #4f46e5 → #7c3aed (开发者模式)
      ======================================== */
   --primary: #0071e3;
   --primary-hover: #0077ed;
@@ -38,6 +38,12 @@
   --accent: #5856d6;
   --accent-hover: #6866e0;
   --accent-foreground: #ffffff;
+
+  /* Developer Mode Colors - Indigo to Purple Gradient */
+  --developer: #4f46e5;
+  --developer-secondary: #7c3aed;
+  --developer-hover: #5b51e8;
+  --developer-foreground: #ffffff;
 
   /* Card */
   --card: #ffffff;
@@ -380,26 +386,56 @@
 }
 
 /* ----------------------------------------
-   L2/L3: Pure Blue Components
+   L2/L3: Pure Blue Components (User Mode)
    Used in: All other pages
    ---------------------------------------- */
 .btn-primary {
   background-color: #0071e3;
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 500;
   padding: 0.875rem 1.75rem;
-  border-radius: 980px;
+  border-radius: 12px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1.0625rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .btn-primary:hover {
   background-color: #0077ed;
   transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .btn-primary:active {
   transform: translateY(0) scale(0.98);
+}
+
+/* Developer Mode Buttons */
+.btn-developer {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: #ffffff;
+  font-weight: 500;
+  padding: 0.875rem 1.75rem;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.0625rem;
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.25);
+}
+
+.btn-developer:hover {
+  box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-developer:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.text-gradient-developer {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .btn-secondary {
@@ -531,6 +567,53 @@
   }
 }
 
+/* 奇幻卡牌翻转动画 */
+@keyframes cardFlip {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(79, 70, 229, 0.6);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -554,6 +637,34 @@
 }
 .animate-scale-in {
   animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.animate-card-flip {
+  animation: cardFlip 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.animate-glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.animate-slide-in-right {
+  animation: slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Lawvable-inspired borders and shadows */
+.border-lawvable {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.border-lawvable-hover:hover {
+  border-color: rgba(0, 113, 227, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 113, 227, 0.2);
+}
+
+.border-lawvable-developer {
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.15);
 }
 
 /* ========================================

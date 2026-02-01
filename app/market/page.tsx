@@ -94,7 +94,7 @@ export default function MarketPage() {
                   }}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     userMode === "dev"
-                      ? "bg-white text-[#ff6b4a] shadow-sm"
+                      ? "bg-gradient-to-r from-[#4f46e5] to-[#7c3aed] text-white shadow-sm"
                       : "text-[#86868b] hover:text-[#1d1d1f]"
                   }`}
                 >

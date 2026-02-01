@@ -92,48 +92,49 @@ export function Hero() {
             </h1>
           </motion.div>
 
-          {/* Sub-headline - 根据角色变化 */}
+          {/* Sub-headline - 根据角色变化，带卡牌翻转动画 */}
           <motion.div
+            key={mode}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-10"
+            className="mb-10 animate-card-flip"
           >
             {mode === "user" ? (
-              <p className="text-lg sm:text-xl text-[#86868b] mx-auto max-w-2xl leading-relaxed italic">
+              <p className="text-lg sm:text-xl text-[#86868b] mx-auto max-w-2xl leading-relaxed">
                 发现并使用专业开发者构建的 AI Agent Skills。
                 <br className="hidden sm:block" />
                 即刻在{" "}
-                <span className="not-italic font-medium text-[#0071e3]">Claude Code</span>、
-                <span className="not-italic font-medium text-[#0071e3]">Cursor</span> 或任何{" "}
-                <span className="not-italic font-medium text-[#0071e3]">Terminal & IDE</span>{" "}
-                <span className="not-italic">中使用。</span>
+                <span className="font-medium text-[#0071e3]">Claude Code</span>、
+                <span className="font-medium text-[#0071e3]">Cursor</span> 或任何{" "}
+                <span className="font-medium text-[#0071e3]">Terminal & IDE</span>{" "}
+                中使用。
               </p>
             ) : (
-              <p className="text-lg sm:text-xl text-[#86868b] mx-auto max-w-2xl leading-relaxed italic">
+              <p className="text-lg sm:text-xl text-[#86868b] mx-auto max-w-2xl leading-relaxed">
                 托管你的 Skills，获得被动收入。
                 <br className="hidden sm:block" />
                 加入{" "}
-                <span className="not-italic font-medium text-[#ff6b4a]">1000+</span>{" "}
-                <span className="not-italic">开发者，开始在 Gate 平台上</span>{" "}
-                <span className="not-italic font-medium text-[#ff6b4a]">赚取收益</span>
-                <span className="not-italic">。</span>
+                <span className="font-medium text-gradient-developer">1000+</span>{" "}
+                开发者，开始在 Gate 平台上{" "}
+                <span className="font-medium text-gradient-developer">赚取收益</span>。
               </p>
             )}
           </motion.div>
 
-          {/* CTA Buttons - 根据角色变化 */}
+          {/* CTA Buttons - 根据角色变化，带奇幻卡牌效果 */}
           <motion.div
+            key={`cta-${mode}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-4 mb-16"
+            className="flex flex-wrap items-center justify-center gap-4 mb-16 animate-card-flip"
           >
             {mode === "user" ? (
               <>
                 <Button 
                   size="lg" 
-                  className="h-12 px-8 text-base rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium shadow-lg transition-all" 
+                  className="h-12 px-8 text-base rounded-xl bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium shadow-lg hover:shadow-xl transition-all border-lawvable" 
                   asChild
                 >
                   <a href="/market" className="flex items-center gap-2">
@@ -141,7 +142,12 @@ export function Hero() {
                     <ArrowRight className="w-4 h-4" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="h-12 px-8 text-base rounded-full border-2 border-[#1d1d1f] text-[#1d1d1f] hover:bg-[#1d1d1f] hover:text-white bg-transparent font-medium" asChild>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="h-12 px-8 text-base rounded-xl border-2 border-[#d2d2d7] text-[#1d1d1f] hover:border-[#0071e3] hover:bg-[#0071e3]/5 bg-white font-medium transition-all" 
+                  asChild
+                >
                   <a href="/about" className="flex items-center gap-2">
                     <HelpCircle className="w-4 h-4" />
                     什么是 Skill?
@@ -152,7 +158,7 @@ export function Hero() {
               <>
                 <Button 
                   size="lg" 
-                  className="h-12 px-8 text-base rounded-full bg-[#ff6b4a] hover:bg-[#ff5a39] text-white font-medium shadow-lg transition-all" 
+                  className="h-12 px-8 text-base rounded-xl btn-developer animate-glow-pulse" 
                   asChild
                 >
                   <a href="/creators" className="flex items-center gap-2">
@@ -160,7 +166,12 @@ export function Hero() {
                     <ArrowRight className="w-4 h-4" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="h-12 px-8 text-base rounded-full border-2 border-[#ff6b4a] text-[#ff6b4a] hover:bg-[#ff6b4a] hover:text-white bg-transparent font-medium" asChild>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="h-12 px-8 text-base rounded-xl border-2 border-[#4f46e5] text-[#4f46e5] hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#7c3aed] hover:text-white bg-white font-medium transition-all" 
+                  asChild
+                >
                   <a href="/creators#revenue">查看收益</a>
                 </Button>
               </>
