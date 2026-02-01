@@ -204,7 +204,7 @@ export default function CreatorsPage() {
               </a>
             </Button>
             <Button variant="outline" className="h-12 px-8 rounded-full border-[#d2d2d7] bg-transparent" asChild>
-              <a href="/docs/quickstart">查看教程</a>
+              <a href="/about">了解 Skills</a>
             </Button>
           </div>
         </div>

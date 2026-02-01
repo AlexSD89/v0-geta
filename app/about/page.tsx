@@ -30,16 +30,22 @@ export default function AboutPage() {
                     01 什么是 Skill?
                   </a>
                   <a 
-                    href="/docs" 
+                    href="/docs/quickstart" 
                     className="block px-3 py-2 text-sm text-[#86868b] hover:text-[#1d1d1f] hover:bg-[#f5f5f7] rounded-lg transition-colors"
                   >
                     02 快速开始
                   </a>
                   <a 
+                    href="/gate-ai" 
+                    className="block px-3 py-2 text-sm text-[#86868b] hover:text-[#1d1d1f] hover:bg-[#f5f5f7] rounded-lg transition-colors"
+                  >
+                    03 Gate AI
+                  </a>
+                  <a 
                     href="/creators" 
                     className="block px-3 py-2 text-sm text-[#86868b] hover:text-[#1d1d1f] hover:bg-[#f5f5f7] rounded-lg transition-colors"
                   >
-                    03 创建 Skill
+                    04 创建 Skill
                   </a>
                   <a 
                     href="/" 

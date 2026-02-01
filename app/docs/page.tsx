@@ -8,32 +8,32 @@ import { motion } from "framer-motion"
 
 const docSections = [
   {
-    title: "快速上手",
-    desc: "10 分钟入门 Gate 技能市场",
+    title: "快速开始",
+    desc: "10 分钟安装 Claude Code 并连接 Gate",
     icon: Zap,
     href: "/docs/quickstart",
     color: "bg-[#0071e3]",
   },
   {
-    title: "API 文档",
-    desc: "技能调用接口完整说明",
+    title: "创建 Skill",
+    desc: "上传你的第一个 AI Skill",
     icon: Code,
-    href: "/docs/api",
+    href: "/creators",
+    color: "bg-[#ff6b4a]",
+  },
+  {
+    title: "Gate AI",
+    desc: "了解 Gate 智能编排系统",
+    icon: Terminal,
+    href: "/gate-ai",
     color: "bg-[#5856d6]",
   },
   {
-    title: "SDK 下载",
-    desc: "Python、Node.js、Go 等语言 SDK",
-    icon: Terminal,
-    href: "/docs/sdk",
+    title: "什么是 Skill",
+    desc: "理解 Agent Skills 的核心概念",
+    icon: FileText,
+    href: "/about",
     color: "bg-[#34c759]",
-  },
-  {
-    title: "MCP 接入",
-    desc: "Model Context Protocol 集成指南",
-    icon: Plug,
-    href: "/docs/mcp",
-    color: "bg-[#ff9500]",
   },
 ]
 
