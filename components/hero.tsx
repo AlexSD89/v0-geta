@@ -95,8 +95,8 @@ export function Hero() {
               <br className="hidden sm:block" />
               即刻在{" "}
               <span className="not-italic font-medium text-[#1d1d1f]">Claude Code</span>、
-              <span className="not-italic font-medium text-[#1d1d1f]">Cursor</span> 终端或{" "}
-              <span className="not-italic font-medium text-[#1d1d1f]">Dill</span>{" "}
+              <span className="not-italic font-medium text-[#1d1d1f]">Cursor</span> 或任何{" "}
+              <span className="not-italic font-medium text-[#1d1d1f]">Terminal & IDE</span>{" "}
               <span className="not-italic">中使用。</span>
             </p>
           </motion.div>
