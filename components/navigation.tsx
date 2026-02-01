@@ -140,13 +140,20 @@ export function Navigation() {
             >
               指引
             </a>
-            <div className="pt-3 px-4 flex gap-2">
-              <Button size="sm" variant="outline" className="flex-1 h-9 rounded-full border-[#0071e3] text-[#0071e3] bg-transparent" asChild>
-                <a href="/market">使用者</a>
-              </Button>
-              <Button size="sm" className="flex-1 h-9 rounded-full bg-[#0071e3] text-white hover:bg-[#0077ed]" asChild>
-                <a href="/creators">开发者</a>
-              </Button>
+            <div className="pt-3 px-4">
+              <button
+                onClick={() => {
+                  if (isLoggedIn) {
+                    window.location.href = '/profile'
+                  } else {
+                    setLoginModalOpen(true)
+                  }
+                  setMobileMenuOpen(false)
+                }}
+                className="w-full h-9 rounded-full bg-[#0071e3] text-white text-sm font-medium hover:bg-[#0077ed] transition-colors"
+              >
+                {isLoggedIn ? '我的账户' : '登录 / 注册'}
+              </button>
             </div>
           </div>
         )}

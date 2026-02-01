@@ -1,11 +1,11 @@
 "use client"
 
+import React, { useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Search, Star, TrendingUp, Clock, Filter, ChevronDown, Share2, GitFork, Heart, Code2, Sparkles, Flame, Eye } from "lucide-react"
 import { motion } from "framer-motion"
-import { useState } from "react"
 
 // 分类（不同颜色）
 const categories = [
@@ -38,8 +38,17 @@ export default function MarketPage() {
   const [activeCategory, setActiveCategory] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
   const [sortBy, setSortBy] = useState<"trending" | "rating" | "newest">("trending")
-  const [userMode, setUserMode] = useState<"user" | "dev">("user") // 使用者 vs 开发者
-  const [isLoggedIn, setIsLoggedIn] = useState(false) // 登录状态（演示用）
+  const [userMode, setUserMode] = useState<"user" | "dev">("user")
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  // 监听导航栏的角色切换事件
+  React.useEffect(() => {
+    const handleRoleChange = (e: CustomEvent) => {
+      setUserMode(e.detail.mode)
+    }
+    window.addEventListener('roleChanged', handleRoleChange as EventListener)
+    return () => window.removeEventListener('roleChanged', handleRoleChange as EventListener)
+  }, [])
 
   const filteredSkills = skills.filter(skill => {
     const matchCategory = activeCategory === "all" || skill.category === activeCategory
@@ -65,7 +74,10 @@ export default function MarketPage() {
               {/* Role Switcher */}
               <div className="flex items-center p-0.5 rounded-full border border-[#d2d2d7]/50 bg-[#f5f5f7]">
                 <button
-                  onClick={() => setUserMode("user")}
+                  onClick={() => {
+                    setUserMode("user")
+                    window.dispatchEvent(new CustomEvent('roleChanged', { detail: { mode: 'user' } }))
+                  }}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     userMode === "user"
                       ? "bg-white text-[#0071e3] shadow-sm"
@@ -76,10 +88,13 @@ export default function MarketPage() {
                   使用者
                 </button>
                 <button
-                  onClick={() => setUserMode("dev")}
+                  onClick={() => {
+                    setUserMode("dev")
+                    window.dispatchEvent(new CustomEvent('roleChanged', { detail: { mode: 'dev' } }))
+                  }}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     userMode === "dev"
-                      ? "bg-white text-[#0071e3] shadow-sm"
+                      ? "bg-white text-[#ff6b4a] shadow-sm"
                       : "text-[#86868b] hover:text-[#1d1d1f]"
                   }`}
                 >
