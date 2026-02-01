@@ -148,21 +148,35 @@ export default function AboutPage() {
                 </p>
                 <ul className="space-y-4 mb-6">
                   <li className="flex gap-4">
-                    <span className="text-[#ff6b4a] font-bold flex-shrink-0">•</span>
+                    <span className="text-[#0071e3] font-bold flex-shrink-0">•</span>
                     <div>
                       <strong className="text-[#1d1d1f]">托管服务。</strong>
                       <span className="text-[#1d1d1f]">开发者可以安全地托管和版本管理他们的 Skills，用户可以一键安装到 Claude Code、Cursor 或任何 Terminal & IDE 中。</span>
                     </div>
                   </li>
                   <li className="flex gap-4">
-                    <span className="text-[#ff6b4a] font-bold flex-shrink-0">•</span>
+                    <span className="text-[#0071e3] font-bold flex-shrink-0">•</span>
                     <div>
-                      <strong className="text-[#1d1d1f]">交易市场。</strong>
-                      <span className="text-[#1d1d1f]">创作者可以将专业 Skills 变现，获得 70% 收入分成。企业和个人可以按需购买高质量 Skills，无需从零开发。</span>
+                      <strong className="text-[#1d1d1f]">灵活定价，前10次免费。</strong>
+                      <span className="text-[#1d1d1f]">所有 Skills 的前 10 次调用完全免费，让您充分体验再决定。创作者拥有完全的定价权，大部分基础 Skills 永久免费，超级专业的 Skills 按次收费。</span>
                     </div>
                   </li>
                   <li className="flex gap-4">
-                    <span className="text-[#ff6b4a] font-bold flex-shrink-0">•</span>
+                    <span className="text-[#0071e3] font-bold flex-shrink-0">•</span>
+                    <div>
+                      <strong className="text-[#1d1d1f]">交易市场。</strong>
+                      <span className="text-[#1d1d1f]">创作者可以将专业 Skills 变现，获得 70% 收入分成。所有支付和调用通过 Gate 平台管理，确保安全透明。</span>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <span className="text-[#0071e3] font-bold flex-shrink-0">•</span>
+                    <div>
+                      <strong className="text-[#1d1d1f]">智能控制。</strong>
+                      <span className="text-[#1d1d1f]">Gate AI 智能编排所有 Skills 调用，并可远程停止未付费的调用。创作者和用户都享受完善的保护机制。</span>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <span className="text-[#0071e3] font-bold flex-shrink-0">•</span>
                     <div>
                       <strong className="text-[#1d1d1f]">知识分享。</strong>
                       <span className="text-[#1d1d1f]">通过开放的 Skills 生态，专业知识可以在全球范围内流通，让每个人都能获得世界级的 AI 能力。</span>

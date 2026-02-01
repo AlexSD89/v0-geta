@@ -18,20 +18,20 @@ const categories = [
   { id: "content", name: "内容创作", count: 95, color: "#ff2d55", bgColor: "#ffe6ed" },
 ]
 
-// Skills 数据（加入分享、热度、Fork 数据）
+// Skills 数据（加入定价信息：前10次免费，之后收费）
 const skills = [
-  { id: 1, name: "PDF 智能解析", desc: "支持表格、图片、多语言识别", author: "张三", rating: 4.9, reviews: 2000, category: "data", trending: true, forks: 1200, shares: 450, views: 15000, likes: 3800 },
-  { id: 2, name: "合同风险审查", desc: "自动识别合同漏洞和风险条款", author: "法律AI", rating: 4.8, reviews: 1200, category: "legal", trending: true, forks: 850, shares: 320, views: 8500, likes: 2100 },
-  { id: 3, name: "代码重构优化", desc: "智能分析代码，提供重构建议", author: "DevMaster", rating: 4.7, reviews: 3500, category: "dev", trending: false, forks: 2100, shares: 890, views: 22000, likes: 5600 },
-  { id: 4, name: "SEO 内容审计", desc: "分析网页 SEO，提供优化建议", author: "SEO专家", rating: 4.9, reviews: 800, category: "marketing", trending: true, forks: 650, shares: 420, views: 11000, likes: 1900 },
-  { id: 5, name: "财务报表分析", desc: "自动解读财务数据，生成洞察", author: "财务通", rating: 4.6, reviews: 650, category: "finance", trending: false, forks: 420, shares: 180, views: 5800, likes: 1100 },
-  { id: 6, name: "小红书文案生成", desc: "一键生成爆款笔记文案", author: "内容王", rating: 4.8, reviews: 5000, category: "content", trending: true, forks: 3200, shares: 1500, views: 35000, likes: 8900 },
-  { id: 7, name: "竞品深度调研", desc: "多维度分析竞争对手策略", author: "市场洞察", rating: 4.9, reviews: 420, category: "marketing", trending: false, forks: 280, shares: 95, views: 4200, likes: 780 },
-  { id: 8, name: "API 文档生成", desc: "自动生成规范的 API 文档", author: "CodeGen", rating: 4.5, reviews: 1800, category: "dev", trending: false, forks: 980, shares: 350, views: 12000, likes: 2400 },
-  { id: 9, name: "法律条文检索", desc: "精准匹配相关法律法规", author: "法规通", rating: 4.7, reviews: 900, category: "legal", trending: false, forks: 520, shares: 210, views: 7200, likes: 1600 },
-  { id: 10, name: "数据可视化", desc: "自动生成专业图表和报告", author: "DataViz", rating: 4.8, reviews: 1100, category: "data", trending: true, forks: 780, shares: 410, views: 10500, likes: 2300 },
-  { id: 11, name: "Bug 智能修复", desc: "自动识别并修复代码问题", author: "BugHunter", rating: 4.6, reviews: 2200, category: "dev", trending: false, forks: 1400, shares: 560, views: 18000, likes: 3900 },
-  { id: 12, name: "营销邮件撰写", desc: "生成高转化率的营销邮件", author: "EmailPro", rating: 4.7, reviews: 1500, category: "marketing", trending: false, forks: 890, shares: 380, views: 9800, likes: 2100 },
+  { id: 1, name: "PDF 智能解析", desc: "支持表格、图片、多语言识别", author: "张三", rating: 4.9, reviews: 2000, category: "data", trending: true, forks: 1200, shares: 450, views: 15000, likes: 3800, price: 0, isFree: true, freeTrial: 10 },
+  { id: 2, name: "合同风险审查", desc: "自动识别合同漏洞和风险条款", author: "法律AI", rating: 4.8, reviews: 1200, category: "legal", trending: true, forks: 850, shares: 320, views: 8500, likes: 2100, price: 0.5, isFree: false, freeTrial: 10 },
+  { id: 3, name: "代码重构优化", desc: "智能分析代码，提供重构建议", author: "DevMaster", rating: 4.7, reviews: 3500, category: "dev", trending: false, forks: 2100, shares: 890, views: 22000, likes: 5600, price: 0, isFree: true, freeTrial: 10 },
+  { id: 4, name: "SEO 内容审计", desc: "分析网页 SEO，提供优化建议", author: "SEO专家", rating: 4.9, reviews: 800, category: "marketing", trending: true, forks: 650, shares: 420, views: 11000, likes: 1900, price: 0.3, isFree: false, freeTrial: 10 },
+  { id: 5, name: "财务报表分析", desc: "自动解读财务数据，生成洞察", author: "财务通", rating: 4.6, reviews: 650, category: "finance", trending: false, forks: 420, shares: 180, views: 5800, likes: 1100, price: 0.8, isFree: false, freeTrial: 10 },
+  { id: 6, name: "小红书文案生成", desc: "一键生成爆款笔记文案", author: "内容王", rating: 4.8, reviews: 5000, category: "content", trending: true, forks: 3200, shares: 1500, views: 35000, likes: 8900, price: 0, isFree: true, freeTrial: 10 },
+  { id: 7, name: "竞品深度调研", desc: "多维度分析竞争对手策略", author: "市场洞察", rating: 4.9, reviews: 420, category: "marketing", trending: false, forks: 280, shares: 95, views: 4200, likes: 780, price: 1.2, isFree: false, freeTrial: 10 },
+  { id: 8, name: "API 文档生成", desc: "自动生成规范的 API 文档", author: "CodeGen", rating: 4.5, reviews: 1800, category: "dev", trending: false, forks: 980, shares: 350, views: 12000, likes: 2400, price: 0, isFree: true, freeTrial: 10 },
+  { id: 9, name: "法律条文检索", desc: "精准匹配相关法律法规", author: "法规通", rating: 4.7, reviews: 900, category: "legal", trending: false, forks: 520, shares: 210, views: 7200, likes: 1600, price: 0.6, isFree: false, freeTrial: 10 },
+  { id: 10, name: "数据可视化", desc: "自动生成专业图表和报告", author: "DataViz", rating: 4.8, reviews: 1100, category: "data", trending: true, forks: 780, shares: 410, views: 10500, likes: 2300, price: 0, isFree: true, freeTrial: 10 },
+  { id: 11, name: "Bug 智能修复", desc: "自动识别并修复代码问题", author: "BugHunter", rating: 4.6, reviews: 2200, category: "dev", trending: false, forks: 1400, shares: 560, views: 18000, likes: 3900, price: 0, isFree: true, freeTrial: 10 },
+  { id: 12, name: "营销邮件撰写", desc: "生成高转化率的营销邮件", author: "EmailPro", rating: 4.7, reviews: 1500, category: "marketing", trending: false, forks: 890, shares: 380, views: 9800, likes: 2100, price: 0.4, isFree: false, freeTrial: 10 },
 ]
 
 export default function MarketPage() {
@@ -228,12 +228,28 @@ export default function MarketPage() {
                         {skill.name[0]}
                       </span>
                     </div>
-                    {skill.trending && (
-                      <span className="flex items-center gap-1 text-xs font-medium text-orange-600 bg-orange-50 px-2.5 py-1 rounded-full">
-                        <Flame className="w-3.5 h-3.5" />
-                        热门
-                      </span>
-                    )}
+                    <div className="flex flex-col gap-1 items-end">
+                      {skill.trending && (
+                        <span className="flex items-center gap-1 text-xs font-medium text-orange-600 bg-orange-50 px-2.5 py-1 rounded-full">
+                          <Flame className="w-3.5 h-3.5" />
+                          热门
+                        </span>
+                      )}
+                      {skill.isFree ? (
+                        <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
+                          免费
+                        </span>
+                      ) : (
+                        <div className="flex flex-col items-end">
+                          <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">
+                            前{skill.freeTrial}次免费
+                          </span>
+                          <span className="text-xs text-[#86868b] mt-0.5">
+                            ¥{skill.price}/次
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   {/* Content */}
