@@ -1,22 +1,19 @@
 "use client"
 
-import React from "react"
-
-import { useState } from "react"
+import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { X } from "lucide-react"
-import { useAuth } from "@/components/auth-provider"
 
 interface LoginModalProps {
   isOpen: boolean
   onClose: () => void
+  onLogin?: () => void
   redirectTo?: string
 }
 
-export function LoginModal({ isOpen, onClose, redirectTo }: LoginModalProps) {
+export function LoginModal({ isOpen, onClose, onLogin, redirectTo }: LoginModalProps) {
   const [email, setEmail] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const { login } = useAuth()
 
   if (!isOpen) return null
 
@@ -25,7 +22,20 @@ export function LoginModal({ isOpen, onClose, redirectTo }: LoginModalProps) {
     setIsLoading(true)
     
     try {
-      await login(email)
+      // 模拟登录 - 实际应该调用 API
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      // 保存用户信息到 localStorage
+      const user = {
+        id: Math.random().toString(36).substr(2, 9),
+        email,
+        name: email.split("@")[0],
+        role: "user",
+      }
+      localStorage.setItem("gate_user", JSON.stringify(user))
+      
+      // 调用回调
+      onLogin?.()
       onClose()
       
       // 如果有重定向地址，跳转过去
